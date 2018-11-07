@@ -29,7 +29,6 @@ extension UIFont {
   
 }
 
-
 extension NSMutableAttributedString {
   
   func montserratBold(_ size:CGFloat, color: UIColor) {
@@ -37,11 +36,13 @@ extension NSMutableAttributedString {
                         NSAttributedString.Key.foregroundColor : color]
       , range: NSRange(location: 0, length: self.mutableString.length))
   }
+  
   func montserratBlack(_ size:CGFloat, color: UIColor) {
     self.setAttributes([NSAttributedString.Key.font : UIFont.montserratBlack(size),
                         NSAttributedString.Key.foregroundColor : color]
       , range: NSRange(location: 0, length: self.mutableString.length))
   }
+  
   func montserratRegular(_ size:CGFloat, color: UIColor) {
     self.setAttributes([NSAttributedString.Key.font : UIFont.montserratRegular(size),
                         NSAttributedString.Key.foregroundColor : color]
