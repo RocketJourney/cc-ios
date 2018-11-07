@@ -5,8 +5,16 @@ target 'ControlCenter' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
+  pod 'Alamofire'
+  pod 'Branch'
   pod 'Crashlytics'
   pod 'Fabric'
+  pod 'IQKeyboardManagerSwift'
+  pod 'ReachabilitySwift'
+  pod 'RealmSwift'
+  pod 'SnapKit'
+  pod 'SwiftHEXColors'
+  pod 'SwiftyJSON'
   
 
   # Pods for ControlCenter

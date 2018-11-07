@@ -16,6 +16,13 @@
 		F016902B2191073E001526DA /* ControlCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016902A2191073E001526DA /* ControlCenterTests.swift */; };
 		F01690362191073E001526DA /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690352191073E001526DA /* ControlCenterUITests.swift */; };
 		F016904421910910001526DA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F016904321910910001526DA /* Podfile */; };
+		F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B6219277A400080D94 /* Montserrat-Black.ttf */; };
+		F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B7219277A400080D94 /* Montserrat-Light.ttf */; };
+		F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */; };
+		F07F54BF219277A400080D94 /* Montserrat-Regular copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */; };
+		F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */; };
+		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
+		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,13 @@
 		F01690352191073E001526DA /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		F01690372191073E001526DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F016904321910910001526DA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F07F54B6219277A400080D94 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		F07F54B7219277A400080D94 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular copy.ttf"; sourceTree = "<group>"; };
+		F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +142,11 @@
 		F01690142191073B001526DA /* ControlCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F07F54B32192751000080D94 /* common */,
+				F07F54B2219219C800080D94 /* assets */,
 				F01690152191073B001526DA /* AppDelegate.swift */,
 				F01690172191073B001526DA /* ViewController.swift */,
 				F01690192191073B001526DA /* Main.storyboard */,
-				F016901C2191073E001526DA /* Assets.xcassets */,
 				F016901E2191073E001526DA /* LaunchScreen.storyboard */,
 				F01690212191073E001526DA /* Info.plist */,
 			);
@@ -156,6 +171,44 @@
 			path = ControlCenterUITests;
 			sourceTree = "<group>";
 		};
+		F07F54B2219219C800080D94 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				F07F54B52192752300080D94 /* fonts */,
+				F016901C2191073E001526DA /* Assets.xcassets */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		F07F54B32192751000080D94 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				F07F54B42192751700080D94 /* utils */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		F07F54B42192751700080D94 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F07F54C2219279C900080D94 /* UIFont+extension.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		F07F54B52192752300080D94 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F07F54B6219277A400080D94 /* Montserrat-Black.ttf */,
+				F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */,
+				F07F54B7219277A400080D94 /* Montserrat-Light.ttf */,
+				F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */,
+				F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */,
+				F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +221,7 @@
 				F016900F2191073B001526DA /* Frameworks */,
 				F01690102191073B001526DA /* Resources */,
 				F016904521910A71001526DA /* Run Script */,
+				C17573E8CF32BBC11DC2AFE2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +276,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = Erik;
+				ORGANIZATIONNAME = RocketJourney;
 				TargetAttributes = {
 					F01690112191073B001526DA = {
 						CreatedOnToolsVersion = 10.1;
@@ -262,7 +316,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07F54BF219277A400080D94 /* Montserrat-Regular copy.ttf in Resources */,
+				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
+				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
+				F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */,
+				F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */,
+				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
@@ -304,6 +364,44 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C17573E8CF32BBC11DC2AFE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ControlCenter/Pods-ControlCenter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ControlCenter/Pods-ControlCenter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F016904521910A71001526DA /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
+				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,15 +605,18 @@
 			baseConfigurationReference = E17CDEEB75FFBC0102B42F7B /* Pods-ControlCenter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = com.rocketjourney.controlcenter.CCStaging;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = L9T32S589G;
+				DISPLAY_NAME = CCStaging;
 				INFOPLIST_FILE = ControlCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.ControlCenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.CCSandbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,9 +628,12 @@
 			baseConfigurationReference = 9565782C9D11F33C9AFD3799 /* Pods-ControlCenter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = com.rocketjourney.controlcenter.ControlCenter;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9T32S589G;
+				DISPLAY_NAME = ControlCenter;
 				INFOPLIST_FILE = ControlCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

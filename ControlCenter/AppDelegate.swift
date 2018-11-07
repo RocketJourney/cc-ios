@@ -8,6 +8,7 @@
 
 import UIKit
 
+import IQKeyboardManagerSwift
 import Crashlytics
 import Fabric
 
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    IQKeyboardManager.shared.enable = true
     Fabric.with([Crashlytics.self])
     return true
   }
