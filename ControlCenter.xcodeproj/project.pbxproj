@@ -23,6 +23,7 @@
 		F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */; };
 		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
 		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
+		F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C421927C5400080D94 /* UIViewController+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
+		F07F54C421927C5400080D94 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,7 @@
 		F01690142191073B001526DA /* ControlCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F07F54C621936FC400080D94 /* ControlCenter.entitlements */,
 				F07F54B32192751000080D94 /* common */,
 				F07F54B2219219C800080D94 /* assets */,
 				F01690152191073B001526DA /* AppDelegate.swift */,
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F07F54C2219279C900080D94 /* UIFont+extension.swift */,
+				F07F54C421927C5400080D94 /* UIViewController+extension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -280,6 +285,17 @@
 				TargetAttributes = {
 					F01690112191073B001526DA = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					F01690252191073E001526DA = {
 						CreatedOnToolsVersion = 10.1;
@@ -427,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
@@ -606,6 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_ID = com.rocketjourney.controlcenter.CCStaging;
+				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = L9T32S589G;
@@ -629,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_ID = com.rocketjourney.controlcenter.ControlCenter;
+				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9T32S589G;
 				DISPLAY_NAME = ControlCenter;
