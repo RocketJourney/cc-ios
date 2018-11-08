@@ -16,6 +16,10 @@
 		F016902B2191073E001526DA /* ControlCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016902A2191073E001526DA /* ControlCenterTests.swift */; };
 		F01690362191073E001526DA /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690352191073E001526DA /* ControlCenterUITests.swift */; };
 		F016904421910910001526DA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F016904321910910001526DA /* Podfile */; };
+		F05065F32194DD5200675D86 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F12194DD5200675D86 /* IntroViewController.swift */; };
+		F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F52194E10400675D86 /* UIColor+extension.swift */; };
+		F05065F82194EF9500675D86 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F72194EF9500675D86 /* String+extension.swift */; };
+		F05066012194F18A00675D86 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F05066032194F18A00675D86 /* Localizable.strings */; };
 		F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B6219277A400080D94 /* Montserrat-Black.ttf */; };
 		F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B7219277A400080D94 /* Montserrat-Light.ttf */; };
 		F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */; };
@@ -63,6 +67,11 @@
 		F01690352191073E001526DA /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		F01690372191073E001526DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F016904321910910001526DA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F05065F12194DD5200675D86 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		F05065F52194E10400675D86 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		F05065F72194EF9500675D86 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		F05066022194F18A00675D86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F05066042194F21500675D86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F07F54B6219277A400080D94 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		F07F54B7219277A400080D94 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -146,13 +155,14 @@
 			isa = PBXGroup;
 			children = (
 				F07F54C621936FC400080D94 /* ControlCenter.entitlements */,
-				F07F54B32192751000080D94 /* common */,
-				F07F54B2219219C800080D94 /* assets */,
+				F01690212191073E001526DA /* Info.plist */,
 				F01690152191073B001526DA /* AppDelegate.swift */,
 				F01690172191073B001526DA /* ViewController.swift */,
-				F01690192191073B001526DA /* Main.storyboard */,
+				F05065EC2194C7A200675D86 /* app */,
+				F07F54B32192751000080D94 /* common */,
+				F07F54B2219219C800080D94 /* assets */,
 				F016901E2191073E001526DA /* LaunchScreen.storyboard */,
-				F01690212191073E001526DA /* Info.plist */,
+				F01690192191073B001526DA /* Main.storyboard */,
 			);
 			path = ControlCenter;
 			sourceTree = "<group>";
@@ -175,9 +185,57 @@
 			path = ControlCenterUITests;
 			sourceTree = "<group>";
 		};
+		F05065EC2194C7A200675D86 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				F05065ED2194C7D600675D86 /* login */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		F05065ED2194C7D600675D86 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				F05065F02194DD2A00675D86 /* controllers */,
+				F05065EF2194DD2100675D86 /* views */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		F05065EE2194C91200675D86 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		F05065EF2194DD2100675D86 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		F05065F02194DD2A00675D86 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F05065F12194DD5200675D86 /* IntroViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		F05065F92194EFB600675D86 /* strings */ = {
+			isa = PBXGroup;
+			children = (
+				F05066032194F18A00675D86 /* Localizable.strings */,
+			);
+			path = strings;
+			sourceTree = "<group>";
+		};
 		F07F54B2219219C800080D94 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				F05065F92194EFB600675D86 /* strings */,
 				F07F54B52192752300080D94 /* fonts */,
 				F016901C2191073E001526DA /* Assets.xcassets */,
 			);
@@ -187,6 +245,7 @@
 		F07F54B32192751000080D94 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				F05065EE2194C91200675D86 /* views */,
 				F07F54B42192751700080D94 /* utils */,
 			);
 			path = common;
@@ -197,6 +256,8 @@
 			children = (
 				F07F54C2219279C900080D94 /* UIFont+extension.swift */,
 				F07F54C421927C5400080D94 /* UIViewController+extension.swift */,
+				F05065F52194E10400675D86 /* UIColor+extension.swift */,
+				F05065F72194EF9500675D86 /* String+extension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -314,6 +375,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = F01690092191073B001526DA;
 			productRefGroup = F01690132191073B001526DA /* Products */;
@@ -339,6 +401,7 @@
 				F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */,
 				F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */,
 				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
+				F05066012194F18A00675D86 /* Localizable.strings in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
@@ -443,9 +506,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05065F32194DD5200675D86 /* IntroViewController.swift in Sources */,
 				F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
+				F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
+				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +564,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		F05066032194F18A00675D86 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F05066022194F18A00675D86 /* en */,
+				F05066042194F21500675D86 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -505,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -566,6 +642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
