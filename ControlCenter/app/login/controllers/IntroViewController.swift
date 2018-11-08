@@ -25,8 +25,31 @@ class IntroViewController: UIViewController {
   
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
+    
     self.alReadyAccountLabel.font = UIFont.montserratRegular(18)
     self.alReadyAccountLabel.textColor = UIColor(hex: 0xb3b3b3)
+    self.alReadyAccountLabel.text = "ALREADY_HAVE_ACCOUNT".localized
+    
+    self.loginButton.setTitle("LOGIN".localized, for: .normal)
+    self.loginButton.setTitleColor(UIColor(hex: 0x1a1a1a), for: .normal)
+    self.loginButton.backgroundColor = UIColor(hex: 0xffcc00)
+    self.loginButton.layer.cornerRadius = 12
+    self.loginButton.titleLabel?.font = UIFont.montserratBold(20)
+    self.loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+    
+    self.dontHaveAccountLabel.font = UIFont.montserratRegular(16)
+    self.dontHaveAccountLabel.textColor = UIColor(hex: 0xb3b3b3)
+    self.dontHaveAccountLabel.text = "DONT_HAVE_ACCOUNT".localized
+    
+    self.createAccountLabel.font = UIFont.montserratRegular(16)
+    self.createAccountLabel.textColor = UIColor(hex: 0xeaeaea)
+    self.createAccountLabel.text = "CREATE_ACCOUNT_TEXT".localized
+    
+  }
+  
+  
+  @objc func loginAction() -> Void {
+    
   }
   
   
