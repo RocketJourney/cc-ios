@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="1690" y="-750"/>
         </scene>
-        <!--Check Email View Controller-->
+        <!--Create Account View Controller-->
         <scene sceneID="CRp-Ri-SxI">
             <objects>
-                <viewController id="ZJr-DO-cbn" customClass="CheckEmailViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZJr-DO-cbn" customClass="CreateAccountViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cd2-YR-w9m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="3071" y="598"/>
         </scene>
-        <!--Create Account View Controller-->
+        <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">
             <objects>
-                <viewController id="UIW-Er-CWo" customClass="CreateAccountViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UIW-Er-CWo" customClass="CheckEmailViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mh3-vt-cOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,6 +134,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZTl-fN-6U6"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="fpW-sa-Q9z" id="ZxO-2a-U80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3D-Oh-S3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

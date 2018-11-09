@@ -13,6 +13,8 @@ import Fabric
 
 extension AppDelegate {
   
+  static let ratioImages: CGFloat = 0.286
+  
   func initialSetup() -> Void {
     Fabric.with([Crashlytics.self])
     
