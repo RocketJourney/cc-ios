@@ -37,11 +37,11 @@ extension UIViewController {
     let alertController = UIAlertController(title: NSLocalizedString("NO_NETWORK_ERROR_TITLE", comment: "No network error title."), message: NSLocalizedString("NO_NETWORK_ERROR_MESSAGE", comment: "No network message"), preferredStyle: .alert)
     let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alertController.addAction(alertAction)
-    present(alertController, animated: true, completion: nil)
+    self.present(alertController, animated: true, completion: nil)
   }
   
   @objc func dismissView() {
-    dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
   }
   
 }
