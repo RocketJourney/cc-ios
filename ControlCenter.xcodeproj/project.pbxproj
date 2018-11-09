@@ -24,10 +24,10 @@
 		F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0506607219504EC00675D86 /* CheckEmailViewController.swift */; };
 		F050660D21950A9200675D86 /* LoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050660C21950A9200675D86 /* LoginSegue.swift */; };
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
+		F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F28521960C0900BB22EF /* CreateAccountViewController.swift */; };
 		F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B6219277A400080D94 /* Montserrat-Black.ttf */; };
 		F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B7219277A400080D94 /* Montserrat-Light.ttf */; };
 		F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */; };
-		F07F54BF219277A400080D94 /* Montserrat-Regular copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */; };
 		F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */; };
 		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
 		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
@@ -80,10 +80,10 @@
 		F0506607219504EC00675D86 /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		F050660C21950A9200675D86 /* LoginSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSegue.swift; sourceTree = "<group>"; };
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
+		F079F28521960C0900BB22EF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F07F54B6219277A400080D94 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		F07F54B7219277A400080D94 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular copy.ttf"; sourceTree = "<group>"; };
 		F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
@@ -231,6 +231,7 @@
 				F05065F12194DD5200675D86 /* IntroViewController.swift */,
 				F05066052195027400675D86 /* LoginViewController.swift */,
 				F0506607219504EC00675D86 /* CheckEmailViewController.swift */,
+				F079F28521960C0900BB22EF /* CreateAccountViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -297,7 +298,6 @@
 				F07F54BA219277A400080D94 /* Montserrat-Bold.ttf */,
 				F07F54B7219277A400080D94 /* Montserrat-Light.ttf */,
 				F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */,
-				F07F54B9219277A400080D94 /* Montserrat-Regular copy.ttf */,
 				F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */,
 			);
 			path = fonts;
@@ -422,7 +422,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F07F54BF219277A400080D94 /* Montserrat-Regular copy.ttf in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
 				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
@@ -534,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */,
 				F05065F32194DD5200675D86 /* IntroViewController.swift in Sources */,
 				F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,

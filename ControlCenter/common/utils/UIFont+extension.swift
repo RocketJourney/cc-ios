@@ -22,7 +22,6 @@ extension UIFont {
   class func montserratRegular(_ size: CGFloat) -> UIFont {
     return UIFont(name: "Montserrat-Medium", size: size)!
   }
-  
   class func montserratMedium(_ size: CGFloat) -> UIFont {
     return UIFont(name: "Montserrat-Medium", size: size)!
   }

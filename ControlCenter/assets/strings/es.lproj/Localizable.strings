@@ -12,3 +12,6 @@
 "LOGIN"="Log in";
 "DONT_HAVE_ACCOUNT"="Don’t have an account?";
 "CREATE_ACCOUNT_TEXT"="Ask your manager to send you an invite link to Create an Account";
+"FORGOT"="¿La olvidaste?";
+"SIGN_UP_FORM_EMAIL"="Email";
+"SIGN_UP_FORM_PASSWORD"="Contraseña";
