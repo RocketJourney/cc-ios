@@ -19,5 +19,10 @@ extension AppDelegate {
     Fabric.with([Crashlytics.self])
     
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font : UIFont.montserratBold(18), NSAttributedString.Key.foregroundColor : UIColor.white]
+    
+   
+    UINavigationBar.appearance().tintColor = UIColor.rocketYellow()
+    UINavigationBar.appearance().barTintColor = UIColor(hex: 0x1a1a1a)
+    UINavigationBar.appearance().isTranslucent = false
   }
 }

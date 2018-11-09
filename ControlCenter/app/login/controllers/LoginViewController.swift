@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         let btn = UIButton()
         btn.setTitle("FORGOT".localized, for: UIControl.State())
-        //btn.addTarget(self, action: #selector(SignUpFormController.forgotPassword), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(self.forgotPassword), for: .touchUpInside)
         btn.setTitleColor(UIColor.rocketYellow(), for: .normal)
         btn.titleLabel!.font = UIFont.montserratBold(12)
         btn.sizeToFit()
@@ -157,5 +157,9 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let view = UIView()
     view.backgroundColor = UIColor.clear
     return view
+  }
+  
+  @objc func forgotPassword() -> Void {
+    self.performSegue(withIdentifier: "kRecoverPasswordSegue", sender: nil)
   }
 }

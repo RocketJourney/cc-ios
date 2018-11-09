@@ -167,11 +167,42 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Px2-2p-4t8" id="gb2-BQ-n1i"/>
+                        <segue destination="Tds-n4-Hfz" kind="custom" identifier="kRecoverPasswordSegue" customClass="RecoverPasswordSegue" customModule="ControlCenter" customModuleProvider="target" id="dbf-ZZ-1dH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPu-im-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3156" y="-788"/>
+            <point key="canvasLocation" x="2690" y="-823"/>
+        </scene>
+        <!--Recover Password View Controller-->
+        <scene sceneID="aTY-Jq-C0A">
+            <objects>
+                <viewController id="Tds-n4-Hfz" customClass="RecoverPasswordViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kHg-6G-woa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZiJ-Je-qOq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZiJ-Je-qOq" firstAttribute="top" secondItem="kHg-6G-woa" secondAttribute="top" id="SNC-lK-Q50"/>
+                            <constraint firstItem="ZiJ-Je-qOq" firstAttribute="leading" secondItem="st9-eP-CJO" secondAttribute="leading" id="UwK-EZ-tNF"/>
+                            <constraint firstItem="st9-eP-CJO" firstAttribute="bottom" secondItem="ZiJ-Je-qOq" secondAttribute="bottom" id="WAd-d6-ZnF"/>
+                            <constraint firstItem="st9-eP-CJO" firstAttribute="trailing" secondItem="ZiJ-Je-qOq" secondAttribute="trailing" id="x38-nJ-tPI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="st9-eP-CJO"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZiJ-Je-qOq" id="29O-Jb-Twm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8iu-NQ-NUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3956" y="-931"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iT4-6a-YQh">

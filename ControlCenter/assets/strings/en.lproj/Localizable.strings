@@ -15,3 +15,6 @@
 "FORGOT"="Forgot?";
 "SIGN_UP_FORM_EMAIL"="Email";
 "SIGN_UP_FORM_PASSWORD"="Password";
+
+"RECOVER_PASSWORD"="Recover Password";
+"RECOVER"="Recover";
