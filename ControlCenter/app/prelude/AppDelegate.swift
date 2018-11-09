@@ -9,8 +9,7 @@
 import UIKit
 
 import IQKeyboardManagerSwift
-import Crashlytics
-import Fabric
+
 
 
 @UIApplicationMain
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     //IQKeyboardManager.shared.enable = true    
-    Fabric.with([Crashlytics.self])
+    
     return true
   }
 

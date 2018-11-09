@@ -49,7 +49,7 @@ class IntroViewController: UIViewController {
   
   
   @objc func loginAction() -> Void {
-    
+    performSegue(withIdentifier: "kLoginSegue", sender: nil)
   }
   
   

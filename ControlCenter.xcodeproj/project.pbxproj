@@ -20,6 +20,10 @@
 		F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F52194E10400675D86 /* UIColor+extension.swift */; };
 		F05065F82194EF9500675D86 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F72194EF9500675D86 /* String+extension.swift */; };
 		F05066012194F18A00675D86 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F05066032194F18A00675D86 /* Localizable.strings */; };
+		F05066062195027400675D86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05066052195027400675D86 /* LoginViewController.swift */; };
+		F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0506607219504EC00675D86 /* CheckEmailViewController.swift */; };
+		F050660D21950A9200675D86 /* LoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050660C21950A9200675D86 /* LoginSegue.swift */; };
+		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
 		F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B6219277A400080D94 /* Montserrat-Black.ttf */; };
 		F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B7219277A400080D94 /* Montserrat-Light.ttf */; };
 		F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */; };
@@ -72,6 +76,10 @@
 		F05065F72194EF9500675D86 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		F05066022194F18A00675D86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F05066042194F21500675D86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F05066052195027400675D86 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F0506607219504EC00675D86 /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
+		F050660C21950A9200675D86 /* LoginSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSegue.swift; sourceTree = "<group>"; };
+		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F07F54B6219277A400080D94 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		F07F54B7219277A400080D94 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -156,7 +164,6 @@
 			children = (
 				F07F54C621936FC400080D94 /* ControlCenter.entitlements */,
 				F01690212191073E001526DA /* Info.plist */,
-				F01690152191073B001526DA /* AppDelegate.swift */,
 				F01690172191073B001526DA /* ViewController.swift */,
 				F05065EC2194C7A200675D86 /* app */,
 				F07F54B32192751000080D94 /* common */,
@@ -188,6 +195,7 @@
 		F05065EC2194C7A200675D86 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F07067032195118600873B85 /* prelude */,
 				F05065ED2194C7D600675D86 /* login */,
 			);
 			path = app;
@@ -196,6 +204,7 @@
 		F05065ED2194C7D600675D86 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				F050660B21950A9200675D86 /* transitions */,
 				F05065F02194DD2A00675D86 /* controllers */,
 				F05065EF2194DD2100675D86 /* views */,
 			);
@@ -220,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				F05065F12194DD5200675D86 /* IntroViewController.swift */,
+				F05066052195027400675D86 /* LoginViewController.swift */,
+				F0506607219504EC00675D86 /* CheckEmailViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -230,6 +241,23 @@
 				F05066032194F18A00675D86 /* Localizable.strings */,
 			);
 			path = strings;
+			sourceTree = "<group>";
+		};
+		F050660B21950A9200675D86 /* transitions */ = {
+			isa = PBXGroup;
+			children = (
+				F050660C21950A9200675D86 /* LoginSegue.swift */,
+			);
+			path = transitions;
+			sourceTree = "<group>";
+		};
+		F07067032195118600873B85 /* prelude */ = {
+			isa = PBXGroup;
+			children = (
+				F01690152191073B001526DA /* AppDelegate.swift */,
+				F0706704219511AE00873B85 /* AppDelegate+Setup.swift */,
+			);
+			path = prelude;
 			sourceTree = "<group>";
 		};
 		F07F54B2219219C800080D94 /* assets */ = {
@@ -510,7 +538,11 @@
 				F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */,
+				F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */,
+				F050660D21950A9200675D86 /* LoginSegue.swift in Sources */,
+				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
+				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
 			);

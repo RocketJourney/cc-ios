@@ -11,6 +11,13 @@ import Reachability
 
 extension UIViewController {
   
+  
+  func backCross() {
+    let backBtn = UIBarButtonItem(image: UIImage(named:"cross-image"), style: .plain, target: self, action: #selector(UIViewController.dismissView))
+    navigationItem.leftBarButtonItem = backBtn
+    navigationItem.leftBarButtonItem?.tintColor = UIColor.rocketYellow()
+  }
+  
   func isNetworkReachable()->Bool{
     let reachability = Reachability()
     return reachability?.connection != Reachability.Connection.none
@@ -21,6 +28,10 @@ extension UIViewController {
     let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alertController.addAction(alertAction)
     present(alertController, animated: true, completion: nil)
+  }
+  
+  @objc func dismissView() {
+    dismiss(animated: true, completion: nil)
   }
   
 }

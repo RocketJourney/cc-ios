@@ -90,11 +90,42 @@
                         <outlet property="createAccountLabel" destination="2si-wD-9eJ" id="oD1-m6-AZ1"/>
                         <outlet property="dontHaveAccountLabel" destination="OVy-ra-M6n" id="IYu-iQ-gyu"/>
                         <outlet property="loginButton" destination="BnF-d3-910" id="4CM-UP-XuG"/>
+                        <segue destination="due-45-N5y" kind="custom" identifier="kLoginSegue" customClass="LoginSegue" customModule="ControlCenter" customModuleProvider="target" id="JTx-ww-zkl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCm-2Q-uak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1690" y="-750"/>
+        </scene>
+        <!--Check Email View Controller-->
+        <scene sceneID="CRp-Ri-SxI">
+            <objects>
+                <viewController id="ZJr-DO-cbn" customClass="CheckEmailViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cd2-YR-w9m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lU8-FV-o2w"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1H-ZS-3e9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3071" y="598"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="ebb-33-zVd">
+            <objects>
+                <viewController id="due-45-N5y" customClass="LoginViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="czY-cK-Ul6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kLK-iH-AYm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPu-im-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3156" y="-788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iT4-6a-YQh">
