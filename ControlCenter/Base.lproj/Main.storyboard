@@ -222,6 +222,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cc-logo-white" width="300" height="150"/>
+        <image name="cc-logo-white" width="292" height="150"/>
     </resources>
 </document>

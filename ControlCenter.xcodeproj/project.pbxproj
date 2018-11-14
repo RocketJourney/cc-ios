@@ -31,6 +31,7 @@
 		F079F28F2196351F00BB22EF /* ClubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F079F28D2196351F00BB22EF /* ClubTableViewCell.xib */; };
 		F079F29121963FFA00BB22EF /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F29021963FFA00BB22EF /* RecoverPasswordViewController.swift */; };
 		F079F293219643CD00BB22EF /* RecoverPasswordSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */; };
+		F079F29521965AA500BB22EF /* ChooseClubSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F29421965AA500BB22EF /* ChooseClubSegue.swift */; };
 		F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B6219277A400080D94 /* Montserrat-Black.ttf */; };
 		F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B7219277A400080D94 /* Montserrat-Light.ttf */; };
 		F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */; };
@@ -93,6 +94,7 @@
 		F079F28D2196351F00BB22EF /* ClubTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClubTableViewCell.xib; sourceTree = "<group>"; };
 		F079F29021963FFA00BB22EF /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordSegue.swift; sourceTree = "<group>"; };
+		F079F29421965AA500BB22EF /* ChooseClubSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClubSegue.swift; sourceTree = "<group>"; };
 		F07F54B6219277A400080D94 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		F07F54B7219277A400080D94 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				F050660C21950A9200675D86 /* LoginSegue.swift */,
 				F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */,
+				F079F29421965AA500BB22EF /* ChooseClubSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F079F29521965AA500BB22EF /* ChooseClubSegue.swift in Sources */,
 				F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */,
 				F05065F32194DD5200675D86 /* IntroViewController.swift in Sources */,
 				F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */,
@@ -767,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.CCSandbox;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -790,7 +794,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.ControlCenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
