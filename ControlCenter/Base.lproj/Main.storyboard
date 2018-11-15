@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gcb-ef-NFv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,21 +10,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Prelude View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PreludeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="Fwj-B8-lUp">
+                                <rect key="frame" x="47.5" y="244" width="280" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="VxC-ij-XR8"/>
+                                    <constraint firstAttribute="width" constant="280" id="ltN-eS-UAV"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-vS-h7n">
+                                <rect key="frame" x="177.5" y="474" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fwj-B8-lUp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ERz-Z2-fV6"/>
+                            <constraint firstItem="Fwj-B8-lUp" firstAttribute="top" secondItem="TVg-73-cSl" secondAttribute="top" constant="224" id="H30-38-DRE"/>
+                            <constraint firstItem="IB7-vS-h7n" firstAttribute="top" secondItem="Fwj-B8-lUp" secondAttribute="bottom" constant="90" id="LMA-CY-HBM"/>
+                            <constraint firstItem="IB7-vS-h7n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="STt-VI-CAD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TVg-73-cSl"/>
                     </view>
                     <navigationItem key="navigationItem" id="eUS-gf-4H3"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="gcb-ef-NFv" kind="show" id="1rb-o1-1ci"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="-443"/>
+            <point key="canvasLocation" x="668" y="-443.02848575712147"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="qrT-7c-F3I">

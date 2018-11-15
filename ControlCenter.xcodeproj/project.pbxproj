@@ -41,6 +41,7 @@
 		F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C421927C5400080D94 /* UIViewController+extension.swift */; };
 		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
 		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
+		F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		F07F54C421927C5400080D94 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
 		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
+		F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				F079F287219622FB00BB22EF /* JoinClubViewController.swift */,
 				F079F2892196230700BB22EF /* ChooseClubViewController.swift */,
 				F079F29021963FFA00BB22EF /* RecoverPasswordViewController.swift */,
+				F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				F050660D21950A9200675D86 /* LoginSegue.swift in Sources */,
 				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
 				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
+				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
