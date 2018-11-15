@@ -6,8 +6,8 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:nmd7.test-app.link</string>
 		<string>applinks:nmd7-alternate.test-app.link</string>
+		<string>applinks:nmd7.test-app.link</string>
 	</array>
 </dict>
 </plist>

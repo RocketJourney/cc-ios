@@ -39,6 +39,8 @@
 		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
 		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
 		F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C421927C5400080D94 /* UIViewController+extension.swift */; };
+		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
+		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,7 @@
 		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		F07F54C421927C5400080D94 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
+		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,7 @@
 			children = (
 				F01690152191073B001526DA /* AppDelegate.swift */,
 				F0706704219511AE00873B85 /* AppDelegate+Setup.swift */,
+				F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */,
 			);
 			path = prelude;
 			sourceTree = "<group>";
@@ -443,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
 				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
@@ -568,6 +573,7 @@
 				F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */,
 				F050660D21950A9200675D86 /* LoginSegue.swift in Sources */,
 				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
+				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
