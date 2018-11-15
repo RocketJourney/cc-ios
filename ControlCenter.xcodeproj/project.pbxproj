@@ -42,6 +42,8 @@
 		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
 		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
 		F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */; };
+		F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */; };
+		F0DFBD93219E3E5C00F94BA1 /* RequestBuilderV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD92219E3E5C00F94BA1 /* RequestBuilderV2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
 		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
 		F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeViewController.swift; sourceTree = "<group>"; };
+		F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSegue.swift; sourceTree = "<group>"; };
+		F0DFBD92219E3E5C00F94BA1 /* RequestBuilderV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilderV2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,7 @@
 				F050660C21950A9200675D86 /* LoginSegue.swift */,
 				F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */,
 				F079F29421965AA500BB22EF /* ChooseClubSegue.swift */,
+				F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 		F07F54B32192751000080D94 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				F0DFBD91219E3E3000F94BA1 /* network */,
 				F05065EE2194C91200675D86 /* views */,
 				F07F54B42192751700080D94 /* utils */,
 			);
@@ -329,6 +335,14 @@
 				F07F54B8219277A400080D94 /* Montserrat-Regular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		F0DFBD91219E3E3000F94BA1 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				F0DFBD92219E3E5C00F94BA1 /* RequestBuilderV2.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +584,7 @@
 				F079F293219643CD00BB22EF /* RecoverPasswordSegue.swift in Sources */,
 				F079F28E2196351F00BB22EF /* ClubTableViewCell.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
+				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F079F29121963FFA00BB22EF /* RecoverPasswordViewController.swift in Sources */,
 				F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */,
@@ -583,6 +598,7 @@
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
+				F0DFBD93219E3E5C00F94BA1 /* RequestBuilderV2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,8 +705,9 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"RELEASE=0",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -748,6 +765,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "${(inherited) DEBUG=0 RELEASE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

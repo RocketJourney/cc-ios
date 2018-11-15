@@ -9,22 +9,29 @@
 import UIKit
 
 class PreludeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.setupView()
+    // Do any additional setup after loading the view.
+  }
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
     }
+  }
+  
+  private func setupView() -> Void {
+    self.view.backgroundColor = UIColor.rocketYellow()
+    self.activityIndicator.startAnimating()
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
+  
+  
+  
 }

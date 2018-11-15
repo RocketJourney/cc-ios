@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,15 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="Fwj-B8-lUp">
-                                <rect key="frame" x="47.5" y="244" width="280" height="140"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc-logo-black" translatesAutoresizingMaskIntoConstraints="NO" id="Fwj-B8-lUp">
+                                <rect key="frame" x="47.5" y="244" width="280" height="158"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="VxC-ij-XR8"/>
+                                    <constraint firstAttribute="height" constant="158" id="VxC-ij-XR8"/>
                                     <constraint firstAttribute="width" constant="280" id="ltN-eS-UAV"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-vS-h7n">
-                                <rect key="frame" x="177.5" y="474" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-vS-h7n">
+                                <rect key="frame" x="169" y="492" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,7 +42,8 @@
                     <navigationItem key="navigationItem" id="eUS-gf-4H3"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="gcb-ef-NFv" kind="show" id="1rb-o1-1ci"/>
+                        <outlet property="activityIndicator" destination="IB7-vS-h7n" id="qWQ-g3-pSE"/>
+                        <segue destination="gcb-ef-NFv" kind="custom" identifier="kIntroSegue" customClass="IntroSegue" customModule="ControlCenter" customModuleProvider="target" id="eSk-Df-ylb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -226,24 +228,9 @@
             </objects>
             <point key="canvasLocation" x="3956" y="-931"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iT4-6a-YQh">
-            <objects>
-                <navigationController id="n9q-57-Plh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9NN-5N-o2r">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jwz-hW-ChQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OaN-Ad-sGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-407" y="-443"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
     </resources>
 </document>
