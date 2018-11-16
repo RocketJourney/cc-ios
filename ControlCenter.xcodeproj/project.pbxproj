@@ -49,6 +49,7 @@
 		F0DFBD9B219E4E3100F94BA1 /* User+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9A219E4E3100F94BA1 /* User+Login.swift */; };
 		F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9C219E4E5B00F94BA1 /* LoginRouter.swift */; };
 		F0DFBD9F219E51FE00F94BA1 /* InvitationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */; };
+		F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		F0DFBD9A219E4E3100F94BA1 /* User+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Login.swift"; sourceTree = "<group>"; };
 		F0DFBD9C219E4E5B00F94BA1 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationRouter.swift; sourceTree = "<group>"; };
+		F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Invitation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 			children = (
 				F0DFBD95219E4BED00F94BA1 /* User.swift */,
 				F0DFBD9A219E4E3100F94BA1 /* User+Login.swift */,
+				F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
+				F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */,
 				F079F29121963FFA00BB22EF /* RecoverPasswordViewController.swift in Sources */,
 				F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */,
 				F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */,

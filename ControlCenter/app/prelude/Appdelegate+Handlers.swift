@@ -22,13 +22,11 @@ extension AppDelegate {
                             print(params)
                             let json = JSON(params)
                             print(json)
-//                            if let type = json["type"].string {
-//                              if type == "invite" {
-//                                if let uuid = json["uuid"].string {
-//                                  self.requestInviteData(uuid)
-//                                }
-//                              }
-//                            }
+                            if let invitationCode = json["invitation_code"].string {
+                              print(invitationCode)
+                              NotificationCenter.default.post(name: Notification.Name("InvitationCodeNotification"), object: ["invitationCode" : invitationCode])
+                              
+                            }
                           } else {
                             print("HOLAA")
                           }
