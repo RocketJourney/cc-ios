@@ -17,8 +17,7 @@ class IntroViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.setupView()
-    self.setupNotification()
+    self.setupView()    
     
     // Do any additional setup after loading the view.
   }
@@ -26,6 +25,7 @@ class IntroViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    self.setupNotification()
   }
   
   private func setupView() -> Void {
@@ -55,7 +55,16 @@ class IntroViewController: UIViewController {
   
   @objc func setupNotification() -> Void {
     let showPreludeNotification = Notification.Name("showPreludeViewController")
-    NotificationCenter.default.addObserver(self, selector: #selector(self.dismissView), name: showPreludeNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.showPreludeViewController), name: showPreludeNotification, object: nil)
+    
+    
+    let showPreludeNotification2 = Notification.Name("showPreludeLoginViewController")
+    NotificationCenter.default.addObserver(self, selector: #selector(self.showPreludeViewController), name: showPreludeNotification2, object: nil)
+  }
+  
+  
+  @objc func showPreludeViewController() -> Void {
+    self.dismissView()
   }
   
   

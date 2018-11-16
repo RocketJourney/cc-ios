@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
+    self.setupNotification()
     
     // Do any additional setup after loading the view.
   }
@@ -158,6 +159,18 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let view = UIView()
     view.backgroundColor = UIColor.clear
     return view
+  }
+  
+  
+  @objc func setupNotification() -> Void {
+    let showPreludeNotification = Notification.Name("showPreludeViewController")
+    NotificationCenter.default.addObserver(self, selector: #selector(self.showPreludeViewController), name: showPreludeNotification, object: nil)
+    
+  }
+  
+  @objc func showPreludeViewController() -> Void {
+    NotificationCenter.default.post(name: Notification.Name("showPreludeLoginViewController"), object: nil)
+    self.navigationController?.popToRootViewController(animated: true)
   }
   
   @objc func forgotPassword() -> Void {

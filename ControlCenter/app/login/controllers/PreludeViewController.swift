@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PreludeViewController: UIViewController {
   
@@ -17,6 +18,7 @@ class PreludeViewController: UIViewController {
     self.setupView()
     self.setupNotification()
     // Do any additional setup after loading the view.
+    self.hideSpinner()
   }
   
   
@@ -34,6 +36,16 @@ class PreludeViewController: UIViewController {
     
   }
   
+  func showSpinner() -> Void {
+    self.activityIndicator.isHidden = false
+    self.activityIndicator.startAnimating()
+  }
+  
+  func hideSpinner() -> Void {
+    self.activityIndicator.isHidden = true
+    self.activityIndicator.stopAnimating()
+  }
+  
   private func setupNotification() -> Void {
     let invitationCodeNotification = Notification.Name("invitationCodeNotification")
     NotificationCenter.default.addObserver(self, selector: #selector(validateCode(notification:)), name: invitationCodeNotification, object: nil)
@@ -43,7 +55,7 @@ class PreludeViewController: UIViewController {
   
   @objc func validateCode(notification: Notification) -> Void {
     
-    
+    self.showSpinner()
   }
   
 }
