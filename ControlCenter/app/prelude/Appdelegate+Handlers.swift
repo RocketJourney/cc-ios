@@ -24,7 +24,9 @@ extension AppDelegate {
                             print(json)
                             if let invitationCode = json["invitation_code"].string {
                               print(invitationCode)
-                              NotificationCenter.default.post(name: Notification.Name("InvitationCodeNotification"), object: ["invitationCode" : invitationCode])
+                              NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)
+                              NotificationCenter.default.post(name: Notification.Name("invitationCodeNotification"), object: ["invitationCode" : invitationCode])
+                              
                               
                             }
                           } else {

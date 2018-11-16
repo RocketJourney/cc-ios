@@ -15,23 +15,35 @@ class PreludeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
+    self.setupNotification()
     // Do any additional setup after loading the view.
   }
   
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
-    }
+    
   }
   
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor.rocketYellow()
     self.activityIndicator.startAnimating()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
+    }
     
   }
   
+  private func setupNotification() -> Void {
+    let invitationCodeNotification = Notification.Name("invitationCodeNotification")
+    NotificationCenter.default.addObserver(self, selector: #selector(validateCode(notification:)), name: invitationCodeNotification, object: nil)
+    NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)
+  }
   
+  
+  @objc func validateCode(notification: Notification) -> Void {
+    
+    
+  }
   
 }

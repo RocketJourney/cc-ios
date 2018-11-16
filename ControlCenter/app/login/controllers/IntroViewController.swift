@@ -18,9 +18,14 @@ class IntroViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
-    
+    self.setupNotification()
     
     // Do any additional setup after loading the view.
+  }
+  
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
   }
   
   private func setupView() -> Void {
@@ -46,6 +51,14 @@ class IntroViewController: UIViewController {
     self.createAccountLabel.text = "CREATE_ACCOUNT_TEXT".localized
     
   }
+  
+  
+  @objc func setupNotification() -> Void {
+    let showPreludeNotification = Notification.Name("showPreludeViewController")
+    NotificationCenter.default.addObserver(self, selector: #selector(self.dismissView), name: showPreludeNotification, object: nil)
+  }
+  
+  
   
   
   @objc func loginAction() -> Void {

@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Do any additional setup after loading the view.
   }
+    
   
   @objc func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x313131)
