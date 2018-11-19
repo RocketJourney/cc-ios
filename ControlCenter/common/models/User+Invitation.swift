@@ -12,7 +12,7 @@ import RealmSwift
 import Alamofire
 
 extension User {
-  class func validateInvitation(_ invitationCode: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {    
+  class func validateInvitation(_ invitationCode: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
     Alamofire.request(InvitationRouter.validateInvitation(invitationCode)).responseJSON { (response) in
       if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         completion()
@@ -24,8 +24,8 @@ extension User {
   
   
   
-  class func validateInvitation(_ invitationCode: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
-    Alamofire.request(InvitationRouter.validateInvitation(invitationCode)).responseJSON { (response) in
+  class func validateInvitationWhitEmail(_ invitationCode: String, email: String,completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(InvitationRouter.validateInvitationWithEmail(invitationCode, email)).responseJSON { (response) in
       if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         completion()
       }else{
