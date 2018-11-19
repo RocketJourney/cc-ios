@@ -18,3 +18,15 @@
 
 "RECOVER_PASSWORD"="Recover Password";
 "RECOVER"="Recover";
+
+"CREATE_ACCOUNT"="Create account";
+"EMAIL"="Email";
+"NEXT"="Next";
+
+"INTERNAL_SERVER_ERROR_TITLE"="Internal Server Error";
+"INTERNAL_SERVER_ERROR_MESSAGE"="We're sorry, please try again later.";
+"DISMISS"="Dismiss";
+"OK"="Ok";
+
+"LINK_DOES_NOT_EXIST"="Link does not exist";
+"LINK_EXPIRED"="Link expired";

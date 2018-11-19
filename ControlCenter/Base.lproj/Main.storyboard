@@ -44,6 +44,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="IB7-vS-h7n" id="qWQ-g3-pSE"/>
                         <segue destination="gcb-ef-NFv" kind="custom" identifier="kIntroSegue" customClass="IntroSegue" customModule="ControlCenter" customModuleProvider="target" id="eSk-Df-ylb"/>
+                        <segue destination="UIW-Er-CWo" kind="custom" identifier="kCheckEmailSegue" customClass="CheckEmailSegue" customModule="ControlCenter" customModuleProvider="target" id="bGF-fp-NXN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1H-ZS-3e9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3071" y="598"/>
+            <point key="canvasLocation" x="2689" y="-15"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3D-Oh-S3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3797.5999999999999" y="-1603.4482758620691"/>
+            <point key="canvasLocation" x="1756" y="-14"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ebb-33-zVd">

@@ -35,10 +35,19 @@ extension UIViewController {
   
   func noInternetAlert() {
     let alertController = UIAlertController(title: NSLocalizedString("NO_NETWORK_ERROR_TITLE", comment: "No network error title."), message: NSLocalizedString("NO_NETWORK_ERROR_MESSAGE", comment: "No network message"), preferredStyle: .alert)
-    let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    let alertAction = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
     alertController.addAction(alertAction)
     self.present(alertController, animated: true, completion: nil)
   }
+  
+  
+  func internalServerError() {
+    let alertController = UIAlertController(title: NSLocalizedString("INTERNAL_SERVER_ERROR_TITLE", comment: "internal server error"), message: NSLocalizedString("INTERNAL_SERVER_ERROR_MESSAGE", comment: "Internal server error message"), preferredStyle: .alert)
+    let alertAction = UIAlertAction(title: NSLocalizedString("DISMISS", comment: "Dismiss"), style: .default, handler: nil)
+    alertController.addAction(alertAction)
+    present(alertController, animated: true, completion: nil)
+  }
+  
   
   @objc func dismissView() {
     self.dismiss(animated: true, completion: nil)

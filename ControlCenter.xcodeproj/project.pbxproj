@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2992077A8A3E69D91A459751 /* Pods_ControlCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98462655BE1A44ABF588738 /* Pods_ControlCenter.framework */; };
+		F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0133156219F52EA001CB04A /* CheckEmailSegue.swift */; };
 		F01690162191073B001526DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690152191073B001526DA /* AppDelegate.swift */; };
 		F01690182191073B001526DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690172191073B001526DA /* ViewController.swift */; };
 		F016901B2191073B001526DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01690192191073B001526DA /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		9565782C9D11F33C9AFD3799 /* Pods-ControlCenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlCenter.release.xcconfig"; path = "Pods/Target Support Files/Pods-ControlCenter/Pods-ControlCenter.release.xcconfig"; sourceTree = "<group>"; };
 		D98462655BE1A44ABF588738 /* Pods_ControlCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ControlCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17CDEEB75FFBC0102B42F7B /* Pods-ControlCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ControlCenter/Pods-ControlCenter.debug.xcconfig"; sourceTree = "<group>"; };
+		F0133156219F52EA001CB04A /* CheckEmailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailSegue.swift; sourceTree = "<group>"; };
 		F01690122191073B001526DA /* ControlCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01690152191073B001526DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01690172191073B001526DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */,
 				F079F29421965AA500BB22EF /* ChooseClubSegue.swift */,
 				F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */,
+				F0133156219F52EA001CB04A /* CheckEmailSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
 				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
 				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
+				F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,

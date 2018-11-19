@@ -24,13 +24,13 @@ extension AppDelegate {
                             print(json)
                             if let invitationCode = json["invitation_code"].string {
                               print(invitationCode)
-                              NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)
-                              NotificationCenter.default.post(name: Notification.Name("invitationCodeNotification"), object: ["invitationCode" : invitationCode])
-                              
+                              NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)                                                      
+                              let userInfo = ["invitationCode" : invitationCode]
+                              NotificationCenter.default.post(name: Notification.Name("invitationCodeNotification"), object: nil, userInfo: userInfo)
                               
                             }
                           } else {
-                            print("HOLAA")
+                            NSLog("HOLAA")
                           }
     })
   }

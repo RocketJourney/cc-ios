@@ -18,3 +18,15 @@
 
 "RECOVER_PASSWORD"="Recuperar Contraseña";
 "RECOVER"="Recuperar";
+
+"CREATE_ACCOUNT"="Crear Cuenta";
+"EMAIL"="Email";
+"NEXT"="Siguiente";
+
+"INTERNAL_SERVER_ERROR_TITLE"="Error Interno del Servidor";
+"INTERNAL_SERVER_ERROR_MESSAGE"="Lo sentimos, por favor intenta de nuevo más tarde.";
+"DISMISS"="Continuar";
+"OK"="Ok";
+
+"LINK_DOES_NOT_EXIST"="Link does not exist";
+"LINK_EXPIRED"="Link expired";
