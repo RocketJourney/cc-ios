@@ -18,6 +18,8 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
   var backButton: UIBarButtonItem?
   var invitationCode: String?
   
+  var activityIndicator: UIActivityIndicatorView?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -28,7 +30,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
   
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x313131)
-    self.backCross()
+    self.setupbackCross()
     self.title = "CREATE_ACCOUNT".localized
     self.tableView.dataSource = self
     self.tableView.delegate = self
@@ -123,14 +125,80 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
         _nextButton.backgroundColor = UIColor(hex: 0xffcc00)
         _nextButton.layer.cornerRadius = 12
         _nextButton.titleLabel?.font = UIFont.montserratBold(20)
-        
+        _nextButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
         self.nextButton = _nextButton
-        
+        let _activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        _activityIndicator.color = UIColor.white
         cell.addSubview(_nextButton)
+        cell.addSubview(_activityIndicator)
+        _activityIndicator.center = _nextButton.center
+        self.activityIndicator = _activityIndicator
       }
     }
     
     return cell
+  }
+  
+  
+  @objc func validateData(_ sender: UIButton) -> Void {
+    let button = sender
+    button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+    button.isSelected = true    
+    self.sendData()
+  }
+  
+  
+  private func showSpinner() -> Void {
+    self.activityIndicator?.isHidden = false
+    self.activityIndicator?.startAnimating()
+  }
+  
+  
+  private func hideSpinner() -> Void {
+    self.activityIndicator?.isHidden = true
+    self.activityIndicator?.stopAnimating()
+  }
+  
+  
+  
+  private func sendData() -> Void {
+    self.backButton?.isEnabled = false
+    self.nextButton?.isEnabled = true
+    self.nextButton?.isHidden = true
+    self.showSpinner()
+    
+    if self.isNetworkReachable() {
+      User.validateInvitationWhitEmail(self.invitationCode!, email: (self.email?.text)!, completion: {
+        
+        self.backButton?.isEnabled = true
+        self.nextButton?.isEnabled = true
+        self.nextButton?.isHidden = false
+        self.nextButton?.isSelected = false
+        self.hideSpinner()
+        
+      }) { (error) in
+        self.hideSpinner()
+        self.backButton?.isEnabled = true
+        self.nextButton?.isEnabled = true
+        self.nextButton?.isHidden = false
+        self.nextButton?.isSelected = false
+      }
+    }else{
+      self.hideSpinner()
+      self.backButton?.isEnabled = true
+      self.nextButton?.isEnabled = true
+      self.nextButton?.isHidden = false
+      self.nextButton?.isSelected = false
+      self.noInternetAlert()
+    }
+  }
+  
+  
+  func isValidEmail(emailString:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: emailString)
   }
   
 }

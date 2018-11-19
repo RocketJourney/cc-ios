@@ -161,6 +161,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="fpW-sa-Q9z" id="ZxO-2a-U80"/>
+                        <segue destination="ZJr-DO-cbn" kind="custom" id="VbO-lH-1F9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3D-Oh-S3i" userLabel="First Responder" sceneMemberID="firstResponder"/>

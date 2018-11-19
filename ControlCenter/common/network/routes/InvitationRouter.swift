@@ -15,12 +15,15 @@ enum InvitationRouter: URLRequestConvertible {
   
   
   func asURLRequest() throws -> URLRequest {
-    let urlRequest = RequestBuilderV2.build(path, method: method)
+    var urlRequest = RequestBuilderV2.build(path, method: method)
     
     switch self {
     case .validateInvitation(_):
       break
-    case .validateInvitationWithEmail(_, _):
+    case .validateInvitationWithEmail(_, let email):
+      let encoding = Alamofire.URLEncoding.default
+      let params = ["email" : email]
+      urlRequest = try encoding.encode(urlRequest, with: params)
       break
     }
     return urlRequest
@@ -39,8 +42,8 @@ enum InvitationRouter: URLRequestConvertible {
     switch self {
     case .validateInvitation(let invitationCode):
       return "/invites/\(invitationCode)"
-    case .validateInvitationWithEmail(let invitationCode, let email):
-      return "/invites/\(invitationCode)?email=\(email)"
+    case .validateInvitationWithEmail(let invitationCode, _):
+      return "/invites/\(invitationCode)"
     }
   }
 }
