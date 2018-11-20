@@ -7,24 +7,33 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  @IBOutlet weak var logotuButton: UIButton!
+  var club: Club?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.setupView()
+    self.title = "HOME"
+    self.logotuButton.addTarget(self, action: #selector(self.logoutAction), for: .touchUpInside)
+    // Do any additional setup after loading the view.
+  }
+  
+  
+  private func setupView() -> Void {
+    self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
+  }
+  
+  @objc func logoutAction() -> Void {
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      realm.deleteAll()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
+    self.dismissView()
+  }
+  
+  
 }

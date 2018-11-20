@@ -45,6 +45,7 @@
                         <outlet property="activityIndicator" destination="IB7-vS-h7n" id="qWQ-g3-pSE"/>
                         <segue destination="gcb-ef-NFv" kind="custom" identifier="kIntroSegue" customClass="IntroSegue" customModule="ControlCenter" customModuleProvider="target" id="eSk-Df-ylb"/>
                         <segue destination="UIW-Er-CWo" kind="custom" identifier="kCheckEmailSegue" customClass="CheckEmailSegue" customModule="ControlCenter" customModuleProvider="target" id="bGF-fp-NXN"/>
+                        <segue destination="NzL-tf-TlE" kind="custom" identifier="kPreludeHomeSegue" customClass="PreludeHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="o6S-FL-klV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,9 +162,22 @@
                     <view key="view" contentMode="scaleToFill" id="mMJ-MB-9XA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-kz-uLg">
+                                <rect key="frame" x="163.5" y="120" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nMO-kz-uLg" firstAttribute="top" secondItem="uuq-c7-qiM" secondAttribute="top" constant="100" id="Hro-8B-m3M"/>
+                            <constraint firstItem="nMO-kz-uLg" firstAttribute="centerX" secondItem="mMJ-MB-9XA" secondAttribute="centerX" id="Jya-E5-u2H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uuq-c7-qiM"/>
                     </view>
+                    <connections>
+                        <outlet property="logotuButton" destination="nMO-kz-uLg" id="LBC-C2-VI4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-mN-InB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,4 +281,7 @@
         <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="o6S-FL-klV"/>
+    </inferredMetricsTieBreakers>
 </document>
