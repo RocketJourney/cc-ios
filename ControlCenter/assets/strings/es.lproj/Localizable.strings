@@ -30,3 +30,10 @@
 
 "LINK_DOES_NOT_EXIST"="Link does not exist";
 "LINK_EXPIRED"="Link expired";
+
+"NAME"="Nombre";
+"LAST_NAME"="Apellido";
+"PASSWORD"="Contraseña";
+"CREATE_ACCOUNT"="Crear Cuenta";
+"HIDE"="Ocultar";
+"SHOW"="Mostrar";

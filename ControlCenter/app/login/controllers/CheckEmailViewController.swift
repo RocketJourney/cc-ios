@@ -17,7 +17,6 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
   weak var nextButton: UIButton?
   var backButton: UIBarButtonItem?
   var invitationCode: String?
-  
   var activityIndicator: UIActivityIndicatorView?
   
   override func viewDidLoad() {
@@ -162,34 +161,37 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
   
   
   private func sendData() -> Void {
-    self.backButton?.isEnabled = false
-    self.nextButton?.isEnabled = true
-    self.nextButton?.isHidden = true
-    self.showSpinner()
-    
-    if self.isNetworkReachable() {
-      User.validateInvitationWhitEmail(self.invitationCode!, email: (self.email?.text)!, completion: {
-        
-        self.backButton?.isEnabled = true
-        self.nextButton?.isEnabled = true
-        self.nextButton?.isHidden = false
-        self.nextButton?.isSelected = false
-        self.hideSpinner()
-        
-      }) { (error) in
-        self.hideSpinner()
-        self.backButton?.isEnabled = true
-        self.nextButton?.isEnabled = true
-        self.nextButton?.isHidden = false
-        self.nextButton?.isSelected = false
-      }
-    }else{
-      self.hideSpinner()
-      self.backButton?.isEnabled = true
+    if self.isValidEmail(emailString: (self.email?.text)!){
+      self.backButton?.isEnabled = false
       self.nextButton?.isEnabled = true
-      self.nextButton?.isHidden = false
-      self.nextButton?.isSelected = false
-      self.noInternetAlert()
+      self.nextButton?.isHidden = true
+      self.showSpinner()
+      
+      if self.isNetworkReachable() {
+        User.validateInvitationWhitEmail(self.invitationCode!, email: (self.email?.text)!, completion: {
+          
+          self.backButton?.isEnabled = true
+          self.nextButton?.isEnabled = true
+          self.nextButton?.isHidden = false
+          self.nextButton?.isSelected = false
+          self.hideSpinner()
+          self.performSegue(withIdentifier: "kCreateAccountSegue", sender: nil)
+          
+        }) { (error) in
+          self.hideSpinner()
+          self.backButton?.isEnabled = true
+          self.nextButton?.isEnabled = true
+          self.nextButton?.isHidden = false
+          self.nextButton?.isSelected = false
+        }
+      }else{
+        self.hideSpinner()
+        self.backButton?.isEnabled = true
+        self.nextButton?.isEnabled = true
+        self.nextButton?.isHidden = false
+        self.nextButton?.isSelected = false
+        self.noInternetAlert()
+      }
     }
   }
   
