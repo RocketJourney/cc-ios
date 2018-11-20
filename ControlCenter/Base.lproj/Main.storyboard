@@ -133,6 +133,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yoz-b0-OB6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,10 +145,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lU8-FV-o2w"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Yoz-b0-OB6" id="9Pp-8W-Jh4"/>
+                        <segue destination="NzL-tf-TlE" kind="custom" identifier="kSignUpHomeSegue" customClass="SignUpHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="j3v-4R-5hn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1H-ZS-3e9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="-15.742128935532236"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jLY-35-Jne">
+            <objects>
+                <viewController id="NzL-tf-TlE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mMJ-MB-9XA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="uuq-c7-qiM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-mN-InB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3809" y="759"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">

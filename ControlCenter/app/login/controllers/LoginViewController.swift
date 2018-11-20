@@ -106,6 +106,8 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           _password.leftViewMode = .always
           _password.leftView = xview
           _password.tintColor = UIColor.rocketYellow()
+          _password.keyboardType = .default
+          _password.isSecureTextEntry = true
           //_password.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           //_password.isSecureTextEntry = showPassword
           self.password = _password

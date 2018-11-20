@@ -23,6 +23,8 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
   var emailString: String?
   var invitationCode: String?
   var activityIndicator: UIActivityIndicatorView?
+  
+  var backButton: UIBarButtonItem?
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
@@ -38,6 +40,15 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     self.tableView.backgroundColor = UIColor.clear
     self.tableView.tableFooterView = UIView()
     self.tableView.separatorColor = UIColor(hex: 0x313131)
+    
+    
+    self.backButton = UIBarButtonItem(image: UIImage(named:"left-arrow"), style: .plain, target: self, action: #selector(self.popViewController))
+    self.navigationItem.leftBarButtonItem = self.backButton
+    self.navigationItem.rightBarButtonItem?.tintColor = UIColor.rocketYellow()
+  }
+  
+  @objc func popViewController() -> Void {
+    self.navigationController?.popViewController(animated: true)
   }
   
   
@@ -106,6 +117,8 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           _email.keyboardType = .emailAddress
           _email.autocapitalizationType = .none
           self.email = _email
+          self.email?.text = self.emailString
+          self.email?.isEnabled = false
         }
       case 1:
         cell.backgroundColor = UIColor.black
@@ -164,6 +177,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           self.lastName = _lastName
         }
       default:
+        self.showPassword = true
         cell.backgroundColor = UIColor.black
         if let password = self.password {
           password.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 60)
@@ -188,7 +202,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           _password.tintColor = UIColor.rocketYellow()
           
-          _password.keyboardType = .emailAddress
+          _password.keyboardType = .default
           _password.autocapitalizationType = .none
           self.password = _password
         }
@@ -196,7 +210,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
         btn.setTitle("SHOW".localized, for: UIControl.State())
         btn.addTarget(self, action: #selector(self.toggleShowPassword(_:)), for: .touchUpInside)
         btn.setTitleColor(UIColor.rocketYellow(), for: .normal)
-        btn.titleLabel!.font = UIFont.montserratBold(12)
+        btn.titleLabel!.font = UIFont.montserratBold(14)
         btn.sizeToFit()
         btn.center = CGPoint(x: view.frame.size.width - (btn.frame.size.width / 2) - 12, y: 30)
         cell.addSubview(btn)
@@ -210,12 +224,12 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
       }else {
         let _nextButton = UIButton()
         _nextButton.frame =  CGRect(x: 10, y: 0, width: view.frame.size.width - 20, height: 60)
-        _nextButton.setTitle("NEXT".localized, for: .normal)
+        _nextButton.setTitle("CREATE_ACCOUNT".localized, for: .normal)
         _nextButton.setTitleColor(UIColor(hex: 0x1a1a1a), for: .normal)
         _nextButton.backgroundColor = UIColor(hex: 0xffcc00)
         _nextButton.layer.cornerRadius = 12
         _nextButton.titleLabel?.font = UIFont.montserratBold(20)
-        //_nextButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
+        _nextButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
         self.nextButton = _nextButton
         let _activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         _activityIndicator.color = UIColor.white
@@ -240,5 +254,67 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     }
   }
   
+  
+  @objc func validateData(_ sender: UIButton) -> Void {
+    let button = sender
+    button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    button.isSelected = true
+    if (self.emailString?.count)! > 0 && (self.name?.text?.count)! > 0 && (self.lastName?.text?.count)! > 0 && (self.password?.text?.count)! > 0 {
+        self.sendData()
+    }else{
+      button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+      button.isSelected = false
+    }
+    
+  }
+  
+  
+  private func sendData() -> Void {
+    if self.isNetworkReachable(){
+      self.showSpinner()
+      self.hideSendButton()
+      User.signUp(self.emailString!, name: (self.name?.text)!, lastName: (self.lastName?.text)!, password: (self.password?.text)!, invitationCode: self.invitationCode!, completion: {
+        self.hideSpinner()
+        self.showSendButton()
+        self.performSegue(withIdentifier: "kSignUpHomeSegue", sender: nil)
+      }) { (error) in
+        self.hideSpinner()
+        self.showSendButton()
+        if let error = error as? NSError {
+          if error.code == 500{
+            self.internalServerError()
+          }
+        }
+      }
+    }else{
+      self.noInternetAlert()
+    }
+  }
+  
+  
+  private func showSpinner() -> Void {
+    self.activityIndicator?.isHidden = false
+    self.activityIndicator?.startAnimating()
+    self.backButton?.isEnabled = false
+  }
+  
+  private func hideSpinner() -> Void {
+    self.activityIndicator?.isHidden = true
+    self.activityIndicator?.stopAnimating()
+    self.backButton?.isEnabled = true
+  }
+  
+  
+  private func showSendButton() -> Void {
+    self.nextButton?.isHidden = false
+    self.nextButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+    self.nextButton?.isSelected = false
+  }
+  
+  private func hideSendButton() -> Void {
+    self.nextButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    self.nextButton?.isSelected = true
+    self.nextButton?.isHidden = true
+  }
   
 }

@@ -35,5 +35,5 @@
 "LAST_NAME"="Last Name";
 "PASSWORD"="Password";
 "CREATE_ACCOUNT"="Create Account";
-"HIDE"="Hide";
-"SHOW"="Show";
+"HIDE"="HIDE";
+"SHOW"="SHOW";

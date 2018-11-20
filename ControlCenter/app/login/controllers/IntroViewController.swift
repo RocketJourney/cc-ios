@@ -28,6 +28,11 @@ class IntroViewController: UIViewController {
     self.setupNotification()
   }
   
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    self.loginButton.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)
+  }
+  
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
     
@@ -36,11 +41,16 @@ class IntroViewController: UIViewController {
     self.alReadyAccountLabel.text = "ALREADY_HAVE_ACCOUNT".localized
     
     self.loginButton.setTitle("LOGIN".localized, for: .normal)
+    self.loginButton.setTitle("LOGIN".localized, for: .selected)
+    self.loginButton.setTitle("LOGIN".localized, for: .highlighted)
     self.loginButton.setTitleColor(UIColor(hex: 0x1a1a1a), for: .normal)
+    self.loginButton.setTitleColor(UIColor(hex: 0x1a1a1a), for: .selected)
+    self.loginButton.setTitleColor(UIColor(hex: 0x1a1a1a), for: .highlighted)
     self.loginButton.backgroundColor = UIColor(hex: 0xffcc00)
     self.loginButton.layer.cornerRadius = 12
+    self.loginButton.tintColor = UIColor.clear
     self.loginButton.titleLabel?.font = UIFont.montserratBold(20)
-    self.loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+    self.loginButton.addTarget(self, action: #selector(self.loginAction(_:)), for: .touchUpInside)
     
     self.dontHaveAccountLabel.font = UIFont.montserratRegular(16)
     self.dontHaveAccountLabel.textColor = UIColor(hex: 0xb3b3b3)
@@ -70,7 +80,16 @@ class IntroViewController: UIViewController {
   
   
   
-  @objc func loginAction() -> Void {
+  @objc func loginAction(_ sender: UIButton) -> Void {
+    let button = sender
+    if button.isSelected{
+      button.isSelected = false
+      button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)
+    }else{
+      button.isSelected = true
+      button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)
+    }
+    
     performSegue(withIdentifier: "kLoginSegue", sender: nil)
   }
   
