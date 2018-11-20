@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="-15.742128935532236"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="jLY-35-Jne">
             <objects>
-                <viewController id="NzL-tf-TlE" sceneMemberID="viewController">
+                <viewController id="NzL-tf-TlE" customClass="HomeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mMJ-MB-9XA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

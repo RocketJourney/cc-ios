@@ -23,7 +23,8 @@ enum LoginRouter: URLRequestConvertible {
       let params = ["email" : email, "password": password]
       urlRequest = try encoding.encode(urlRequest, with: params)
     case .signUp(let email, let name, let lastName, let password, let invitationCode):
-      let params = ["email" : email, "password": password, "first_name" : name, "last_name" : lastName, "invitation" : invitationCode]
+      let user = ["email" : email, "password": password, "first_name" : name, "last_name" : lastName]
+      let params = ["user" : user, "invitation" : invitationCode] as [String : Any]
       let encoding = Alamofire.JSONEncoding.default
       urlRequest = try encoding.encode(urlRequest, with: params)
     }

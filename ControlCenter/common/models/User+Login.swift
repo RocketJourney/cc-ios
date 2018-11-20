@@ -24,11 +24,11 @@ extension User {
           user.firstName = name
           user.lastName = lastName
           
-          if let token = json["jwt"].string {
+          if let token = json["data"]["jwt"].string {
             user.token = token
           }
           
-          let club = Club.fromJSON(json["club"])
+          let club = Club.fromJSON(json["data"]["club"])
           user.currentClub = club
           
           let realm = try! Realm(configuration: ControlCenterRealm.config)

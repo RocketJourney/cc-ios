@@ -15,6 +15,7 @@ class Club: Object {
   @objc dynamic var id = 0
   @objc dynamic var nameSpace = ""
   @objc dynamic var name = ""
+  @objc dynamic var logoUrl = ""
   
   
   override static func primaryKey() -> String {
@@ -34,7 +35,11 @@ class Club: Object {
     
     if let id = json["id"].int {
       club.id = id
-    }    
+    }
+    
+    if let logoUrl = json["logo"].string {
+      club.logoUrl = logoUrl
+    }
     return club
   }
 }
