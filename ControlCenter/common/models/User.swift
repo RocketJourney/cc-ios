@@ -29,4 +29,11 @@ class User: Object {
       return nil
     }
   }
+  
+  var sortedClubs:Results<Club> {
+    get{
+      let sortDescriptors = [SortDescriptor(keyPath: "name", ascending: true)]
+      return self.clubs.sorted(by: sortDescriptors)
+    }
+  }
 }

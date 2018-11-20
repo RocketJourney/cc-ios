@@ -124,9 +124,8 @@ class PreludeViewController: UIViewController {
       if User.current != nil && User.current?.token != nil && User.current?.currentClub != nil {
         self.performSegue(withIdentifier: "kPreludeHomeSegue", sender: nil)
       }else{
-        self.performSegue(withIdentifier: "kPreludeChooseClubSegue", sender: nil)        
-      }
-      
+        self.performSegue(withIdentifier: "kPreludeChooseClubSegue", sender: nil)
+      }      
     }else{
       self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
     }
