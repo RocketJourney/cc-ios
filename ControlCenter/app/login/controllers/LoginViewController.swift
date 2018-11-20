@@ -16,7 +16,8 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
   weak var email: UITextField?
   weak var password: UITextField?
   weak var loginButton: UIButton?
-
+  var activityIndicator: UIActivityIndicatorView?
+  var backButton: UIBarButtonItem?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +38,15 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.backgroundColor = UIColor.clear
     self.tableView.tableFooterView = UIView()
     self.tableView.separatorColor = UIColor(hex: 0x313131)
+    
+    self.backButton = UIBarButtonItem(image: UIImage(named:"cross-image"), style: .plain, target: self, action: #selector(self.popViewController))
+    self.navigationItem.leftBarButtonItem = self.backButton
+    self.navigationItem.rightBarButtonItem?.tintColor = UIColor.rocketYellow()
+  }
+  
+  
+  @objc func popViewController() -> Void {
+    self.dismissView()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -137,6 +147,14 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           _loginButton.backgroundColor = UIColor(hex: 0xffcc00)
           _loginButton.layer.cornerRadius = 12
           _loginButton.titleLabel?.font = UIFont.montserratBold(20)
+          _loginButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
+          
+          let _activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+          _activityIndicator.color = UIColor.white
+          cell.addSubview(_loginButton)
+          cell.addSubview(_activityIndicator)
+          _activityIndicator.center = _loginButton.center
+          self.activityIndicator = _activityIndicator
           
           self.loginButton = _loginButton
           
@@ -145,8 +163,34 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
       
     }
-    
     return cell
+  }
+  
+  
+  @objc func validateData(_ sender: UIButton) -> Void {
+    let button = sender
+    button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    button.isSelected = true
+    if (self.email?.text?.count)! > 0 && (self.password?.text?.count)! > 0  {
+      self.sendData()
+    }else{
+      button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+      button.isSelected = false
+    }
+    
+  }
+  
+  private func sendData() -> Void {
+    if self.isNetworkReachable(){
+      self.showSpinner()
+      User.login((self.email?.text)!, password: (self.password?.text)!, completion: {
+        self.hideSpinner()
+      }) { (error) in
+        self.hideSpinner()
+      }
+    }else{
+      self.noInternetAlert()
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -161,6 +205,19 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let view = UIView()
     view.backgroundColor = UIColor.clear
     return view
+  }
+  
+  
+  private func showSpinner() -> Void {
+    self.activityIndicator?.isHidden = false
+    self.activityIndicator?.startAnimating()
+    self.backButton?.isEnabled = false
+  }
+  
+  private func hideSpinner() -> Void {
+    self.activityIndicator?.isHidden = true
+    self.activityIndicator?.stopAnimating()
+    self.backButton?.isEnabled = true
   }
   
   

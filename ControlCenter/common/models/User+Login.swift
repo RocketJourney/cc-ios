@@ -50,6 +50,28 @@ extension User {
   class func login(_ email: String, password: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
     Alamofire.request(LoginRouter.login(email, password)).responseJSON { (response) in
       if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          
+          let realm = try! Realm(configuration: ControlCenterRealm.config)
+          try! realm.write {
+            realm.deleteAll()
+            let user = User()
+            user.email = email
+            
+            if let token = json["data"]["jwt"].string {
+              user.token = token
+            }
+            
+            if let clubs = json["data"]["clubs"].array{
+              for jsonClub in clubs{
+                let clubModel = Club.fromJSON(jsonClub)
+                realm.add(clubModel, update: true)
+                user.clubs.append(clubModel)
+              }
+            }
+          }
+        }
         completion()
       }else{
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
