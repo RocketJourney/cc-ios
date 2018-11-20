@@ -77,8 +77,12 @@ class ChooseClubViewController: UIViewController, UITableViewDelegate, UITableVi
     
     self.dismissView()
         
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
     NotificationCenter.default.post(name: NSNotification.Name("dismissChooseClublNotification"), object: nil)
+    }
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+      NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
     }
   }
   

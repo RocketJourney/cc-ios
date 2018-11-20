@@ -79,9 +79,20 @@ extension User {
                 user.clubs.append(clubModel)
               }
             }
-          realm.create(User.self, value: user, update: true)
+            realm.create(User.self, value: user, update: true)
           }
         }
+        completion()
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
+  
+  
+  class func recoverPassword(_ email: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(LoginRouter.recoverPassword(email)).responseJSON { (response) in
+      if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         completion()
       }else{
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))

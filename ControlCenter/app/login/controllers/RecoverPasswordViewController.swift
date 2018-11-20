@@ -14,6 +14,8 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
   
   weak var email: UITextField?
   weak var loginButton: UIButton?
+  var backButton: UIBarButtonItem?
+  var activityIndicator: UIActivityIndicatorView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +35,15 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
     self.tableView.tableFooterView = UIView()
     self.tableView.separatorColor = UIColor(hex: 0x313131)
     
+    
+    self.backButton = UIBarButtonItem(image: UIImage(named:"left-arrow"), style: .plain, target: self, action: #selector(self.popViewController))
+    self.navigationItem.leftBarButtonItem = self.backButton
+    self.navigationItem.rightBarButtonItem?.tintColor = UIColor.rocketYellow()
+    
+  }
+  
+  @objc func popViewController() -> Void {
+    self.dismissView()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,6 +100,14 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
         _loginButton.backgroundColor = UIColor(hex: 0xffcc00)
         _loginButton.layer.cornerRadius = 12
         _loginButton.titleLabel?.font = UIFont.montserratBold(20)
+        _loginButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
+        
+        let _activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        _activityIndicator.color = UIColor.white
+        cell.addSubview(_loginButton)
+        cell.addSubview(_activityIndicator)
+        _activityIndicator.center = _loginButton.center
+        self.activityIndicator = _activityIndicator
         
         self.loginButton = _loginButton
         
@@ -96,6 +115,37 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
       }
     }
     return cell
+  }
+  
+  @objc func validateData(_ sender: UIButton) -> Void {
+    let button = sender
+    button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    button.isSelected = true
+    
+    if self.isValidEmail(emailString: (self.email?.text)!){
+      self.sendData()
+    }
+  }
+  
+  private func sendData() -> Void {
+    if self.isNetworkReachable() {
+      self.hideSendButton()
+      self.showSpinner()
+      User.recoverPassword((self.email?.text)!, completion: {
+        self.showSendButton()
+        self.hideSpinner()
+      }) { (error) in
+        self.hideSpinner()
+        self.showSendButton()
+        if let error = error as? NSError {
+          if error.code == 500{
+            self.internalServerError()
+          }
+        }
+      }
+    }else{
+      self.noInternetAlert()
+    }
   }
   
   
@@ -111,5 +161,41 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
     let view = UIView()
     view.backgroundColor = UIColor.clear
     return view
+  }
+  
+  
+  func isValidEmail(emailString:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: emailString)
+  }
+  
+  
+  private func showSpinner() -> Void {
+    self.activityIndicator?.isHidden = false
+    self.activityIndicator?.startAnimating()
+    self.backButton?.isEnabled = false
+  }
+  
+  private func hideSpinner() -> Void {
+    self.activityIndicator?.isHidden = true
+    self.activityIndicator?.stopAnimating()
+    self.backButton?.isEnabled = true
+  }
+  
+  
+  private func showSendButton() -> Void {
+    self.loginButton?.isHidden = false
+    self.loginButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+    self.loginButton?.isSelected = false
+    self.loginButton?.isEnabled = true
+  }
+  
+  private func hideSendButton() -> Void {
+    self.loginButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    self.loginButton?.isSelected = true
+    self.loginButton?.isHidden = true
+    self.loginButton?.isEnabled = false
   }
 }

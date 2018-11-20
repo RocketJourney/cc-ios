@@ -12,6 +12,7 @@ import Alamofire
 enum LoginRouter: URLRequestConvertible {
   case login(String, String)
   case signUp(String, String, String, String, String)
+  case recoverPassword(String)
   
   
   func asURLRequest() throws -> URLRequest {
@@ -27,6 +28,10 @@ enum LoginRouter: URLRequestConvertible {
       let params = ["user" : user, "invitation" : invitationCode] as [String : Any]
       let encoding = Alamofire.JSONEncoding.default
       urlRequest = try encoding.encode(urlRequest, with: params)
+    case .recoverPassword(let email):
+      let params = ["email" : email]
+      let encoding = Alamofire.JSONEncoding.default
+      urlRequest = try encoding.encode(urlRequest, with: params)
     }
     return urlRequest
   }
@@ -34,7 +39,7 @@ enum LoginRouter: URLRequestConvertible {
   
   var method: HTTPMethod {
     switch self {
-    case .login(_, _), .signUp(_):
+    case .login(_, _), .signUp(_), .recoverPassword(_):
       return .post
     }
   }
@@ -46,6 +51,8 @@ enum LoginRouter: URLRequestConvertible {
       return "/sessions"
     case .signUp(_, _, _, _, _):
       return "/users"
+    case .recoverPassword(_):
+      return "/users/passwords"
     }
   }
 }
