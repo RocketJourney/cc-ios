@@ -28,13 +28,17 @@ extension User {
             user.token = token
           }
           
+          if let id = json["data"]["user_id"].int {
+            user.id = id
+          }
+          
           let club = Club.fromJSON(json["data"]["club"])
           user.currentClub = club
           
           let realm = try! Realm(configuration: ControlCenterRealm.config)
           try! realm.write {
             realm.deleteAll()
-            realm.create(User.self, value: user, update: false)
+            realm.create(User.self, value: user, update: true)
           }
         }
         
@@ -59,10 +63,14 @@ extension User {
             user.token = token
           }
           
+          if let id = json["data"]["user_id"].int {
+            user.id = id
+          }
+          
           let realm = try! Realm(configuration: ControlCenterRealm.config)
           try! realm.write {
             realm.deleteAll()
-            realm.create(User.self, value: user, update: false)
+            
             
             if let clubs = json["data"]["clubs"].array{
               for jsonClub in clubs{
@@ -71,6 +79,7 @@ extension User {
                 user.clubs.append(clubModel)
               }
             }
+          realm.create(User.self, value: user, update: true)
           }
         }
         completion()

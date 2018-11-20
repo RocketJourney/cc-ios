@@ -10,13 +10,16 @@ import Foundation
 import RealmSwift
 
 class User: Object {
+  @objc dynamic var id = 0
   @objc dynamic var email = ""
   @objc dynamic var firstName = ""
   @objc dynamic var lastName = ""
   @objc dynamic var token = ""
-  var clubs = List<Club>()
-  
   @objc dynamic var currentClub: Club?
+  var clubs = List<Club>()
+  override static func primaryKey() -> String {
+    return "id"
+  }
   
   
   class var current:User? {

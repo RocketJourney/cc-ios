@@ -244,11 +244,21 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let showPreludeNotification = Notification.Name("showPreludeViewController")
     NotificationCenter.default.addObserver(self, selector: #selector(self.showPreludeViewController), name: showPreludeNotification, object: nil)
     
+    let dismissChooseClublNotification = Notification.Name("dismissChooseClublNotification")
+    NotificationCenter.default.addObserver(self, selector: #selector(self.showPreludeChooseViewController), name: dismissChooseClublNotification, object: nil)
   }
   
-  @objc func showPreludeViewController() -> Void {
+  @objc func showPreludeViewController() -> Void {    
     NotificationCenter.default.post(name: Notification.Name("showPreludeLoginViewController"), object: nil)
-    self.navigationController?.popToRootViewController(animated: true)
+    self.dismissView()
+  }
+  
+  @objc func showPreludeChooseViewController() -> Void{
+    self.dismissView()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+      NotificationCenter.default.post(name: Notification.Name("showPreludeLoginViewController"), object: nil)
+    }
+    
   }
   
   @objc func forgotPassword() -> Void {

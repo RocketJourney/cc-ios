@@ -75,6 +75,7 @@ class IntroViewController: UIViewController {
   
   @objc func showPreludeViewController() -> Void {
     self.dismissView()
+    NotificationCenter.default.post(name: Notification.Name("showIntroViewController"), object: nil)
   }
   
   

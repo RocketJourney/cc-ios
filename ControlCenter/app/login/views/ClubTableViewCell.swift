@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ClubTableViewCell: UITableViewCell {
   
@@ -43,7 +44,8 @@ class ClubTableViewCell: UITableViewCell {
   
   
   func bind(club: Club) -> Void {
-    <#function body#>
+    self.clubImageView.sd_setImage(with: URL(string: club.logoUrl))
+    self.titleClubLabel.text = club.name
   }
   
 }

@@ -33,9 +33,13 @@ extension AppDelegate {
       if oldSchemaVersion < 1 {
         //add clubs to User
       }
+      
+      if oldSchemaVersion < 2 {
+        //add id to User model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }
