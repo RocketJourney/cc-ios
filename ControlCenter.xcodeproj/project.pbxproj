@@ -45,6 +45,7 @@
 		F0CC36FD21A3AF2400B89575 /* SignUpHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */; };
 		F0CC36FF21A3AFEC00B89575 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */; };
 		F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */; };
+		F0CC370521A498EE00B89575 /* PreludeChooseClubSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */; };
 		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
 		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
 		F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */; };
@@ -126,6 +127,7 @@
 		F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpHomeSegue.swift; sourceTree = "<group>"; };
 		F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeHomeSegue.swift; sourceTree = "<group>"; };
+		F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeChooseClubSegue.swift; sourceTree = "<group>"; };
 		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
 		F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeViewController.swift; sourceTree = "<group>"; };
 		F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSegue.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				F0CC36F821A39D9B00B89575 /* CreateAccountSegue.swift */,
 				F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */,
 				F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */,
+				F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
+				F0CC370521A498EE00B89575 /* PreludeChooseClubSegue.swift in Sources */,
 				F0CC36F921A39D9B00B89575 /* CreateAccountSegue.swift in Sources */,
 				F0DFBD93219E3E5C00F94BA1 /* RequestBuilderV2.swift in Sources */,
 				F0CC36FF21A3AFEC00B89575 /* HomeViewController.swift in Sources */,

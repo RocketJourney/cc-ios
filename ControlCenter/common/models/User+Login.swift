@@ -52,16 +52,17 @@ extension User {
       if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         if let object = response.result.value {
           let json = JSON(object)
+          let user = User()
+          user.email = email
+          
+          if let token = json["data"]["jwt"].string {
+            user.token = token
+          }
           
           let realm = try! Realm(configuration: ControlCenterRealm.config)
           try! realm.write {
             realm.deleteAll()
-            let user = User()
-            user.email = email
-            
-            if let token = json["data"]["jwt"].string {
-              user.token = token
-            }
+            realm.create(User.self, value: user, update: false)
             
             if let clubs = json["data"]["clubs"].array{
               for jsonClub in clubs{

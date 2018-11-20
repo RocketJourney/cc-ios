@@ -46,6 +46,7 @@
                         <segue destination="gcb-ef-NFv" kind="custom" identifier="kIntroSegue" customClass="IntroSegue" customModule="ControlCenter" customModuleProvider="target" id="eSk-Df-ylb"/>
                         <segue destination="UIW-Er-CWo" kind="custom" identifier="kCheckEmailSegue" customClass="CheckEmailSegue" customModule="ControlCenter" customModuleProvider="target" id="bGF-fp-NXN"/>
                         <segue destination="NzL-tf-TlE" kind="custom" identifier="kPreludeHomeSegue" customClass="PreludeHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="o6S-FL-klV"/>
+                        <segue destination="hkb-uv-Tjd" kind="custom" identifier="kPreludeChooseClubSegue" customClass="PreludeChooseClubSegue" customModule="ControlCenter" customModuleProvider="target" id="vUb-9f-8BF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -181,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-mN-InB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3809" y="759"/>
+            <point key="canvasLocation" x="2730" y="819"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">
@@ -240,6 +241,7 @@
                     <connections>
                         <outlet property="tableView" destination="Px2-2p-4t8" id="gb2-BQ-n1i"/>
                         <segue destination="Tds-n4-Hfz" kind="custom" identifier="kRecoverPasswordSegue" customClass="RecoverPasswordSegue" customModule="ControlCenter" customModuleProvider="target" id="dbf-ZZ-1dH"/>
+                        <segue destination="hkb-uv-Tjd" kind="custom" identifier="kChooseClubSegue" customClass="ChooseClubSegue" customModule="ControlCenter" customModuleProvider="target" id="LrE-zw-S2R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPu-im-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,12 +278,28 @@
             </objects>
             <point key="canvasLocation" x="3956" y="-931"/>
         </scene>
+        <!--Choose Club View Controller-->
+        <scene sceneID="gRm-hm-mpd">
+            <objects>
+                <viewController id="hkb-uv-Tjd" customClass="ChooseClubViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zXH-LM-8vM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xkT-O1-WcH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THm-Ql-Aj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3938" y="-257"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vUb-9f-8BF"/>
         <segue reference="o6S-FL-klV"/>
     </inferredMetricsTieBreakers>
 </document>

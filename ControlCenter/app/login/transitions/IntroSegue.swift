@@ -17,8 +17,7 @@ class IntroSegue: UIStoryboardSegue {
 //    preludeViewController.present(nav, animated: true, completion: nil)
 //    nav.navigationBar.isHidden = false
     
-    
-    let preludeViewController = source as! PreludeViewController
+        let preludeViewController = source as! PreludeViewController
     let introviewControler = destination as! IntroViewController
     let nav = UINavigationController(rootViewController: introviewControler)
     nav.navigationBar.isHidden = true

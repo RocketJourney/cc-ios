@@ -183,10 +183,14 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func sendData() -> Void {
     if self.isNetworkReachable(){
       self.showSpinner()
+      self.hideSendButton()
       User.login((self.email?.text)!, password: (self.password?.text)!, completion: {
         self.hideSpinner()
+        self.showSendButton()
+        self.performSegue(withIdentifier: "kChooseClubSegue", sender: nil)
       }) { (error) in
         self.hideSpinner()
+        self.showSendButton()
       }
     }else{
       self.noInternetAlert()
@@ -218,6 +222,21 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.activityIndicator?.isHidden = true
     self.activityIndicator?.stopAnimating()
     self.backButton?.isEnabled = true
+  }
+  
+  
+  private func showSendButton() -> Void {
+    self.loginButton?.isHidden = false
+    self.loginButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
+    self.loginButton?.isSelected = false
+    self.loginButton?.isEnabled = true
+  }
+  
+  private func hideSendButton() -> Void {
+    self.loginButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
+    self.loginButton?.isSelected = true
+    self.loginButton?.isHidden = true
+    self.loginButton?.isEnabled = false
   }
   
   

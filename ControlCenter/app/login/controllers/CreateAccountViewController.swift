@@ -312,12 +312,14 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     self.nextButton?.isHidden = false
     self.nextButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
     self.nextButton?.isSelected = false
+    self.nextButton?.isEnabled = false
   }
   
   private func hideSendButton() -> Void {
     self.nextButton?.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
     self.nextButton?.isSelected = true
     self.nextButton?.isHidden = true
+    self.nextButton?.isEnabled = true
   }
   
 }
