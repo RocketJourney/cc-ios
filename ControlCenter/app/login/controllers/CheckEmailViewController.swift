@@ -23,6 +23,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
     super.viewDidLoad()
     
     self.setupView()
+    self.setupNotification()
     // Do any additional setup after loading the view.
   }
   
@@ -47,7 +48,10 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
   
   @objc func dismissViewController() -> Void {
     self.dismissView()
-    NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+      NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
+    }
+    
   }
   
   
@@ -136,6 +140,11 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     return cell
+  }
+  
+  private func setupNotification() -> Void {
+    let invitationCodeNotification = Notification.Name("dismissCheckEmailNotification")
+    NotificationCenter.default.addObserver(self, selector: #selector(self.dismissViewController), name: invitationCodeNotification, object: nil)
   }
   
   

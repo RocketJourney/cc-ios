@@ -32,12 +32,8 @@ class PreludeViewController: UIViewController {
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor.rocketYellow()
     self.activityIndicator.startAnimating()
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      if User.current != nil && User.current?.token != nil && User.current?.currentClub != nil {
-        self.performSegue(withIdentifier: "kPreludeHomeSegue", sender: nil)
-      }else{
-          self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
-      }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      self.showIntroViewController()
       
     }
     
@@ -124,7 +120,11 @@ class PreludeViewController: UIViewController {
   
   
   @objc func showIntroViewController() -> Void {
-    self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
+    if User.current != nil && User.current?.token != nil && User.current?.currentClub != nil {
+      self.performSegue(withIdentifier: "kPreludeHomeSegue", sender: nil)
+    }else{
+      self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
+    }
   }
   
 }

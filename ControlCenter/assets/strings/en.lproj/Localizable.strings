@@ -11,7 +11,7 @@
 "ALREADY_HAVE_ACCOUNT"="Already have an account?";
 "LOGIN"="Log in";
 "DONT_HAVE_ACCOUNT"="Don’t have an account?";
-"CREATE_ACCOUNT_TEXT"="Ask your manager to send you an invite link to Create an Account";
+"CREATE_ACCOUNT_TEXT"="Ask the gym manager to send you an invite link to create an account.";
 "FORGOT"="Forgot?";
 "SIGN_UP_FORM_EMAIL"="Email";
 "SIGN_UP_FORM_PASSWORD"="Password";

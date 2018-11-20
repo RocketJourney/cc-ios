@@ -8,10 +8,10 @@
 "NO_NETWORK_ERROR_TITLE"="No Hay Conexión a Internet";
 "NO_NETWORK_ERROR_MESSAGE"="Por favor revisa tu conexión a internet y vuelve a intentarlo.";
 
-"ALREADY_HAVE_ACCOUNT"="Already have an account?";
-"LOGIN"="Log in";
-"DONT_HAVE_ACCOUNT"="Don’t have an account?";
-"CREATE_ACCOUNT_TEXT"="Ask your manager to send you an invite link to Create an Account";
+"ALREADY_HAVE_ACCOUNT"="¿Ya tienes cuenta?";
+"LOGIN"="Iniciar Sesión";
+"DONT_HAVE_ACCOUNT"="¿No tienes cuenta?";
+"CREATE_ACCOUNT_TEXT"="Pídele al gerente de tu gym un link de invitación para crear una cuenta.";
 "FORGOT"="¿La olvidaste?";
 "SIGN_UP_FORM_EMAIL"="Email";
 "SIGN_UP_FORM_PASSWORD"="Contraseña";

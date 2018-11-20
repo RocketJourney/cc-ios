@@ -31,8 +31,9 @@ class HomeViewController: UIViewController {
     try! realm.write {
       realm.deleteAll()
     }
+    self.dismissView()    
     NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
-    self.dismissView()
+    
   }
   
   
