@@ -39,3 +39,9 @@
 "SHOW"="MOSTRAR";
 
 "CHOOSE_CLUB"="Elige un Club";
+
+"EMAIL_ALREADY_REGISTERED"="Email Ya Está Registrado";
+"ALREADY_ACCOUNT"="Ya existe una cuenta con este email ligada a este club.";
+
+"EMAIL_PASSWORD_NO_MATCH"="Email & Contraseña No Coinciden";
+"TRY_AGAIN"="Por favor reintenta.";

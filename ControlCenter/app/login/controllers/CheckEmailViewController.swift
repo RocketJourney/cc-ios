@@ -192,6 +192,22 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
           self.nextButton?.isEnabled = true
           self.nextButton?.isHidden = false
           self.nextButton?.isSelected = false
+          
+          if let error = error as? NSError {
+            if error.code == 500{
+              self.internalServerError()
+            }else if error.code == 304 {
+              let alertController = UIAlertController(title: "EMAIL_ALREADY_REGISTERED".localized, message: "ALREADY_ACCOUNT".localized, preferredStyle: UIAlertController.Style.alert)
+              
+              let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+                
+              })
+              alertController.addAction(alertAction)
+              self.present(alertController, animated: true, completion: nil)
+            }
+          }
+          
+          
         }
       }else{
         self.hideSpinner()

@@ -125,7 +125,8 @@ class PreludeViewController: UIViewController {
         self.performSegue(withIdentifier: "kPreludeHomeSegue", sender: nil)
       }else{
         self.performSegue(withIdentifier: "kPreludeChooseClubSegue", sender: nil)
-      }      
+      }
+      
     }else{
       self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
     }

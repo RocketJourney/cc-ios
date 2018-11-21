@@ -17,6 +17,7 @@ class User: Object {
   @objc dynamic var token = ""
   @objc dynamic var currentClub: Club?
   var clubs = List<Club>()
+  
   override static func primaryKey() -> String {
     return "id"
   }

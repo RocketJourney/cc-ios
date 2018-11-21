@@ -191,6 +191,24 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()
+        if let error = error as? NSError {
+          if error.code == 500{
+            self.internalServerError()
+          }else if error.code == 401 || error.code == 404 {
+            
+            let alertController = UIAlertController(title: "EMAIL_PASSWORD_NO_MATCH".localized, message: "TRY_AGAIN".localized, preferredStyle: UIAlertController.Style.alert)
+            
+            let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+              
+            })
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+          }
+        }
+        
+        
+        
       }
     }else{
       self.noInternetAlert()
