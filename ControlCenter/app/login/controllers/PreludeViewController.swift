@@ -69,6 +69,7 @@ class PreludeViewController: UIViewController {
         if self.isNetworkReachable(){
           User.validateInvitation(code, completion: {
             self.hideSpinner()
+            NSLog("checkEmail Segue")
             self.performSegue(withIdentifier: "kCheckEmailSegue", sender: nil)
             
           }) { (error) in

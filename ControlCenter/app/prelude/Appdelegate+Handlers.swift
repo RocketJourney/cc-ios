@@ -19,14 +19,21 @@ extension AppDelegate {
     branch?.initSession(launchOptions: launchOptions, isReferrable: true,
                         andRegisterDeepLinkHandler: { params, error in
                           if let params = params {
-                            print(params)
+                            NSLog("params %@", params)
                             let json = JSON(params)
-                            print(json)
+                            //NSLog("json %@", json)
+                            
                             if let invitationCode = json["invitation_code"].string {
-                              print(invitationCode)
-                              NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)                                                      
-                              let userInfo = ["invitationCode" : invitationCode]
-                              NotificationCenter.default.post(name: Notification.Name("invitationCodeNotification"), object: nil, userInfo: userInfo)
+                              NSLog(invitationCode)
+                              DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+                                NotificationCenter.default.post(name: Notification.Name("showPreludeViewController"), object: nil)
+                              })
+                              
+                              DispatchQueue.main.asyncAfter(deadline: .now() + 0.9, execute: {
+                                let userInfo = ["invitationCode" : invitationCode]
+                                NotificationCenter.default.post(name: Notification.Name("invitationCodeNotification"), object: nil, userInfo: userInfo)
+                              })
+                              
                               
                             }
                           } else {
