@@ -233,10 +233,11 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
   
   
   func noRegisterEmailAlert(email: String) -> Void {
-    let alertController = UIAlertController(title: "EMAIL_SENT".localized, message: "EMAIL_SENT_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
+    let alertController = UIAlertController(title: "EMAIL_NOT_REGISTERED".localized, message: "EMAIL_NOT_REGISTERED_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
     
     let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
-            
+      
+      
     })
     alertController.addAction(alertAction)
     self.present(alertController, animated: true, completion: nil)
@@ -244,11 +245,10 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
   
   
   func recoverPasswordAlert(email: String) -> Void {
-    let alertController = UIAlertController(title: "EMAIL_NOT_REGISTERED".localized, message: "EMAIL_NOT_REGISTERED_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
+    let alertController = UIAlertController(title: "EMAIL_SENT".localized, message: "EMAIL_SENT_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
     
     let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
       self.dismissView()
-      
     })
     alertController.addAction(alertAction)
     self.present(alertController, animated: true, completion: nil)
