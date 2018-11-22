@@ -32,7 +32,7 @@ class PreludeViewController: UIViewController {
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor.rocketYellow()
     self.activityIndicator.startAnimating()
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
       self.showIntroViewController()
       
     }
