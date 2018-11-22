@@ -77,6 +77,7 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
         _email.textColor = UIColor(hex: 0xeaeaea)
         _email.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60)
         cell.addSubview(_email)
+        _email.addTarget(self, action: #selector(self.textChanged(_:)), for: .editingChanged)
         let string = NSMutableAttributedString(string: "SIGN_UP_FORM_EMAIL".localized)
         string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
         _email.attributedPlaceholder = string
@@ -110,6 +111,7 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
         self.activityIndicator = _activityIndicator
         
         self.loginButton = _loginButton
+        self.validateButton()
         
         cell.addSubview(_loginButton)
       }
@@ -134,12 +136,15 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
       User.recoverPassword((self.email?.text)!, completion: {
         self.showSendButton()
         self.hideSpinner()
+        self.recoverPasswordAlert(email: (self.email?.text)!)
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()
         if let error = error as? NSError {
           if error.code == 500{
             self.internalServerError()
+          }else{
+            self.noRegisterEmailAlert(email: (self.email?.text)!)
           }
         }
       }
@@ -171,6 +176,23 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
     return emailTest.evaluate(with: emailString)
   }
   
+  @objc func textChanged(_ sender:UITextField) {
+    self.validateButton()
+  }
+  
+  
+  func validateButton() -> Void {
+    
+      if validate() {
+        self.loginButton?.isEnabled = true
+        self.loginButton?.alpha = 1.0
+      } else {
+        self.loginButton?.isEnabled = false
+        self.loginButton?.alpha = 0.3
+      }
+    
+  }
+  
   
   private func showSpinner() -> Void {
     self.activityIndicator?.isHidden = false
@@ -197,5 +219,38 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
     self.loginButton?.isSelected = true
     self.loginButton?.isHidden = true
     self.loginButton?.isEnabled = false
+  }
+  
+  
+  fileprivate func validate()->Bool {
+    if self.email != nil {
+      if let text = self.email?.text {
+        return self.isValidEmail(emailString: text)
+      }
+    }
+    return false
+  }
+  
+  
+  func noRegisterEmailAlert(email: String) -> Void {
+    let alertController = UIAlertController(title: "EMAIL_SENT".localized, message: "EMAIL_SENT_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
+    
+    let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+            
+    })
+    alertController.addAction(alertAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  
+  func recoverPasswordAlert(email: String) -> Void {
+    let alertController = UIAlertController(title: "EMAIL_NOT_REGISTERED".localized, message: "EMAIL_NOT_REGISTERED_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
+    
+    let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+      self.dismissView()
+      
+    })
+    alertController.addAction(alertAction)
+    self.present(alertController, animated: true, completion: nil)
   }
 }

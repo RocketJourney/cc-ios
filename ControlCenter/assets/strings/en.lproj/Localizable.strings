@@ -45,3 +45,9 @@
 
 "EMAIL_PASSWORD_NO_MATCH"="Email and Password Do Not Match";
 "TRY_AGAIN"="Please try again.";
+
+"EMAIL_SENT"="Email Sent";
+"EMAIL_SENT_TEXT"="Please check your email and follow instructions to reset your password.";
+
+"EMAIL_NOT_REGISTERED"="Email Not Registered";
+"EMAIL_NOT_REGISTERED_TEXT"="Please try again or sign up for an account.";

@@ -45,3 +45,9 @@
 
 "EMAIL_PASSWORD_NO_MATCH"="Email & Contraseña No Coinciden";
 "TRY_AGAIN"="Por favor reintenta.";
+
+"EMAIL_SENT"="Email Enviado";
+"EMAIL_SENT_TEXT"="Consulta tu email y sigue las instrucciones para restablecer tu contraseña.";
+
+"EMAIL_NOT_REGISTERED"="Email Not Registered";
+"EMAIL_NOT_REGISTERED_TEXT"="Please try again or sign up for an account.";
