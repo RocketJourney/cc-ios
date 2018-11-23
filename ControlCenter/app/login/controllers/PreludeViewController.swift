@@ -78,17 +78,8 @@ class PreludeViewController: UIViewController {
             self.hideSpinner()
             NSLog(error.localizedDescription)
             if let error = error as? NSError {
-              if error.code == 422 {
-                let alertController = UIAlertController(title: "LINK_DOES_NOT_EXIST".localized, message: "LINK_DOES_NOT_EXIST".localized, preferredStyle: UIAlertController.Style.alert)
-                
-                let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
-                  self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
-                
-                })
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
-              }else if error.code == 404 {
-                let alertController = UIAlertController(title: "LINK_EXPIRED".localized, message: "LINK_EXPIRED".localized, preferredStyle: UIAlertController.Style.alert)
+              if error.code == 422 || error.code == 404 {                
+                let alertController = UIAlertController(title: "LINK_EXPIRED".localized, message: "LINK_EXPIRED_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
                 let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
                   self.performSegue(withIdentifier: "kIntroSegue", sender: nil)
                   

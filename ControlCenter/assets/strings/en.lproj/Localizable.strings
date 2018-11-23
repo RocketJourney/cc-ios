@@ -28,9 +28,6 @@
 "DISMISS"="Dismiss";
 "OK"="Ok";
 
-"LINK_DOES_NOT_EXIST"="Link does not exist";
-"LINK_EXPIRED"="Link expired";
-
 "NAME"="Name";
 "LAST_NAME"="Last Name";
 "PASSWORD"="Password";
@@ -51,3 +48,9 @@
 
 "EMAIL_NOT_REGISTERED"="Email Not Registered";
 "EMAIL_NOT_REGISTERED_TEXT"="Please try again or sign up for an account.";
+
+"SIGN_VALIDATION_TITLE"="Invalid Password";
+"SIGN_VALIDATION_MESSAGE"="Password must be at least 6 characters long.";
+
+"LINK_EXPIRED"="Link Expired";
+"LINK_EXPIRED_TEXT"="Ask the gym manager to send you another invite link.";

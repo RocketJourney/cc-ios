@@ -145,7 +145,8 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           _name.tintColor = UIColor.rocketYellow()
           
           _name.keyboardType = .namePhonePad
-          _name.autocapitalizationType = .none
+          _name.autocapitalizationType = .words
+          _name.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           self.name = _name
         }
       case 2:
@@ -171,9 +172,9 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           _lastName.attributedPlaceholder = string
           //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           _lastName.tintColor = UIColor.rocketYellow()
-          
+          _lastName.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           _lastName.keyboardType = .namePhonePad
-          _lastName.autocapitalizationType = .none
+          _lastName.autocapitalizationType = .words
           self.lastName = _lastName
         }
       default:
@@ -199,7 +200,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           let string = NSMutableAttributedString(string: "PASSWORD".localized)
           string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
           _password.attributedPlaceholder = string
-          //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
+          _password.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           _password.tintColor = UIColor.rocketYellow()
           
           _password.keyboardType = .default
@@ -237,6 +238,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
         cell.addSubview(_activityIndicator)
         _activityIndicator.center = _nextButton.center
         self.activityIndicator = _activityIndicator
+        self.validate()
       }
     }
     
@@ -259,9 +261,10 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     let button = sender
     button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)//Choose your colour here
     button.isSelected = true
-    if (self.emailString?.count)! > 0 && (self.name?.text?.count)! > 0 && (self.lastName?.text?.count)! > 0 && (self.password?.text?.count)! > 0 {
+    if (self.emailString?.count)! > 0 && (self.name?.text?.count)! > 0 && (self.lastName?.text?.count)! > 0 && (self.password?.text?.count)! > 5 {
         self.sendData()
     }else{
+      self.alertPasswordNotLongEnough()
       button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 1.0)//Choose your colour here
       button.isSelected = false
     }
@@ -320,6 +323,37 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     self.nextButton?.isSelected = true
     self.nextButton?.isHidden = true
     self.nextButton?.isEnabled = true
+  }
+  
+  
+  func isValidEmail(emailString:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: emailString)
+  }
+  
+  
+  @objc private func validate() -> Void {
+    if let _ = self.email {
+      if self.isValidEmail(emailString: self.email!.text ?? "") && (self.name?.text?.count)! > 0 && (self.lastName?.text?.count)! > 0 && (self.password?.text?.count)! > 0{
+        self.nextButton?.alpha = 1.0
+        self.nextButton?.isEnabled = true
+      } else {
+        self.nextButton?.alpha = 0.1
+        self.nextButton?.isEnabled = false
+      }
+    }
+  }
+  
+  private func alertPasswordNotLongEnough() {
+    let alertController = UIAlertController(title: "SIGN_VALIDATION_TITLE".localized, message: "SIGN_VALIDATION_MESSAGE".localized, preferredStyle: UIAlertController.Style.alert)
+    
+    let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+      
+    })
+    alertController.addAction(alertAction)
+    self.present(alertController, animated: true, completion: nil)
   }
   
 }

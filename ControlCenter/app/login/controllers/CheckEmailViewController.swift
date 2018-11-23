@@ -108,7 +108,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
         let string = NSMutableAttributedString(string: "EMAIL".localized)
         string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
         _email.attributedPlaceholder = string
-        //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
+        _email.addTarget(self, action: #selector(self.validate), for: .editingChanged)
         _email.tintColor = UIColor.rocketYellow()
         
         _email.keyboardType = .emailAddress
@@ -136,6 +136,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.addSubview(_activityIndicator)
         _activityIndicator.center = _nextButton.center
         self.activityIndicator = _activityIndicator
+        self.validate()
       }
     }
     
@@ -220,6 +221,18 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
+  @objc private func validate() -> Void {
+    if let _ = self.email {
+      if isValidEmail(emailString: self.email!.text ?? "") {
+        self.nextButton?.alpha = 1.0
+        self.nextButton?.isEnabled = true
+      } else {
+        self.nextButton?.alpha = 0.1
+        self.nextButton?.isEnabled = false
+      }
+    }
+  }
+  
   
   func isValidEmail(emailString:String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -227,5 +240,8 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
     let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
     return emailTest.evaluate(with: emailString)
   }
+  
+  
+
   
 }

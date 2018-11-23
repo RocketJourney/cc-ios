@@ -28,9 +28,6 @@
 "DISMISS"="Continuar";
 "OK"="Ok";
 
-"LINK_DOES_NOT_EXIST"="Link does not exist";
-"LINK_EXPIRED"="Link expired";
-
 "NAME"="Nombre";
 "LAST_NAME"="Apellido";
 "PASSWORD"="Contraseña";
@@ -49,5 +46,11 @@
 "EMAIL_SENT"="Email Enviado";
 "EMAIL_SENT_TEXT"="Consulta tu email y sigue las instrucciones para restablecer tu contraseña.";
 
-"EMAIL_NOT_REGISTERED"="Email Not Registered";
-"EMAIL_NOT_REGISTERED_TEXT"="Please try again or sign up for an account.";
+"EMAIL_NOT_REGISTERED"="Email No Está Registrado";
+"EMAIL_NOT_REGISTERED_TEXT"="Por favor reintenta o registra una cuenta.";
+
+"SIGN_VALIDATION_TITLE"="Contraseña Inválida";
+"SIGN_VALIDATION_MESSAGE"="La contraseña debe tener al menos 6 caracteres.";
+
+"LINK_EXPIRED"="Link Expiró";
+"LINK_EXPIRED_TEXT"="Pídele al gerente de tu gym otro link de invitación.";

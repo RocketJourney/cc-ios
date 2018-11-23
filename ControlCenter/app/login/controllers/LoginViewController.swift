@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Do any additional setup after loading the view.
   }
-    
+  
   
   @objc func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x313131)
@@ -88,7 +88,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           let string = NSMutableAttributedString(string: "SIGN_UP_FORM_EMAIL".localized)
           string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
           _email.attributedPlaceholder = string
-          //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
+          _email.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           _email.tintColor = UIColor.rocketYellow()
           
           _email.keyboardType = .emailAddress
@@ -118,7 +118,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           _password.tintColor = UIColor.rocketYellow()
           _password.keyboardType = .default
           _password.isSecureTextEntry = true
-          //_password.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
+          _password.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           //_password.isSecureTextEntry = showPassword
           self.password = _password
           cell.addSubview(_password)
@@ -147,7 +147,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           _loginButton.backgroundColor = UIColor(hex: 0xffcc00)
           _loginButton.layer.cornerRadius = 12
           _loginButton.titleLabel?.font = UIFont.montserratBold(20)
-          _loginButton.addTarget(self, action: #selector(self.validateData(_:)), for: .touchUpInside)
+          _loginButton.addTarget(self, action: #selector(self.signUp(_:)), for: .touchUpInside)
           
           let _activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
           _activityIndicator.color = UIColor.white
@@ -157,7 +157,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           self.activityIndicator = _activityIndicator
           
           self.loginButton = _loginButton
-          
+          self.validate()
           cell.addSubview(_loginButton)
         }
       }
@@ -281,5 +281,48 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   @objc func forgotPassword() -> Void {
     self.performSegue(withIdentifier: "kRecoverPasswordSegue", sender: nil)
+  }
+  
+  
+  @objc private func validate() -> Void {
+    if let _ = self.email,
+      let _ = self.password {
+      if isValidEmail(emailString: self.email!.text ?? "") && (self.password!.text ?? "").count > 0 {
+        self.loginButton?.alpha = 1.0
+        self.loginButton?.isEnabled = true
+      } else {
+        self.loginButton?.alpha = 0.1
+        self.loginButton?.isEnabled = false
+      }
+    }
+  }
+  
+  func isValidEmail(emailString:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: emailString)
+  }
+  
+  
+  
+  
+  
+  @objc func signUp(_ sender:UIButton) {
+    if (self.password?.text!.count)! > 5 {
+      self.sendData()
+    } else {
+      self.alertPasswordNotLongEnough()
+    }
+  }
+  
+  private func alertPasswordNotLongEnough() {
+    let alertController = UIAlertController(title: "SIGN_VALIDATION_TITLE".localized, message: "SIGN_VALIDATION_MESSAGE".localized, preferredStyle: UIAlertController.Style.alert)
+    
+    let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+      
+    })
+    alertController.addAction(alertAction)
+    self.present(alertController, animated: true, completion: nil)
   }
 }
