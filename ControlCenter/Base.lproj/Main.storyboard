@@ -157,7 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Yoz-b0-OB6" id="9Pp-8W-Jh4"/>
-                        <segue destination="NzL-tf-TlE" kind="custom" identifier="kSignUpHomeSegue" customClass="SignUpHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="j3v-4R-5hn"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="kCreateAccountPreludeSegue" customClass="CreateAccountPreludeSegue" customModule="ControlCenter" customModuleProvider="target" id="Lvk-GJ-0ld"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1H-ZS-3e9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -325,6 +325,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="fvk-q2-7HB" id="7pQ-Su-ZZ3"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="kClubPreludeSegue" customClass="ClubPreludeSegue" customModule="ControlCenter" customModuleProvider="target" id="fKT-zy-Fg6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THm-Ql-Aj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,6 +339,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vUb-9f-8BF"/>
-        <segue reference="o6S-FL-klV"/>
+        <segue reference="Lvk-GJ-0ld"/>
     </inferredMetricsTieBreakers>
 </document>

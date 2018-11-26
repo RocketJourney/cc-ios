@@ -279,10 +279,12 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
       User.signUp(self.emailString!, name: (self.name?.text)!, lastName: (self.lastName?.text)!, password: (self.password?.text)!, invitationCode: self.invitationCode!, completion: {
         self.hideSpinner()
         self.showSendButton()
-        self.navigationController?.popToRootViewController(animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-        NotificationCenter.default.post(name: NSNotification.Name("dismissCheckEmailNotification"), object: nil)
-        }
+//        self.navigationController?.popToRootViewController(animated: true)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//        NotificationCenter.default.post(name: NSNotification.Name("dismissCheckEmailNotification"), object: nil)
+        
+        //}
+        self.performSegue(withIdentifier: "kCreateAccountPreludeSegue", sender: nil)
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()

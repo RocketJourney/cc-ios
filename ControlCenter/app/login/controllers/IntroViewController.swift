@@ -98,7 +98,7 @@ class IntroViewController: UIViewController {
       button.backgroundColor = UIColor(hex: 0xffcc00, alpha: 0.1)
     }
     
-    performSegue(withIdentifier: "kLoginSegue", sender: nil)
+    self.performSegue(withIdentifier: "kLoginSegue", sender: nil)
   }
   
   

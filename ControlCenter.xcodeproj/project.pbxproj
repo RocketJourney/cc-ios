@@ -46,6 +46,8 @@
 		F0CC36FF21A3AFEC00B89575 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */; };
 		F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */; };
 		F0CC370521A498EE00B89575 /* PreludeChooseClubSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */; };
+		F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3BB1821AB8857006F4C93 /* ClubPreludeSegue.swift */; };
+		F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */; };
 		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
 		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
 		F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */; };
@@ -128,6 +130,8 @@
 		F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeHomeSegue.swift; sourceTree = "<group>"; };
 		F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeChooseClubSegue.swift; sourceTree = "<group>"; };
+		F0D3BB1821AB8857006F4C93 /* ClubPreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPreludeSegue.swift; sourceTree = "<group>"; };
+		F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPreludeSegue.swift; sourceTree = "<group>"; };
 		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
 		F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeViewController.swift; sourceTree = "<group>"; };
 		F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSegue.swift; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 		F050660B21950A9200675D86 /* transitions */ = {
 			isa = PBXGroup;
 			children = (
+				F0D3BB1821AB8857006F4C93 /* ClubPreludeSegue.swift */,
 				F050660C21950A9200675D86 /* LoginSegue.swift */,
 				F079F292219643CD00BB22EF /* RecoverPasswordSegue.swift */,
 				F079F29421965AA500BB22EF /* ChooseClubSegue.swift */,
@@ -312,6 +317,7 @@
 				F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */,
 				F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */,
 				F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */,
+				F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -643,6 +649,7 @@
 				F0DFBD9B219E4E3100F94BA1 /* User+Login.swift in Sources */,
 				F079F28E2196351F00BB22EF /* ClubTableViewCell.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
+				F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
 				F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
@@ -659,6 +666,7 @@
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
+				F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,

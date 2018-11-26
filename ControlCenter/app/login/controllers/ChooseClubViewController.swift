@@ -75,15 +75,16 @@ class ChooseClubViewController: UIViewController, UITableViewDelegate, UITableVi
       User.current?.currentClub = club
     }
     
-    self.dismissView()
-        
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-    NotificationCenter.default.post(name: NSNotification.Name("dismissChooseClublNotification"), object: nil)
-    }
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-      NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
-    }
+//    self.dismissView()
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+//    NotificationCenter.default.post(name: NSNotification.Name("dismissChooseClublNotification"), object: nil)
+//    }
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+//      NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
+//    }
+    self.performSegue(withIdentifier: "kClubPreludeSegue", sender: nil)
   }
   
 }
