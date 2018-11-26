@@ -178,14 +178,25 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
       self.showSpinner()
       
       if self.isNetworkReachable() {
-        User.validateInvitationWhitEmail(self.invitationCode!, email: (self.email?.text)!, completion: {
-          
+        
+        User.validateInvitationWhitEmail(self.invitationCode!, email: (self.email?.text)!, completion: { (statusCode) in
           self.backButton?.isEnabled = true
           self.nextButton?.isEnabled = true
           self.nextButton?.isHidden = false
           self.nextButton?.isSelected = false
           self.hideSpinner()
-          self.performSegue(withIdentifier: "kCreateAccountSegue", sender: nil)
+          
+          if statusCode == 200 {
+            self.performSegue(withIdentifier: "kCreateAccountSegue", sender: nil)
+          }else if statusCode == 201 {
+            let alertController = UIAlertController(title: "ACCOUNT_ALREADY_LINKED".localized, message: "ACCOUNT_ALREADY_LINKED_TEXT".localized, preferredStyle: UIAlertController.Style.alert)
+            
+            let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
+              self.dismissViewController()
+            })
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+          }
           
         }) { (error) in
           self.hideSpinner()
@@ -197,19 +208,12 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
           if let error = error as? NSError {
             if error.code == 500{
               self.internalServerError()
-            }else if error.code == 304 {
-              let alertController = UIAlertController(title: "EMAIL_ALREADY_REGISTERED".localized, message: "ALREADY_ACCOUNT".localized, preferredStyle: UIAlertController.Style.alert)
-              
-              let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
-                
-              })
-              alertController.addAction(alertAction)
-              self.present(alertController, animated: true, completion: nil)
             }
           }
-          
-          
         }
+        
+        
+        
       }else{
         self.hideSpinner()
         self.backButton?.isEnabled = true

@@ -54,3 +54,6 @@
 
 "LINK_EXPIRED"="Link Expired";
 "LINK_EXPIRED_TEXT"="Ask the gym manager to send you another invite link.";
+
+"ACCOUNT_ALREADY_LINKED"="Your account was already linked";
+"ACCOUNT_ALREADY_LINKED_TEXT"="Your account was already linked to this club. Log in with your email and password.";

@@ -24,10 +24,10 @@ extension User {
   
   
   
-  class func validateInvitationWhitEmail(_ invitationCode: String, email: String,completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+  class func validateInvitationWhitEmail(_ invitationCode: String, email: String,completion: @escaping (_ statusCode: Int)->(), error: @escaping(_ error: Error) -> ()) -> Void {
     Alamofire.request(InvitationRouter.validateInvitationWithEmail(invitationCode, email)).responseJSON { (response) in
       if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
-        completion()
+        completion((response.response?.statusCode)!)
       }else{
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
       }

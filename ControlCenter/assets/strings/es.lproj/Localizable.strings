@@ -54,3 +54,6 @@
 
 "LINK_EXPIRED"="Link Expiró";
 "LINK_EXPIRED_TEXT"="Pídele al gerente de tu gym otro link de invitación.";
+
+"ACCOUNT_ALREADY_LINKED"="Tu cuenta ya estaba ligada";
+"ACCOUNT_ALREADY_LINKED_TEXT"="Tu cuenta ya estaba ligada a este club. Inicia sesión con tu email y contraseña.";
