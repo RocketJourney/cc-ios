@@ -12,6 +12,7 @@ target 'ControlCenter' do
   pod 'IQKeyboardManagerSwift'
   pod 'ReachabilitySwift'
   pod 'RealmSwift'
+  pod 'SideMenu', '5.0.0'
   pod 'SDWebImage'
   pod 'SnapKit'
   pod 'SwiftHEXColors'
