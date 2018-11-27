@@ -17,6 +17,8 @@
 		F016902B2191073E001526DA /* ControlCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016902A2191073E001526DA /* ControlCenterTests.swift */; };
 		F01690362191073E001526DA /* ControlCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690352191073E001526DA /* ControlCenterUITests.swift */; };
 		F016904421910910001526DA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F016904321910910001526DA /* Podfile */; };
+		F03BD8CA21ACA6F400911917 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03BD8C821ACA6F400911917 /* DashboardViewController.swift */; };
+		F03BD8CF21ACAD3300911917 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03BD8CD21ACAD3300911917 /* UsersViewController.swift */; };
 		F05065F32194DD5200675D86 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F12194DD5200675D86 /* IntroViewController.swift */; };
 		F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F52194E10400675D86 /* UIColor+extension.swift */; };
 		F05065F82194EF9500675D86 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05065F72194EF9500675D86 /* String+extension.swift */; };
@@ -99,6 +101,10 @@
 		F01690352191073E001526DA /* ControlCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterUITests.swift; sourceTree = "<group>"; };
 		F01690372191073E001526DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F016904321910910001526DA /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F03BD8C821ACA6F400911917 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		F03BD8CD21ACAD3300911917 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		F03BD8D221ACC69E00911917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F03BD8D421ACC6A600911917 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		F05065F12194DD5200675D86 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		F05065F52194E10400675D86 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		F05065F72194EF9500675D86 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
@@ -245,9 +251,36 @@
 			path = ControlCenterUITests;
 			sourceTree = "<group>";
 		};
+		F03BD8C421ACA6BC00911917 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				F03BD8C621ACA6D100911917 /* views */,
+				F03BD8C521ACA6CA00911917 /* controllers */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		F03BD8C521ACA6CA00911917 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F03BD8C821ACA6F400911917 /* DashboardViewController.swift */,
+				F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */,
+				F03BD8CD21ACAD3300911917 /* UsersViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		F03BD8C621ACA6D100911917 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		F05065EC2194C7A200675D86 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F03BD8C421ACA6BC00911917 /* home */,
 				F07067032195118600873B85 /* prelude */,
 				F05065ED2194C7D600675D86 /* login */,
 			);
@@ -291,7 +324,6 @@
 				F079F2892196230700BB22EF /* ChooseClubViewController.swift */,
 				F079F29021963FFA00BB22EF /* RecoverPasswordViewController.swift */,
 				F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */,
-				F0CC36FE21A3AFEC00B89575 /* HomeViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -661,6 +693,7 @@
 				F05065F62194E10400675D86 /* UIColor+extension.swift in Sources */,
 				F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */,
 				F050660D21950A9200675D86 /* LoginSegue.swift in Sources */,
+				F03BD8CA21ACA6F400911917 /* DashboardViewController.swift in Sources */,
 				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
 				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
 				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
@@ -669,6 +702,7 @@
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
 				F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */,
+				F03BD8CF21ACAD3300911917 /* UsersViewController.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */,
 				F01690162191073B001526DA /* AppDelegate.swift in Sources */,
@@ -718,6 +752,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F016901A2191073B001526DA /* Base */,
+				F03BD8D221ACC69E00911917 /* en */,
+				F03BD8D421ACC6A600911917 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

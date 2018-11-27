@@ -57,3 +57,6 @@
 
 "ACCOUNT_ALREADY_LINKED"="Tu Cuenta Fue Ligada";
 "ACCOUNT_ALREADY_LINKED_TEXT"="Tu cuenta fue ligada a este club. Inicia sesión con tu email y contraseña.";
+
+"DASHBOARD"="Tablero";
+"USERS"="Usuarios";

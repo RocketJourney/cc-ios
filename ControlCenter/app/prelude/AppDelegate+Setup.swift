@@ -23,7 +23,7 @@ extension AppDelegate {
     
     
     UINavigationBar.appearance().tintColor = UIColor.rocketYellow()
-    UINavigationBar.appearance().barTintColor = UIColor(hex: 0x1a1a1a)
+    UINavigationBar.appearance().barTintColor = UIColor(hex: 0x333333)
     UINavigationBar.appearance().isTranslucent = false
   }
   

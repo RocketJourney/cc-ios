@@ -47,13 +47,13 @@
                         <outlet property="activityIndicator" destination="IB7-vS-h7n" id="qWQ-g3-pSE"/>
                         <segue destination="gcb-ef-NFv" kind="custom" identifier="kIntroSegue" customClass="IntroSegue" customModule="ControlCenter" customModuleProvider="target" id="eSk-Df-ylb"/>
                         <segue destination="UIW-Er-CWo" kind="custom" identifier="kCheckEmailSegue" customClass="CheckEmailSegue" customModule="ControlCenter" customModuleProvider="target" id="bGF-fp-NXN"/>
-                        <segue destination="NzL-tf-TlE" kind="custom" identifier="kPreludeHomeSegue" customClass="PreludeHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="o6S-FL-klV"/>
                         <segue destination="hkb-uv-Tjd" kind="custom" identifier="kPreludeChooseClubSegue" customClass="PreludeChooseClubSegue" customModule="ControlCenter" customModuleProvider="target" id="vUb-9f-8BF"/>
+                        <segue destination="gd3-UJ-1bz" kind="custom" identifier="kPreludeHomeSegue" customClass="PreludeHomeSegue" customModule="ControlCenter" customModuleProvider="target" id="9aY-wk-94C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="-443.02848575712147"/>
+            <point key="canvasLocation" x="292" y="-824"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="qrT-7c-F3I">
@@ -164,36 +164,61 @@
             </objects>
             <point key="canvasLocation" x="2688.8000000000002" y="-15.742128935532236"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="jLY-35-Jne">
+        <!--Users-->
+        <scene sceneID="DJJ-ZW-jhX">
             <objects>
-                <viewController id="NzL-tf-TlE" customClass="HomeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fLD-o2-EsD" customClass="UsersViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="x3m-hM-nMy"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vwc-pT-JO1"/>
+                        <viewControllerLayoutGuide type="top" id="sHH-jI-r5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="WH1-am-c6K"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mMJ-MB-9XA">
+                    <view key="view" contentMode="scaleToFill" id="rY5-x6-esR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-kz-uLg">
-                                <rect key="frame" x="163.5" y="120" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nMO-kz-uLg" firstAttribute="top" secondItem="x3m-hM-nMy" secondAttribute="bottom" constant="100" id="Hro-8B-m3M"/>
-                            <constraint firstItem="nMO-kz-uLg" firstAttribute="centerX" secondItem="mMJ-MB-9XA" secondAttribute="centerX" id="Jya-E5-u2H"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="logotuButton" destination="nMO-kz-uLg" id="LBC-C2-VI4"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Users" id="nQf-Io-9JW"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1aI-mN-InB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rq-Gh-6O2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730" y="819"/>
+            <point key="canvasLocation" x="4502" y="1215"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="ctB-Id-kqh">
+            <objects>
+                <viewController id="QtM-vD-W6N" customClass="DashboardViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7M5-aq-L5r"/>
+                        <viewControllerLayoutGuide type="bottom" id="oL2-cA-2Eq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pLs-hf-jsc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Dashboard" id="U6g-wR-cCg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZo-Zb-EIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4502" y="549"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="tbV-ew-GVf">
+            <objects>
+                <tabBarController id="gd3-UJ-1bz" customClass="HomeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o9b-3Y-fLJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="QtM-vD-W6N" kind="relationship" relationship="viewControllers" id="Hgv-pz-YVn"/>
+                        <segue destination="fLD-o2-EsD" kind="relationship" relationship="viewControllers" id="ft1-hG-pI5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MvL-AO-wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3548" y="882"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">

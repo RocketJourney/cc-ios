@@ -57,3 +57,6 @@
 
 "ACCOUNT_ALREADY_LINKED"="Your Account Was Linked";
 "ACCOUNT_ALREADY_LINKED_TEXT"="Your account was linked to this club. Log in with your email and password.";
+
+"DASHBOARD"="Dashboard";
+"USERS"="Users";
