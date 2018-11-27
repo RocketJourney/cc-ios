@@ -8,11 +8,14 @@
 
 import UIKit
 import RealmSwift
+import SideMenu
 
 class HomeViewController: UITabBarController {
   
   var club: Club?
   var titleViewCache: UIView?
+  
+  var menuButton: UIBarButtonItem?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,6 +29,8 @@ class HomeViewController: UITabBarController {
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
     self.navigationItem.titleView = self.titleView((self.club?.logoUrl)!, name: (self.club?.name)!)
+    self.setupMenu()
+    self.setupMenuButton()
   }
   
   @objc func logoutAction() -> Void {
@@ -86,5 +91,30 @@ class HomeViewController: UITabBarController {
     }
   }
   
+  
+  private func setupMenu() -> Void {
+    let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+    SideMenuManager.default.menuLeftNavigationController = UISideMenuNavigationController(rootViewController: menuViewController)
+    SideMenuManager.default.menuAddPanGestureToPresent(toView: (self.navigationController?.navigationBar)!)
+    SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: (self.navigationController?.view)!)
+    SideMenuManager.default.menuFadeStatusBar = false
+    SideMenuManager.default.menuWidth = self.view.frame.width - 50
+    
+    
+  }
+  
+  private func setupMenuButton() -> Void {
+    self.menuButton = UIBarButtonItem(image: UIImage(named:"side-menu"), style: .plain, target: self, action: #selector(self.showMenu))
+    self.navigationItem.leftBarButtonItem = self.menuButton
+    self.navigationItem.leftBarButtonItem?.tintColor = UIColor(hex: 0x7a7a7a)
+  }
+  
+  @objc private func showMenu() -> Void {
+    self.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+  }
+  
+  @objc private func dismissMenu() -> Void{
+    self.dismiss(animated: true, completion: nil)
+  }
   
 }
