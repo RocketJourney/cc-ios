@@ -18,10 +18,8 @@ enum UserRouter: URLRequestConvertible {
     let urlRequest = RequestBuilderV2.build(path, method: method)
     switch self {
       
-    case .getSpotsFromClub(clubId: <#T##Int#>):
-      break
-    default:
-      break
+    case .getSpotsFromClub(_):
+      break    
     }
     
     return urlRequest

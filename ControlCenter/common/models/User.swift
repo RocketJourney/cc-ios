@@ -15,6 +15,7 @@ class User: Object {
   @objc dynamic var firstName = ""
   @objc dynamic var lastName = ""
   @objc dynamic var token = ""
+  @objc dynamic var permission = ""
   @objc dynamic var currentClub: Club?
   var clubs = List<Club>()
   

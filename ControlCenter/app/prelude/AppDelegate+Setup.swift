@@ -37,9 +37,13 @@ extension AppDelegate {
       if oldSchemaVersion < 2 {
         //add id to User model
       }
+      
+      if oldSchemaVersion < 3 {
+        // add permission to User model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 3, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }
