@@ -42,6 +42,7 @@
 		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
 		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
 		F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C421927C5400080D94 /* UIViewController+extension.swift */; };
+		F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */; };
 		F0CC36F921A39D9B00B89575 /* CreateAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36F821A39D9B00B89575 /* CreateAccountSegue.swift */; };
 		F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FA21A3AB5700B89575 /* Club.swift */; };
 		F0CC36FD21A3AF2400B89575 /* SignUpHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */; };
@@ -132,6 +133,7 @@
 		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		F07F54C421927C5400080D94 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
+		F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		F0CC36F821A39D9B00B89575 /* CreateAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSegue.swift; sourceTree = "<group>"; };
 		F0CC36FA21A3AB5700B89575 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpHomeSegue.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 			children = (
 				F0DFBD9C219E4E5B00F94BA1 /* LoginRouter.swift */,
 				F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */,
+				F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */,
 			);
 			path = routes;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
 				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
 				F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */,
+				F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
