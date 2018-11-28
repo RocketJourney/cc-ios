@@ -25,6 +25,11 @@ class RequestBuilderV2 {
     
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
+    
+    if let token = User.current?.token {
+      request.setValue("Bearer \(token)", forHTTPHeaderField: "authorization")
+    }
+    
     return request
   }
   

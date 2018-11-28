@@ -9,22 +9,36 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
+  @IBOutlet weak var headerView: UIView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var clubLabel: UILabel!
+  @IBOutlet weak var ownerButton: UIButton!
+  @IBOutlet weak var tableView: UITableView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.setupView()
+  }
+  
+  
+  
+  private func setupView() -> Void {
+    self.view.backgroundColor = UIColor(hex: 0x7a7a7a)
+    self.navigationController?.navigationBar.isHidden = true
+    
+    self.nameLabel.font = UIFont.montserratBold(23)
+    self.nameLabel.textColor = UIColor.white
+    self.nameLabel.text = "Name"
+    
+    self.clubLabel.font = UIFont.montserratBold(16)
+    self.clubLabel.textColor = UIColor(hex: 0xbebebe)
+    self.clubLabel.text = "Club"
+    
+    self.headerView.backgroundColor = UIColor(hex: 0x5a5a5a)
+  }
+  
+  
+  
 }
