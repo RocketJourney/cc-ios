@@ -16,6 +16,8 @@ class Club: Object {
   @objc dynamic var nameSpace = ""
   @objc dynamic var name = ""
   @objc dynamic var logoUrl = ""
+  var accesibleSpots = List<Spot>()
+  
   
   
   override static func primaryKey() -> String {

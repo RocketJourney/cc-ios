@@ -41,9 +41,17 @@ extension AppDelegate {
       if oldSchemaVersion < 3 {
         // add permission to User model
       }
+      
+      if oldSchemaVersion < 4 {
+        // add Spot model
+      }
+      
+      if oldSchemaVersion < 5 {
+        // add accesibleSpots to Club model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 3, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 5, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }
