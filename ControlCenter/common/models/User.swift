@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftyJSON
 
 class User: Object {
   @objc dynamic var id = 0
@@ -40,5 +41,37 @@ class User: Object {
       let sortDescriptors = [SortDescriptor(keyPath: "name", ascending: true)]
       return self.clubs.sorted(by: sortDescriptors)
     }
+  }
+  
+  
+  var fullName: String {
+    return "\(firstName) \(lastName)"
+  }
+  
+  
+  class func fromJSON(_ json: JSON) -> User {
+    let user = User()
+    
+    if let id = json["id"].int {
+      user.id = id
+    }
+        
+    if let firstName = json["first_name"].string {
+      user.firstName = firstName
+    }
+    
+    if let lastName = json["last_name"].string {
+      user.lastName = lastName
+    }
+    
+    if let permission = json["permission"].string {
+      user.permission = permission
+    }
+    
+    if let token = json["jwt"].string {
+      user.token = token
+    }
+    
+    return user
   }
 }
