@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PreludeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OaE-Zn-GfU"/>
-                        <viewControllerLayoutGuide type="bottom" id="ktV-xk-kmr"/>
+                        <viewControllerLayoutGuide type="top" id="SBo-FM-ta6"/>
+                        <viewControllerLayoutGuide type="bottom" id="KM4-gc-U93"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fwj-B8-lUp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ERz-Z2-fV6"/>
-                            <constraint firstItem="Fwj-B8-lUp" firstAttribute="top" secondItem="OaE-Zn-GfU" secondAttribute="bottom" constant="224" id="H30-38-DRE"/>
+                            <constraint firstItem="Fwj-B8-lUp" firstAttribute="top" secondItem="SBo-FM-ta6" secondAttribute="bottom" constant="224" id="H30-38-DRE"/>
                             <constraint firstItem="IB7-vS-h7n" firstAttribute="top" secondItem="Fwj-B8-lUp" secondAttribute="bottom" constant="90" id="LMA-CY-HBM"/>
                             <constraint firstItem="IB7-vS-h7n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="STt-VI-CAD"/>
                         </constraints>
@@ -60,8 +60,8 @@
             <objects>
                 <viewController id="gcb-ef-NFv" customClass="IntroViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZAZ-ej-Xx2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gma-9s-kri"/>
+                        <viewControllerLayoutGuide type="top" id="FIo-I3-Pqy"/>
+                        <viewControllerLayoutGuide type="bottom" id="IeI-a9-Zgr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zc2-K7-7hN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -111,7 +111,7 @@
                             <constraint firstItem="OVy-ra-M6n" firstAttribute="top" secondItem="BnF-d3-910" secondAttribute="bottom" constant="92" id="a56-EK-meY"/>
                             <constraint firstItem="wBt-X6-GPp" firstAttribute="centerX" secondItem="zc2-K7-7hN" secondAttribute="centerX" id="aag-yC-WqM"/>
                             <constraint firstItem="cf8-Zw-yhS" firstAttribute="centerX" secondItem="zc2-K7-7hN" secondAttribute="centerX" id="lS1-as-xpy"/>
-                            <constraint firstItem="cf8-Zw-yhS" firstAttribute="top" secondItem="ZAZ-ej-Xx2" secondAttribute="bottom" constant="124" id="oTv-82-X2s"/>
+                            <constraint firstItem="cf8-Zw-yhS" firstAttribute="top" secondItem="FIo-I3-Pqy" secondAttribute="bottom" constant="124" id="oTv-82-X2s"/>
                             <constraint firstItem="OVy-ra-M6n" firstAttribute="centerX" secondItem="zc2-K7-7hN" secondAttribute="centerX" id="sEs-pW-Xem"/>
                             <constraint firstItem="wBt-X6-GPp" firstAttribute="top" secondItem="cf8-Zw-yhS" secondAttribute="bottom" constant="67" id="wMj-KP-0Do"/>
                             <constraint firstItem="2si-wD-9eJ" firstAttribute="top" secondItem="OVy-ra-M6n" secondAttribute="bottom" constant="7" id="zEi-21-LZY"/>
@@ -134,8 +134,8 @@
             <objects>
                 <viewController id="ZJr-DO-cbn" customClass="CreateAccountViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g1e-A0-gNc"/>
-                        <viewControllerLayoutGuide type="bottom" id="TMW-qu-pGc"/>
+                        <viewControllerLayoutGuide type="top" id="Yqa-nz-BQB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZuI-jM-zR9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cd2-YR-w9m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -169,11 +169,11 @@
             <objects>
                 <viewController id="fLD-o2-EsD" customClass="UsersViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sHH-jI-r5I"/>
-                        <viewControllerLayoutGuide type="bottom" id="WH1-am-c6K"/>
+                        <viewControllerLayoutGuide type="top" id="fkL-IO-u7F"/>
+                        <viewControllerLayoutGuide type="bottom" id="MwM-vt-Mlw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rY5-x6-esR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -188,30 +188,56 @@
             <objects>
                 <viewController id="QtM-vD-W6N" customClass="DashboardViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7M5-aq-L5r"/>
-                        <viewControllerLayoutGuide type="bottom" id="oL2-cA-2Eq"/>
+                        <viewControllerLayoutGuide type="top" id="Voa-6O-V9p"/>
+                        <viewControllerLayoutGuide type="bottom" id="ETd-Q7-8d4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pLs-hf-jsc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-ts-x83">
+                                <rect key="frame" x="0.0" y="53" width="375" height="565"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3D-EA-ziO">
+                                <rect key="frame" x="21" y="26" width="318" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ETd-Q7-8d4" firstAttribute="top" secondItem="xbE-ts-x83" secondAttribute="bottom" id="Bgn-Y8-VTS"/>
+                            <constraint firstItem="xbE-ts-x83" firstAttribute="top" secondItem="X3D-EA-ziO" secondAttribute="bottom" constant="6" id="TJI-pT-qFP"/>
+                            <constraint firstItem="X3D-EA-ziO" firstAttribute="top" secondItem="Voa-6O-V9p" secondAttribute="bottom" constant="6" id="UNd-lS-VOH"/>
+                            <constraint firstItem="X3D-EA-ziO" firstAttribute="leading" secondItem="pLs-hf-jsc" secondAttribute="leadingMargin" constant="5" id="UmF-Oi-wMj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X3D-EA-ziO" secondAttribute="trailing" constant="20" id="kdZ-Cb-E3M"/>
+                            <constraint firstItem="xbE-ts-x83" firstAttribute="leading" secondItem="pLs-hf-jsc" secondAttribute="leading" id="qH7-gL-sxs"/>
+                            <constraint firstAttribute="trailing" secondItem="xbE-ts-x83" secondAttribute="trailing" id="sBj-8t-oOt"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="U6g-wR-cCg"/>
+                    <connections>
+                        <outlet property="tableView" destination="xbE-ts-x83" id="79R-UP-gvq"/>
+                        <outlet property="viewLocationLabel" destination="X3D-EA-ziO" id="x1r-lv-g12"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZo-Zb-EIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4502" y="549"/>
+            <point key="canvasLocation" x="4501.6000000000004" y="548.27586206896558"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tbV-ew-GVf">
             <objects>
                 <tabBarController id="gd3-UJ-1bz" customClass="HomeViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o9b-3Y-fLJ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="o9b-3Y-fLJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBarCustom" destination="o9b-3Y-fLJ" id="91z-QJ-RFx"/>
                         <segue destination="QtM-vD-W6N" kind="relationship" relationship="viewControllers" id="Hgv-pz-YVn"/>
                         <segue destination="fLD-o2-EsD" kind="relationship" relationship="viewControllers" id="ft1-hG-pI5"/>
                     </connections>
@@ -225,8 +251,8 @@
             <objects>
                 <viewController id="UIW-Er-CWo" customClass="CheckEmailViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LNV-06-6mb"/>
-                        <viewControllerLayoutGuide type="bottom" id="AHS-hG-wUB"/>
+                        <viewControllerLayoutGuide type="top" id="asU-mO-gcZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zHF-5l-D4I"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mh3-vt-cOT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -239,7 +265,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fpW-sa-Q9z" firstAttribute="bottom" secondItem="AHS-hG-wUB" secondAttribute="top" id="Rh5-Pb-XfK"/>
+                            <constraint firstItem="fpW-sa-Q9z" firstAttribute="bottom" secondItem="zHF-5l-D4I" secondAttribute="top" id="Rh5-Pb-XfK"/>
                             <constraint firstItem="fpW-sa-Q9z" firstAttribute="leading" secondItem="Mh3-vt-cOT" secondAttribute="leading" id="UVn-AF-Vjo"/>
                             <constraint firstItem="fpW-sa-Q9z" firstAttribute="trailing" secondItem="Mh3-vt-cOT" secondAttribute="trailing" id="lKG-1R-YQg"/>
                             <constraint firstItem="fpW-sa-Q9z" firstAttribute="top" secondItem="Mh3-vt-cOT" secondAttribute="top" id="vFI-uL-qYf"/>
@@ -259,8 +285,8 @@
             <objects>
                 <viewController id="due-45-N5y" customClass="LoginViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rqx-kd-DBr"/>
-                        <viewControllerLayoutGuide type="bottom" id="nmh-JR-pbb"/>
+                        <viewControllerLayoutGuide type="top" id="Tr3-4F-HFc"/>
+                        <viewControllerLayoutGuide type="bottom" id="7th-Wd-9xI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="czY-cK-Ul6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -275,7 +301,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Px2-2p-4t8" firstAttribute="top" secondItem="czY-cK-Ul6" secondAttribute="top" id="eNt-ka-6AJ"/>
-                            <constraint firstItem="nmh-JR-pbb" firstAttribute="top" secondItem="Px2-2p-4t8" secondAttribute="bottom" id="evv-Lj-BWh"/>
+                            <constraint firstItem="7th-Wd-9xI" firstAttribute="top" secondItem="Px2-2p-4t8" secondAttribute="bottom" id="evv-Lj-BWh"/>
                             <constraint firstItem="Px2-2p-4t8" firstAttribute="leading" secondItem="czY-cK-Ul6" secondAttribute="leading" id="fTU-vn-eCE"/>
                             <constraint firstAttribute="trailing" secondItem="Px2-2p-4t8" secondAttribute="trailing" id="iSE-eZ-aeW"/>
                         </constraints>
@@ -295,8 +321,8 @@
             <objects>
                 <viewController id="Tds-n4-Hfz" customClass="RecoverPasswordViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MR7-fb-Ta2"/>
-                        <viewControllerLayoutGuide type="bottom" id="s4d-Ta-4Gz"/>
+                        <viewControllerLayoutGuide type="top" id="wEF-Mw-LmV"/>
+                        <viewControllerLayoutGuide type="bottom" id="z0k-dO-yFb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kHg-6G-woa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -311,7 +337,7 @@
                         <constraints>
                             <constraint firstItem="ZiJ-Je-qOq" firstAttribute="top" secondItem="kHg-6G-woa" secondAttribute="top" id="SNC-lK-Q50"/>
                             <constraint firstItem="ZiJ-Je-qOq" firstAttribute="leading" secondItem="kHg-6G-woa" secondAttribute="leading" id="UwK-EZ-tNF"/>
-                            <constraint firstItem="s4d-Ta-4Gz" firstAttribute="top" secondItem="ZiJ-Je-qOq" secondAttribute="bottom" id="WAd-d6-ZnF"/>
+                            <constraint firstItem="z0k-dO-yFb" firstAttribute="top" secondItem="ZiJ-Je-qOq" secondAttribute="bottom" id="WAd-d6-ZnF"/>
                             <constraint firstAttribute="trailing" secondItem="ZiJ-Je-qOq" secondAttribute="trailing" id="x38-nJ-tPI"/>
                         </constraints>
                     </view>
@@ -328,8 +354,8 @@
             <objects>
                 <viewController id="hkb-uv-Tjd" customClass="ChooseClubViewController" customModule="ControlCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ru4-JH-kk4"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xbd-Yy-ThW"/>
+                        <viewControllerLayoutGuide type="top" id="bkk-zF-I0S"/>
+                        <viewControllerLayoutGuide type="bottom" id="ySy-kx-hx7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zXH-LM-8vM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -345,7 +371,7 @@
                             <constraint firstItem="fvk-q2-7HB" firstAttribute="top" secondItem="zXH-LM-8vM" secondAttribute="top" id="5wl-Wb-ddi"/>
                             <constraint firstItem="fvk-q2-7HB" firstAttribute="leading" secondItem="zXH-LM-8vM" secondAttribute="leading" id="aqi-oV-0SR"/>
                             <constraint firstAttribute="trailing" secondItem="fvk-q2-7HB" secondAttribute="trailing" id="dEy-v8-zC7"/>
-                            <constraint firstItem="Xbd-Yy-ThW" firstAttribute="top" secondItem="fvk-q2-7HB" secondAttribute="bottom" id="zTp-fm-N9D"/>
+                            <constraint firstItem="ySy-kx-hx7" firstAttribute="top" secondItem="fvk-q2-7HB" secondAttribute="bottom" id="zTp-fm-N9D"/>
                         </constraints>
                     </view>
                     <connections>

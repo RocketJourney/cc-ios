@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-OY-jFb">
-                                <rect key="frame" x="15" y="39.5" width="42" height="21"/>
+                                <rect key="frame" x="14" y="39.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="IF1-XO-ZGh" secondAttribute="bottom" constant="18" id="EHG-cK-MHY"/>
-                            <constraint firstItem="Jp5-OY-jFb" firstAttribute="leading" secondItem="Jbp-g1-lpt" secondAttribute="leading" constant="15" id="l8D-ZW-kdp"/>
+                            <constraint firstItem="Jp5-OY-jFb" firstAttribute="leading" secondItem="Jbp-g1-lpt" secondAttribute="leading" constant="14" id="l8D-ZW-kdp"/>
                             <constraint firstItem="IF1-XO-ZGh" firstAttribute="leading" secondItem="Jbp-g1-lpt" secondAttribute="leading" constant="15" id="pg0-2x-swg"/>
                             <constraint firstItem="IF1-XO-ZGh" firstAttribute="top" secondItem="Jp5-OY-jFb" secondAttribute="bottom" constant="2" id="udM-yw-VoA"/>
                         </constraints>

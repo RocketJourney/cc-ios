@@ -89,7 +89,34 @@ extension User {
   
   
   
-  func getSpotStatus(clubId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+  func getClubStatus(clubId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(UserRouter.getClubStatus(clubId)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let club = User.current?.currentClub {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              
+              if let totalUsersCheckedIn = json["data"]["total_users_checked_in"].int {
+                club.totalUsersCheckedIn = totalUsersCheckedIn
+              }
+              
+              if let totalUsersWithTeam = json["data"]["total_users_with_team"].int {
+                club.totalUsersWithTeam = totalUsersWithTeam
+              }
+              
+              if let spotCount = json["data"]["spotCount"].int {
+                club.spotCount = spotCount
+              }
+              
+            }
+          }
+        }
+      }else {
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
   }
   
 }

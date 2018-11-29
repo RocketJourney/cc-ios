@@ -16,6 +16,9 @@ class Club: Object {
   @objc dynamic var nameSpace = ""
   @objc dynamic var name = ""
   @objc dynamic var logoUrl = ""
+  @objc dynamic var totalUsersWithTeam = 0
+  @objc dynamic var totalUsersCheckedIn = 0
+  @objc dynamic var spotCount = 0
   var accesibleSpots = List<Spot>()
   
   

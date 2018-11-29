@@ -12,6 +12,8 @@ import SideMenu
 
 class HomeViewController: UITabBarController {
   
+  @IBOutlet weak var tabBarCustom: UITabBar!
+  
   var club: Club?
   var titleViewCache: UIView?
   
@@ -20,9 +22,6 @@ class HomeViewController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
-    //self.logotuButton.addTarget(self, action: #selector(self.logoutAction), for: .touchUpInside)
-    // Do any additional setup after loading the view.
-    //self.createTabBarController()
   }
   
   
@@ -31,6 +30,11 @@ class HomeViewController: UITabBarController {
     self.navigationItem.titleView = self.titleView((self.club?.logoUrl)!, name: (self.club?.name)!)
     self.setupMenu()
     self.setupMenuButton()
+    
+    //self.tabBarCustom.backgroundColor = UIColor(hex: 0x333333)
+    //self.tabBarController?.tabBar.backgroundColor = UIColor(hex: 0x333333)
+    UITabBar.appearance().backgroundColor = UIColor(hex: 0x333333)
+    //self.tabBarCustom.barStyle = .default
   }
   
   @objc func logoutAction() -> Void {
@@ -42,29 +46,6 @@ class HomeViewController: UITabBarController {
     NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
     
   }
-  
-  
-  private func createTabBarController() -> Void {
-    let tabBarViewController = UITabBarController()
-    tabBarViewController.tabBar.tintColor = UIColor.rocketYellow()
-    tabBarViewController.tabBar.isTranslucent = false
-    tabBarViewController.tabBar.backgroundColor = UIColor(hex: 0x1a1a1a)
-    
-    let dashboardViewController = DashboardViewController(nibName: "DashboardViewController", bundle: nil)
-    dashboardViewController.tabBarItem = UITabBarItem(title: "dashboard", image: nil, tag: 0)
-    
-    
-    
-    
-    
-    let usersViewController = UsersViewController(nibName: "DashboardViewController", bundle: nil)
-    usersViewController.tabBarItem = UITabBarItem(title: "users", image: nil, tag: 1)
-    
-    let controllersArray = [dashboardViewController, usersViewController]
-    tabBarViewController.viewControllers = controllersArray.map{ UINavigationController(rootViewController: $0) }
-    self.view.addSubview(tabBarViewController.view)
-  }
-  
   
   
   func titleView(_ badgeUrl:String, name:String)->UIView {

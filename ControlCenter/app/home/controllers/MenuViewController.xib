@@ -39,13 +39,13 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-dU-vzR">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-dU-vzR">
                             <rect key="frame" x="320" y="40" width="30" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="PAp-Rs-a8W"/>
                                 <constraint firstAttribute="width" constant="30" id="mIf-tj-7dh"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" image="invite-icon"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,4 +78,7 @@
             <point key="canvasLocation" x="132" y="154.27286356821591"/>
         </view>
     </objects>
+    <resources>
+        <image name="invite-icon" width="31" height="26"/>
+    </resources>
 </document>

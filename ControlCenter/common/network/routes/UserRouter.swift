@@ -13,7 +13,7 @@ enum UserRouter: URLRequestConvertible {
   
   case getSpotsFromClub(Int)
   case getSpotStatus(Int, Int)
-  case getAllSpotsStatus(Int)
+  case getClubStatus(Int)
   
   func asURLRequest() throws -> URLRequest {
     
@@ -24,7 +24,7 @@ enum UserRouter: URLRequestConvertible {
       break
     case .getSpotStatus(_, _):
       break
-    case .getAllSpotsStatus(_):
+    case .getClubStatus(_):
       break
     }
     
@@ -38,7 +38,7 @@ enum UserRouter: URLRequestConvertible {
       return "/clubs/\(clubId)/spots"
     case .getSpotStatus(let clubId, let spotId):
       return "/clubs/\(clubId)/spots/\(spotId)/status"
-    case .getAllSpotsStatus(let clubId):
+    case .getClubStatus(let clubId):
       return "/clubs/\(clubId)/spots/all_spots/status"
     }
   }
@@ -47,7 +47,7 @@ enum UserRouter: URLRequestConvertible {
     switch self {
     case .getSpotsFromClub(_),
          .getSpotStatus(_, _),
-         .getAllSpotsStatus(_):
+         .getClubStatus(_):
       return .get
     }
   }
