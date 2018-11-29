@@ -16,7 +16,7 @@ extension User {
   func getSpotsFromClub(_ clubId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
     
     
-    Alamofire.request(UserRouter.getSpotsFromClub(clubId: clubId)).responseJSON { (response) in
+    Alamofire.request(UserRouter.getSpotsFromClub(clubId)).responseJSON { (response) in
       if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         
         if let object = response.result.value {
@@ -34,15 +34,15 @@ extension User {
               
               for spotJson in spotsJsonArray! {
                 let spotModel = Spot.fromJSON(spotJson)
-                realm.add(spotModel, update: true)
+                realm.create(Spot.self, value: spotModel, update: true)
                 clubModel.accesibleSpots.append(spotModel)
               }
               
               userModel.token = user.token
-              user.currentClub = clubModel
-              
-              realm.add(clubModel, update: true)
-              realm.add(userModel, update: true)
+              userModel.clubs = user.clubs
+              realm.create(Club.self, value: clubModel, update: true)
+              userModel.currentClub = clubModel
+              realm.create(User.self, value: userModel, update: true)
             }
           }
         }
@@ -52,6 +52,44 @@ extension User {
       }
     }
     
+  }
+  
+  
+  func getSpotStatus(clubId: Int, spotId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    
+    Alamofire.request(UserRouter.getSpotStatus(clubId, spotId)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let spotModel = Spot.findByClubIdAndSpotId(clubId: clubId, spotId: spotId) {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              
+              if let totalUsersCheckedIn = json["data"]["total_users_checked_in"].int {
+                spotModel.totalUsersCheckedIn = totalUsersCheckedIn
+              }
+              
+              if let totalUsersWithTeam = json["data"]["total_users_with_team"].int {
+                spotModel.totalUsersWithTeam = totalUsersWithTeam
+              }
+              
+              if let spotCount = json["data"]["spotCount"].int {
+                spotModel.spotCount = spotCount
+              }
+              
+            }
+          }
+        }
+        completion()
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
+  
+  
+  
+  func getSpotStatus(clubId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
   }
   
 }

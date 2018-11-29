@@ -11,7 +11,9 @@ import Alamofire
 
 enum UserRouter: URLRequestConvertible {
   
-  case getSpotsFromClub(clubId: Int)
+  case getSpotsFromClub(Int)
+  case getSpotStatus(Int, Int)
+  case getAllSpotsStatus(Int)
   
   func asURLRequest() throws -> URLRequest {
     
@@ -19,7 +21,11 @@ enum UserRouter: URLRequestConvertible {
     switch self {
       
     case .getSpotsFromClub(_):
-      break    
+      break
+    case .getSpotStatus(_, _):
+      break
+    case .getAllSpotsStatus(_):
+      break
     }
     
     return urlRequest
@@ -29,13 +35,19 @@ enum UserRouter: URLRequestConvertible {
   var path: String {
     switch self {
     case .getSpotsFromClub(let clubId):
-      return "/clubs/\(clubId)/spots"    
+      return "/clubs/\(clubId)/spots"
+    case .getSpotStatus(let clubId, let spotId):
+      return "/clubs/\(clubId)/spots/\(spotId)/status"
+    case .getAllSpotsStatus(let clubId):
+      return "/clubs/\(clubId)/spots/all_spots/status"
     }
   }
   
   var method: HTTPMethod {
     switch self {
-    case .getSpotsFromClub(_):
+    case .getSpotsFromClub(_),
+         .getSpotStatus(_, _),
+         .getAllSpotsStatus(_):
       return .get
     }
   }

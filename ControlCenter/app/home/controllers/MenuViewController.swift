@@ -20,6 +20,7 @@ class MenuViewController: UIViewController {
     super.viewDidLoad()
     
     self.setupView()
+    self.dataFromServer()
   }
   
   
@@ -40,5 +41,22 @@ class MenuViewController: UIViewController {
   }
   
   
+  
+  private func dataFromServer() -> Void {
+    
+    
+    if self.isNetworkReachable(){
+      User.current?.getSpotsFromClub((User.current?.currentClub?.id)!, completion: {
+        self.tableView.reloadData()
+        self.nameLabel.text = User.current?.fullName
+        self.clubLabel.text = User.current?.currentClub?.name
+      }, error: { (error) in
+        self.internalServerError()
+      })
+    }else{
+      self.noInternetAlert()
+    }
+    
+  }
   
 }

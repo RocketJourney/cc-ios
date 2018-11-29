@@ -42,8 +42,7 @@ class User: Object {
       return self.clubs.sorted(by: sortDescriptors)
     }
   }
-  
-  
+    
   var fullName: String {
     return "\(firstName) \(lastName)"
   }
