@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var headerView: UIView!
   @IBOutlet weak var nameLabel: UILabel!
@@ -26,7 +26,7 @@ class MenuViewController: UIViewController {
   
   
   private func setupView() -> Void {
-    self.view.backgroundColor = UIColor(hex: 0x7a7a7a)
+    self.view.backgroundColor = UIColor(hex: 0x4a4a4a)
     self.navigationController?.navigationBar.isHidden = true
     
     self.nameLabel.font = UIFont.montserratBold(23)
@@ -38,6 +38,12 @@ class MenuViewController: UIViewController {
     self.clubLabel.text = "Club"
     
     self.headerView.backgroundColor = UIColor(hex: 0x5a5a5a)
+    
+    
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+    self.tableView.backgroundColor = UIColor(hex: 0x4a4a4a)
+    self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")    
   }
   
   
@@ -59,4 +65,24 @@ class MenuViewController: UIViewController {
     
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return (User.current?.currentClub?.accesibleSpots.count)!
+  }
+  
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "kMenuSpotCell") as! MenuSpotCell
+    let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+    cell.spotNameLabel.text = spot?.branchName
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 45
+  }
 }

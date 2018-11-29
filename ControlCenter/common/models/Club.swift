@@ -25,6 +25,14 @@ class Club: Object {
   }
   
   
+  var sortedSpotsBranchName:Results<Spot> {
+    get{
+      let sortDescriptors = [SortDescriptor(keyPath: "branchName", ascending: true)]
+      return self.accesibleSpots.sorted(by: sortDescriptors)
+    }
+  }
+  
+  
   class func fromJSON(_ json: JSON) -> Club {
     let club = Club()
     if let nameSpace = json["namespace"].string {
