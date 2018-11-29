@@ -45,6 +45,8 @@
 		F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */; };
 		F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0108121AEFFDF00DD82E7 /* User+Info.swift */; };
 		F0B0108421AF060500DD82E7 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0108321AF060500DD82E7 /* Spot.swift */; };
+		F0B0108721AF6D0200DD82E7 /* MenuSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0108521AF6D0200DD82E7 /* MenuSpotCell.swift */; };
+		F0B0108821AF6D0200DD82E7 /* MenuSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B0108621AF6D0200DD82E7 /* MenuSpotCell.xib */; };
 		F0CC36F921A39D9B00B89575 /* CreateAccountSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36F821A39D9B00B89575 /* CreateAccountSegue.swift */; };
 		F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FA21A3AB5700B89575 /* Club.swift */; };
 		F0CC36FD21A3AF2400B89575 /* SignUpHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */; };
@@ -138,6 +140,8 @@
 		F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		F0B0108121AEFFDF00DD82E7 /* User+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Info.swift"; sourceTree = "<group>"; };
 		F0B0108321AF060500DD82E7 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		F0B0108521AF6D0200DD82E7 /* MenuSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSpotCell.swift; sourceTree = "<group>"; };
+		F0B0108621AF6D0200DD82E7 /* MenuSpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuSpotCell.xib; sourceTree = "<group>"; };
 		F0CC36F821A39D9B00B89575 /* CreateAccountSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountSegue.swift; sourceTree = "<group>"; };
 		F0CC36FA21A3AB5700B89575 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		F0CC36FC21A3AF2400B89575 /* SignUpHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpHomeSegue.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 		F05065EE2194C91200675D86 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				F0B0108521AF6D0200DD82E7 /* MenuSpotCell.swift */,
+				F0B0108621AF6D0200DD82E7 /* MenuSpotCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -574,6 +580,7 @@
 			files = (
 				F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
+				F0B0108821AF6D0200DD82E7 /* MenuSpotCell.xib in Resources */,
 				F0D2DDE521ADC4FB003573DD /* MenuViewController.xib in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
 				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
@@ -714,6 +721,7 @@
 				F05066062195027400675D86 /* LoginViewController.swift in Sources */,
 				F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */,
 				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
+				F0B0108721AF6D0200DD82E7 /* MenuSpotCell.swift in Sources */,
 				F0B0108421AF060500DD82E7 /* Spot.swift in Sources */,
 				F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */,
 				F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */,
