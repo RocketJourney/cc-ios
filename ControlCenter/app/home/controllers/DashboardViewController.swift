@@ -67,7 +67,13 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "kStatusCell") as! StatusCell
     if self.spot != nil {
-      
+      if indexPath.row == 0 {
+        cell.counterStatusLabel.text = String(spot!.totalUsersCheckedIn)
+        cell.textStatusLabel.text = "USERS_CHECKED_IN".localized
+      }else if indexPath.row == 1 {
+        cell.counterStatusLabel.text = String(spot!.totalUsersWithTeam)
+        cell.textStatusLabel.text = "USERS_WITH_TEAM".localized
+      }
     }else{
       if let club = User.current?.currentClub {
         if indexPath.row == 0 {
@@ -87,7 +93,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   }
   
   
-  private func getDataFromServer() -> Void {
+  func getDataFromServer() -> Void {
     if self.spot != nil {
       self.getSpotDataFromServer()
     }else {
@@ -151,5 +157,6 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   private func printSpotData() -> Void {
     self.tableView.reloadData()
   }
+  
   
 }

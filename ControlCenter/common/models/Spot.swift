@@ -28,8 +28,8 @@ class Spot: Object {
   
   class func findByClubIdAndSpotId(clubId: Int, spotId: Int) -> Spot? {
     do {
-      let realm = try Realm(configuration: ControlCenterRealm.config)
-      let arrayResult = realm.objects(Spot.self).filter("id = %@ AND clubId = %@", [spotId, clubId])
+      let realm = try Realm(configuration: ControlCenterRealm.config)      
+      let arrayResult = realm.objects(Spot.self).filter("id = %@ AND clubId = %@", spotId, clubId)
       if arrayResult.count > 0{
         return arrayResult.first!
       }else{

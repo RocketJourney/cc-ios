@@ -16,6 +16,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var ownerButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
   
+  var spotSelectedDelegate: SpotSelectionDelegate?
+  
   override var prefersStatusBarHidden: Bool {
     return true
   }
@@ -89,5 +91,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 45
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+    self.spotSelectedDelegate?.spotSelected(spot: spot!)
+    self.dismissView()
   }
 }

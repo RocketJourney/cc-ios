@@ -10,9 +10,11 @@ import UIKit
 import RealmSwift
 import SideMenu
 
-class HomeViewController: UITabBarController {
-  
-  
+protocol SpotSelectionDelegate {
+  func spotSelected(spot: Spot)
+}
+
+class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   var club: Club?
   var titleViewCache: UIView?
@@ -73,6 +75,7 @@ class HomeViewController: UITabBarController {
   
   private func setupMenu() -> Void {
     let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+    menuViewController.spotSelectedDelegate = self
     SideMenuManager.default.menuLeftNavigationController = UISideMenuNavigationController(rootViewController: menuViewController)
     SideMenuManager.default.menuAddPanGestureToPresent(toView: (self.navigationController?.navigationBar)!)
     SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: (self.navigationController?.view)!)
@@ -96,4 +99,29 @@ class HomeViewController: UITabBarController {
     self.dismiss(animated: true, completion: nil)
   }
   
+  
+  func spotSelected(spot: Spot) {
+    NSLog("spot =======> %@", spot)
+    let dashboardVC = self.viewControllers?[0] as! DashboardViewController
+    if dashboardVC != nil {
+      dashboardVC.spot = spot
+      dashboardVC.getDataFromServer()
+    }
+  }
+  
+  
+  override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    if item == (tabBar.items)![0]{
+      //Do something if index is 0
+      NSLog("item 0")
+    }
+    else if item == (tabBar.items)![1]{
+      NSLog("item 1")
+    }
+  }
+  
+  
+  
+  
+
 }
