@@ -16,6 +16,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   @IBOutlet weak var ownerButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
   
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

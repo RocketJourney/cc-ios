@@ -12,11 +12,13 @@ class MenuSpotCell: UITableViewCell {
   
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var spotNameLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.setupView()
-    }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.setupView()
+  }
+  
+  
   
   func setupView() -> Void {
     self.contentView.backgroundColor = UIColor(hex: 0x4a4a4a)
@@ -30,20 +32,20 @@ class MenuSpotCell: UITableViewCell {
     
     
   }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-      if selected {
-        self.contentView.backgroundColor = UIColor(hex: 0x4a4a4a)
-        self.containerView.backgroundColor = UIColor(hex: 0xa1a1a1)
-        self.spotNameLabel.textColor = UIColor(hex: 0x4a4a4a)
-      }else {
-        self.contentView.backgroundColor = UIColor(hex: 0x4a4a4a)
-        self.containerView.backgroundColor = UIColor(hex: 0x4a4a4a)
-        self.spotNameLabel.textColor = UIColor.white
-      }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    if selected {
+      self.contentView.backgroundColor = UIColor(hex: 0x4a4a4a)
+      self.containerView.backgroundColor = UIColor(hex: 0xa1a1a1)
+      self.spotNameLabel.textColor = UIColor(hex: 0x4a4a4a)
+    }else {
+      self.contentView.backgroundColor = UIColor(hex: 0x4a4a4a)
+      self.containerView.backgroundColor = UIColor(hex: 0x4a4a4a)
+      self.spotNameLabel.textColor = UIColor.white
     }
+  }
   
   override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     super.setHighlighted(highlighted, animated: animated)
@@ -58,5 +60,5 @@ class MenuSpotCell: UITableViewCell {
       self.spotNameLabel.textColor = UIColor.white
     }
   }
-    
+  
 }

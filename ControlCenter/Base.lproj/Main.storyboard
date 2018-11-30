@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Users" id="nQf-Io-9JW"/>
+                    <tabBarItem key="tabBarItem" title="Users" image="users-icon" selectedImage="users-icon" id="nQf-Io-9JW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rq-Gh-6O2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,7 +195,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-ts-x83">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-ts-x83">
                                 <rect key="frame" x="0.0" y="53" width="375" height="565"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -217,7 +217,9 @@
                             <constraint firstAttribute="trailing" secondItem="xbE-ts-x83" secondAttribute="trailing" id="sBj-8t-oOt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Dashboard" id="U6g-wR-cCg"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard-icon" selectedImage="dashboard-icon" id="U6g-wR-cCg">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="xbE-ts-x83" id="79R-UP-gvq"/>
                         <outlet property="viewLocationLabel" destination="X3D-EA-ziO" id="x1r-lv-g12"/>
@@ -234,10 +236,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="o9b-3Y-fLJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.2006070613861084" green="0.20079019665718079" blue="0.20063543319702148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="tabBarCustom" destination="o9b-3Y-fLJ" id="91z-QJ-RFx"/>
                         <segue destination="QtM-vD-W6N" kind="relationship" relationship="viewControllers" id="Hgv-pz-YVn"/>
                         <segue destination="fLD-o2-EsD" kind="relationship" relationship="viewControllers" id="ft1-hG-pI5"/>
                     </connections>
@@ -387,6 +390,8 @@
     <resources>
         <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
+        <image name="dashboard-icon" width="23" height="25"/>
+        <image name="users-icon" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vUb-9f-8BF"/>

@@ -25,6 +25,11 @@ extension AppDelegate {
     UINavigationBar.appearance().tintColor = UIColor.rocketYellow()
     UINavigationBar.appearance().barTintColor = UIColor(hex: 0x333333)
     UINavigationBar.appearance().isTranslucent = false
+    
+    
+    UITabBar.appearance().isOpaque = true
+    UITabBar.appearance().backgroundColor = UIColor.white
+    UITabBar.appearance().tintColor = UIColor.rocketYellow()
   }
   
   func setupDB() -> Void {
@@ -53,9 +58,13 @@ extension AppDelegate {
       if oldSchemaVersion < 6 {
         // add spot model
       }
+      
+      if oldSchemaVersion < 7 {
+        // add status attributes to Club
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 6, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 7, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }

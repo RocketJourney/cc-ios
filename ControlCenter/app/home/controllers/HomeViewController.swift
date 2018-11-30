@@ -12,7 +12,7 @@ import SideMenu
 
 class HomeViewController: UITabBarController {
   
-  @IBOutlet weak var tabBarCustom: UITabBar!
+  
   
   var club: Club?
   var titleViewCache: UIView?
@@ -27,14 +27,12 @@ class HomeViewController: UITabBarController {
   
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
-    self.navigationItem.titleView = self.titleView((self.club?.logoUrl)!, name: (self.club?.name)!)
+    let clubModel = User.current?.currentClub
+    self.navigationItem.titleView = self.titleView((clubModel?.logoUrl)!, name: (clubModel?.name)!)
     self.setupMenu()
     self.setupMenuButton()
-    
-    //self.tabBarCustom.backgroundColor = UIColor(hex: 0x333333)
-    //self.tabBarController?.tabBar.backgroundColor = UIColor(hex: 0x333333)
-    UITabBar.appearance().backgroundColor = UIColor(hex: 0x333333)
-    //self.tabBarCustom.barStyle = .default
+    self.tabBar.barTintColor = UIColor(hex: 0x333333)
+    self.tabBar.backgroundColor = UIColor(hex: 0x333333)
   }
   
   @objc func logoutAction() -> Void {

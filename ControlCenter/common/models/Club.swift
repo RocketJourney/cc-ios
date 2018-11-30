@@ -50,7 +50,7 @@ class Club: Object {
       club.id = id
     }
     
-    if let logoUrl = json["logo"].string {
+    if let logoUrl = json["badge_url"].string {
       club.logoUrl = logoUrl
     }
     return club
