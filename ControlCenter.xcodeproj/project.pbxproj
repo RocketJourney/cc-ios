@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2992077A8A3E69D91A459751 /* Pods_ControlCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98462655BE1A44ABF588738 /* Pods_ControlCenter.framework */; };
+		F00C2E8C21B1983D0010EB18 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C2E8A21B1983D0010EB18 /* UserCell.swift */; };
+		F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00C2E8B21B1983D0010EB18 /* UserCell.xib */; };
+		F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */; };
 		F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0133156219F52EA001CB04A /* CheckEmailSegue.swift */; };
 		F01690162191073B001526DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690152191073B001526DA /* AppDelegate.swift */; };
 		F01690182191073B001526DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690172191073B001526DA /* ViewController.swift */; };
@@ -95,6 +98,9 @@
 		9565782C9D11F33C9AFD3799 /* Pods-ControlCenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlCenter.release.xcconfig"; path = "Pods/Target Support Files/Pods-ControlCenter/Pods-ControlCenter.release.xcconfig"; sourceTree = "<group>"; };
 		D98462655BE1A44ABF588738 /* Pods_ControlCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ControlCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17CDEEB75FFBC0102B42F7B /* Pods-ControlCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ControlCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ControlCenter/Pods-ControlCenter.debug.xcconfig"; sourceTree = "<group>"; };
+		F00C2E8A21B1983D0010EB18 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		F00C2E8B21B1983D0010EB18 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssistant.swift; sourceTree = "<group>"; };
 		F0133156219F52EA001CB04A /* CheckEmailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailSegue.swift; sourceTree = "<group>"; };
 		F01690122191073B001526DA /* ControlCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01690152191073B001526DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +330,8 @@
 				F0B0108621AF6D0200DD82E7 /* MenuSpotCell.xib */,
 				F0B0108921B07B6100DD82E7 /* StatusCell.swift */,
 				F0B0108A21B07B6100DD82E7 /* StatusCell.xib */,
+				F00C2E8A21B1983D0010EB18 /* UserCell.swift */,
+				F00C2E8B21B1983D0010EB18 /* UserCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -446,11 +454,12 @@
 			isa = PBXGroup;
 			children = (
 				F0CC36FA21A3AB5700B89575 /* Club.swift */,
+				F0B0108321AF060500DD82E7 /* Spot.swift */,
 				F0DFBD95219E4BED00F94BA1 /* User.swift */,
+				F0B0108121AEFFDF00DD82E7 /* User+Info.swift */,
 				F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */,
 				F0DFBD9A219E4E3100F94BA1 /* User+Login.swift */,
-				F0B0108121AEFFDF00DD82E7 /* User+Info.swift */,
-				F0B0108321AF060500DD82E7 /* Spot.swift */,
+				F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -596,6 +605,7 @@
 				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
 				F05066012194F18A00675D86 /* Localizable.strings in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
+				F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
 				F079F28F2196351F00BB22EF /* ClubTableViewCell.xib in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
@@ -716,6 +726,7 @@
 				F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
 				F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */,
+				F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
 				F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
@@ -738,6 +749,7 @@
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
 				F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */,
 				F03BD8CF21ACAD3300911917 /* UsersViewController.swift in Sources */,
+				F00C2E8C21B1983D0010EB18 /* UserCell.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
 				F0CC36FB21A3AB5700B89575 /* Club.swift in Sources */,
 				F0D2DDE421ADC4FB003573DD /* MenuViewController.swift in Sources */,
