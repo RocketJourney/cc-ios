@@ -11,6 +11,7 @@ import RealmSwift
 import SwiftyJSON
 
 class User: Object {
+  
   @objc dynamic var id = 0
   @objc dynamic var email = ""
   @objc dynamic var firstName = ""
@@ -18,8 +19,10 @@ class User: Object {
   @objc dynamic var token = ""
   @objc dynamic var permission = ""
   @objc dynamic var currentClub: Club?
-  var clubs = List<Club>()
   
+  var selectedSpot: Spot?
+  var clubs = List<Club>()
+    
   override static func primaryKey() -> String {
     return "id"
   }

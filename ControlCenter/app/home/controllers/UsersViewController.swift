@@ -48,6 +48,23 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 60
   }
+  
+  
+  private func getClubAssistants() -> Void {
+    if self.isNetworkReachable(){
+      User.current?.getClubAssistans(clubId: (User.current?.currentClub?.id)!, completion: {
+        self.tableView.reloadData()
+      }, error: { (error) in
+        if let error = error as? NSError {
+          if error.code == 500 {
+            self.internalServerError()
+          }
+        }
+      })
+    } else {
+      self.noInternetAlert()
+    }
+  }
 
   
 }

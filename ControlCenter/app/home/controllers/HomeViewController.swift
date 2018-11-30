@@ -102,6 +102,10 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   func spotSelected(spot: Spot) {
     NSLog("spot =======> %@", spot)
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      User.current?.selectedSpot = spot
+    }
     let dashboardVC = self.viewControllers?[0] as! DashboardViewController
     if dashboardVC != nil {
       dashboardVC.spot = spot

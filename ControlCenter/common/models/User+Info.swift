@@ -125,6 +125,22 @@ extension User {
       if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
         if let object = response.result.value {
           let json = JSON(object)
+          if let club = User.current?.currentClub {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              
+              let paginator = Paginator.fromJSON(json["data"])
+              club.paginator = paginator
+              
+              if let assistantsJson = json["users"].array {
+                for assistantJson in assistantsJson {
+                 let assistant = UserAssistant.fromJSON(assistantJson)
+                  realm.create(UserAssistant.self, value: assistant, update: true)
+                  club.assistants.append(assistant)
+                }
+              }                            
+            }
+          }
         }
         completion()
       }else {

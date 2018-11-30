@@ -43,7 +43,6 @@ class Spot: Object {
     }
   }
   
-  
   class func fromJSON(_ json: JSON) -> Spot {
     let spot = Spot()
     if let branchName = json["branch_name"].string {

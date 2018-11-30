@@ -70,9 +70,13 @@ extension AppDelegate {
       if oldSchemaVersion < 9 {
         //add paginator to club and spot models
       }
+      
+      if oldSchemaVersion < 10 {
+        //add selectedSpot tu current User model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 9, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 10, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }
