@@ -11,6 +11,7 @@
 		F00C2E8C21B1983D0010EB18 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C2E8A21B1983D0010EB18 /* UserCell.swift */; };
 		F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00C2E8B21B1983D0010EB18 /* UserCell.xib */; };
 		F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */; };
+		F00C2E9121B1EE930010EB18 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C2E9021B1EE930010EB18 /* Paginator.swift */; };
 		F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0133156219F52EA001CB04A /* CheckEmailSegue.swift */; };
 		F01690162191073B001526DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690152191073B001526DA /* AppDelegate.swift */; };
 		F01690182191073B001526DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01690172191073B001526DA /* ViewController.swift */; };
@@ -101,6 +102,7 @@
 		F00C2E8A21B1983D0010EB18 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		F00C2E8B21B1983D0010EB18 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssistant.swift; sourceTree = "<group>"; };
+		F00C2E9021B1EE930010EB18 /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		F0133156219F52EA001CB04A /* CheckEmailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailSegue.swift; sourceTree = "<group>"; };
 		F01690122191073B001526DA /* ControlCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01690152191073B001526DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */,
 				F0DFBD9A219E4E3100F94BA1 /* User+Login.swift */,
 				F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */,
+				F00C2E9021B1EE930010EB18 /* Paginator.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -658,7 +661,9 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ControlCenter/Pods-ControlCenter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/CCInfiniteScrolling/CCInfiniteScrolling.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JRSwizzle/JRSwizzle.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -667,6 +672,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UIView+TKGeometry/UIView_TKGeometry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -674,7 +680,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCInfiniteScrolling.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JRSwizzle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -683,6 +691,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIView_TKGeometry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -761,6 +770,7 @@
 				F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */,
 				F0DFBD98219E4C9400F94BA1 /* ControlCenterRealm.swift in Sources */,
 				F0DFBD96219E4BED00F94BA1 /* User.swift in Sources */,
+				F00C2E9121B1EE930010EB18 /* Paginator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@ class Spot: Object {
   @objc dynamic var totalUsersCheckedIn = 0
   @objc dynamic var spotCount = 0
   var assistants = List<UserAssistant>()
+  var paginator: Paginator?
   
   
   override static func primaryKey() -> String {

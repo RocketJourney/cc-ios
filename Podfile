@@ -7,6 +7,7 @@ target 'ControlCenter' do
   
   pod 'Alamofire'
   pod 'Branch'
+  pod 'CCInfiniteScrolling'
   pod 'Crashlytics'
   pod 'Fabric'
   pod 'IQKeyboardManagerSwift'
