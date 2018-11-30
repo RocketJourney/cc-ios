@@ -20,6 +20,7 @@ class Club: Object {
   @objc dynamic var totalUsersCheckedIn = 0
   @objc dynamic var spotCount = 0
   var accesibleSpots = List<Spot>()
+  var assistants = List<UserAssistant>()
   
   
   

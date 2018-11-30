@@ -19,6 +19,7 @@ class Spot: Object {
   @objc dynamic var totalUsersWithTeam = 0
   @objc dynamic var totalUsersCheckedIn = 0
   @objc dynamic var spotCount = 0
+  var assistants = List<UserAssistant>()
   
   
   override static func primaryKey() -> String {

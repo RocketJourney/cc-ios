@@ -119,4 +119,18 @@ extension User {
     }
   }
   
+  
+  func getClubAssistans(clubId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(UserRouter.getClubAssistants(clubId)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+        }
+        completion()
+      }else {
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
+  
 }

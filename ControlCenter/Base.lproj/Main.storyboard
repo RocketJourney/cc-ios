@@ -175,13 +175,29 @@
                     <view key="view" contentMode="scaleToFill" id="rY5-x6-esR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7O4-f5-Tjx">
+                                <rect key="frame" x="0.0" y="16" width="375" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MwM-vt-Mlw" firstAttribute="top" secondItem="7O4-f5-Tjx" secondAttribute="bottom" id="Rg3-dt-88J"/>
+                            <constraint firstAttribute="trailing" secondItem="7O4-f5-Tjx" secondAttribute="trailing" id="UFg-bE-ibc"/>
+                            <constraint firstItem="7O4-f5-Tjx" firstAttribute="top" secondItem="rY5-x6-esR" secondAttribute="top" constant="16" id="cKI-8T-NJF"/>
+                            <constraint firstItem="7O4-f5-Tjx" firstAttribute="leading" secondItem="rY5-x6-esR" secondAttribute="leading" id="nbO-aF-hqb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Users" image="users-icon" selectedImage="users-icon" id="nQf-Io-9JW"/>
+                    <connections>
+                        <outlet property="tableView" destination="7O4-f5-Tjx" id="myP-dV-AzG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Rq-Gh-6O2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4502" y="1215"/>
+            <point key="canvasLocation" x="4502" y="1217"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="ctB-Id-kqh">
