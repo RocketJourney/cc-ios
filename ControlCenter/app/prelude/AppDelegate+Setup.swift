@@ -62,9 +62,13 @@ extension AppDelegate {
       if oldSchemaVersion < 7 {
         // add status attributes to Club
       }
+      
+      if oldSchemaVersion < 8 {
+        // add assistans to Club and spot models
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 7, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 8, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }
