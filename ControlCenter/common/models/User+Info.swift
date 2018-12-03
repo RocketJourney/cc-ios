@@ -40,6 +40,7 @@ extension User {
               
               userModel.token = user.token
               userModel.clubs = user.clubs
+              userModel.selectedSpot = user.selectedSpot
               realm.create(Club.self, value: clubModel, update: true)
               userModel.currentClub = clubModel
               realm.create(User.self, value: userModel, update: true)
@@ -67,18 +68,24 @@ extension User {
               
               if let totalUsersCheckedIn = json["data"]["total_users_checked_in"].int {
                 spotModel.totalUsersCheckedIn = totalUsersCheckedIn
+                User.current?.selectedSpot?.totalUsersCheckedIn = totalUsersCheckedIn
               }
               
               if let totalUsersWithTeam = json["data"]["total_users_with_team"].int {
                 spotModel.totalUsersWithTeam = totalUsersWithTeam
+                User.current?.selectedSpot?.totalUsersWithTeam = totalUsersWithTeam
               }
               
               if let spotCount = json["data"]["spotCount"].int {
                 spotModel.spotCount = spotCount
+                User.current?.selectedSpot?.spotCount = spotCount
               }
               
+              
             }
+            
           }
+          
         }
         completion()
       }else{
@@ -100,19 +107,23 @@ extension User {
               
               if let totalUsersCheckedIn = json["data"]["total_users_checked_in"].int {
                 club.totalUsersCheckedIn = totalUsersCheckedIn
+                User.current?.currentClub?.totalUsersCheckedIn = totalUsersCheckedIn
               }
               
               if let totalUsersWithTeam = json["data"]["total_users_with_team"].int {
                 club.totalUsersWithTeam = totalUsersWithTeam
+                User.current?.currentClub?.totalUsersWithTeam = totalUsersWithTeam
               }
               
               if let spotCount = json["data"]["spotCount"].int {
                 club.spotCount = spotCount
+                User.current?.currentClub?.spotCount = spotCount
               }
               
             }
           }
         }
+        completion()
       }else {
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
       }
@@ -128,17 +139,28 @@ extension User {
           if let club = User.current?.currentClub {
             let realm = try! Realm(configuration: ControlCenterRealm.config)
             try! realm.write {
-              
+              let user = User.current
               let paginator = Paginator.fromJSON(json["data"])
               club.paginator = paginator
-              
-              if let assistantsJson = json["users"].array {
+              let assistants = List<UserAssistant>()
+              if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
                  let assistant = UserAssistant.fromJSON(assistantJson)
-                  realm.create(UserAssistant.self, value: assistant, update: true)
+                  realm.add(assistant, update: true)
                   club.assistants.append(assistant)
+                  
                 }
-              }                            
+                
+              }
+              
+              
+              
+              
+              club.assistants = assistants
+              realm.create(Club.self, value: club, update: true)
+              User.current?.currentClub = club
+              User.current?.currentClub?.assistants = assistants
+              realm.create(User.self, value: User.current!, update: true)
             }
           }
         }
@@ -151,5 +173,39 @@ extension User {
   
   
   func getSpotAssistans(clubId: Int, spotId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(UserRouter.getSpotAssistants(clubId, spotId)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let spot = User.current?.selectedSpot {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              
+              let paginator = Paginator.fromJSON(json["data"])
+              spot.paginator = paginator
+              
+              let assistants = List<UserAssistant>()
+              
+              if let assistantsJson = json["data"]["users"].array {
+                for assistantJson in assistantsJson {
+                  let assistant = UserAssistant.fromJSON(assistantJson)
+                  realm.add(assistant, update: true)
+                  assistants.append(assistant)
+                  User.current?.selectedSpot?.assistants.append(assistant)
+                }
+              }
+              spot.assistants = assistants
+              realm.create(Spot.self, value: spot, update: true)
+              let userModel = User.current
+              userModel?.selectedSpot?.assistants = assistants
+              realm.create(User.self, value: userModel!, update: true)
+            }
+          }
+        }
+        completion()
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
   }
 }

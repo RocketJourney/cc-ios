@@ -74,9 +74,21 @@ extension AppDelegate {
       if oldSchemaVersion < 10 {
         //add selectedSpot tu current User model
       }
+      
+      if oldSchemaVersion < 11 {
+        //add selectedSpot tu current User model
+      }
+      
+      if oldSchemaVersion < 12 {
+        //add selectedSpot (dynamic) tu current User model
+      }
+      
+      if oldSchemaVersion < 13 {
+        //add paginate (dynamic) tu current Spot & club model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 10, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 13, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }

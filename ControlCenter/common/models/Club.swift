@@ -19,11 +19,10 @@ class Club: Object {
   @objc dynamic var totalUsersWithTeam = 0
   @objc dynamic var totalUsersCheckedIn = 0
   @objc dynamic var spotCount = 0
+  @objc dynamic var paginator: Paginator?
+  
   var accesibleSpots = List<Spot>()
   var assistants = List<UserAssistant>()
-  var paginator: Paginator?
-  
-  
   
   override static func primaryKey() -> String {
     return "id"

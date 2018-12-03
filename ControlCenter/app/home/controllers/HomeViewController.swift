@@ -19,13 +19,13 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   var club: Club?
   var titleViewCache: UIView?
   
+  
   var menuButton: UIBarButtonItem?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
   }
-  
   
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
@@ -104,18 +104,28 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     NSLog("spot =======> %@", spot)
     let realm = try! Realm(configuration: ControlCenterRealm.config)
     try! realm.write {
-      User.current?.selectedSpot = spot
-    }
-    let dashboardVC = self.viewControllers?[0] as? DashboardViewController
-    if dashboardVC != nil {
-      dashboardVC!.spot = spot
-      dashboardVC!.getDataFromServer()
+      let userModel = User.current
+      userModel?.selectedSpot = spot
+      realm.create(User.self, value: userModel!, update: true)
     }
     
-    let usersVC = self.viewControllers?[1] as? UsersViewController
-    if usersVC != nil {
-      
+    if self.selectedIndex == 0 {
+      let dashboardVC = self.viewControllers?[0] as? DashboardViewController
+      if dashboardVC != nil {
+        dashboardVC!.spot = spot
+        dashboardVC!.getDataFromServer()
+      }
+    }else {
+      let usersVC = self.viewControllers?[1] as? UsersViewController
+      if usersVC != nil {
+        usersVC?.spot = User.current?.selectedSpot
+        usersVC?.getDataFromServer()
+      }
     }
+    
+    
+    
+    
   }
   
   
@@ -123,9 +133,11 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     if item == (tabBar.items)![0]{
       //Do something if index is 0
       NSLog("item 0")
+      self.selectedIndex = 0
     }
     else if item == (tabBar.items)![1]{
       NSLog("item 1")
+      self.selectedIndex = 1
     }
   }
   

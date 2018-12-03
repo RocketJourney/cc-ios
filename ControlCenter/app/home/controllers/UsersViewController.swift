@@ -15,7 +15,13 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.setupView()    
+    self.setupView()
+    self.getDataFromServer()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.printData()
   }
   
   
@@ -35,11 +41,25 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 30
+    if User.current != nil && User.current?.selectedSpot != nil {
+      return User.current?.selectedSpot?.assistants.count ?? 0
+    }else {
+      let club = User.current?.currentClub
+      return club?.assistants.count ?? 0
+    }
+   
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "kUserCell") as! UserCell
+    
+    if User.current != nil && User.current?.selectedSpot != nil {
+      let assistant = User.current?.selectedSpot?.assistants[indexPath.row]
+      cell.bind(assistant: assistant!)
+    }else {
+      let assistant = User.current?.currentClub?.assistants[indexPath.row]
+      cell.bind(assistant: assistant!)
+    }
     
     return cell
   }
@@ -52,7 +72,25 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func getClubAssistants() -> Void {
     if self.isNetworkReachable(){
       User.current?.getClubAssistans(clubId: (User.current?.currentClub?.id)!, completion: {
-        self.tableView.reloadData()
+        self.printData()
+      }, error: { (error) in
+        if let error = error as? NSError {
+          if error.code == 500 {
+            self.internalServerError()
+          }
+        }
+      })
+    } else {
+      self.noInternetAlert()
+    }
+  }
+  
+  
+  private func getSpotAssistants() -> Void {
+    if self.isNetworkReachable(){
+      let spotModel = User.current?.selectedSpot
+      User.current?.getSpotAssistans(clubId: (spotModel?.clubId)!, spotId: (spotModel?.id)!, completion: {
+        self.printData()
       }, error: { (error) in
         if let error = error as? NSError {
           if error.code == 500 {
@@ -66,14 +104,30 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func getDataFromServer() -> Void {
-    let spot = User.current?.selectedSpot
-    
-    if spot != nil{
-      
+    if User.current != nil && User.current?.selectedSpot != nil {
+      self.getSpotAssistants()
     }else{
       self.getClubAssistants()
     }
     
+  }
+  
+  
+  
+  private func printData() -> Void {
+    if User.current != nil && User.current?.selectedSpot != nil {
+      self.printSpotData()
+    }else {
+      self.printClubData()
+    }
+  }
+  
+  private func printClubData() -> Void {
+    self.tableView.reloadData()
+  }
+  
+  private func printSpotData() -> Void {
+    self.tableView.reloadData()
   }
 
   

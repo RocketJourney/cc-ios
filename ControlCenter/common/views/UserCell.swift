@@ -25,6 +25,7 @@ class UserCell: UITableViewCell {
     
     
     self.profileImage.backgroundColor = UIColor(hex: 0x3a3a3a)
+    self.profileImage.clipsToBounds = true
     self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
     self.userNameLabel.font = UIFont.montserratBold(16)
     self.userNameLabel.textColor = UIColor(hex: 0xeaeaea)
@@ -43,6 +44,13 @@ class UserCell: UITableViewCell {
       self.contentView.backgroundColor = UIColor(hex: 0x2a2a2a)
     }
     
+  }
+  
+  
+  func bind(assistant: UserAssistant) -> Void {
+    self.profileImage.sd_setImage(with: URL(string: assistant.profilePicture))
+    self.userNameLabel.text = assistant.fullName
+    self.streakLabel.text = String(assistant.streak)
   }
   
 }

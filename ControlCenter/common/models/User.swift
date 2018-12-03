@@ -18,9 +18,8 @@ class User: Object {
   @objc dynamic var lastName = ""
   @objc dynamic var token = ""
   @objc dynamic var permission = ""
-  @objc dynamic var currentClub: Club?
-  
-  var selectedSpot: Spot?
+  @objc dynamic var currentClub: Club?  
+  @objc dynamic var selectedSpot: Spot?
   var clubs = List<Club>()
     
   override static func primaryKey() -> String {
@@ -34,6 +33,22 @@ class User: Object {
       let users = realm.objects(User.self)
       let user = users.first
       return user
+    } catch {
+      return nil
+    }
+  }
+  
+  
+  class func findById(userId: Int) -> User? {
+    do {
+      let realm = try Realm(configuration: ControlCenterRealm.config)
+      let arrayResult = realm.objects(User.self).filter("id = %@ ", userId)
+      if arrayResult.count > 0{
+        return arrayResult.first!
+      }else{
+        return nil
+      }
+      
     } catch {
       return nil
     }
