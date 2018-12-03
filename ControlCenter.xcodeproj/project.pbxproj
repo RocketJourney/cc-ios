@@ -104,7 +104,7 @@
 		F00C2E8E21B19EFD0010EB18 /* UserAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssistant.swift; sourceTree = "<group>"; };
 		F00C2E9021B1EE930010EB18 /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		F0133156219F52EA001CB04A /* CheckEmailSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailSegue.swift; sourceTree = "<group>"; };
-		F01690122191073B001526DA /* ControlCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01690122191073B001526DA /* CCStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01690152191073B001526DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F01690172191073B001526DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F016901A2191073B001526DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		F01690132191073B001526DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F01690122191073B001526DA /* ControlCenter.app */,
+				F01690122191073B001526DA /* CCStaging.app */,
 				F01690262191073E001526DA /* ControlCenterTests.xctest */,
 				F01690312191073E001526DA /* ControlCenterUITests.xctest */,
 			);
@@ -497,7 +497,7 @@
 			);
 			name = ControlCenter;
 			productName = ControlCenter;
-			productReference = F01690122191073B001526DA /* ControlCenter.app */;
+			productReference = F01690122191073B001526DA /* CCStaging.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F01690252191073E001526DA /* ControlCenterTests */ = {
@@ -978,8 +978,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.staging;
+				PRODUCT_NAME = CCStaging;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1002,7 +1002,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ControlCenter;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
