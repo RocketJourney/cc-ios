@@ -135,8 +135,6 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     }
   }
   
-  
-  
   private func printData() -> Void {
     if self.spot != nil {
       self.printSpotData()
@@ -145,14 +143,9 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     }
   }
   
-  
-  
-  
-  
   private func printClubData() -> Void {
     self.tableView.reloadData()
   }
-  
   
   private func printSpotData() -> Void {
     self.tableView.reloadData()

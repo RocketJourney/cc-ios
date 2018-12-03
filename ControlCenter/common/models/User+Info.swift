@@ -149,4 +149,7 @@ extension User {
     }
   }
   
+  
+  func getSpotAssistans(clubId: Int, spotId: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+  }
 }

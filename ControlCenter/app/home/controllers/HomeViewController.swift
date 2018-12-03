@@ -106,10 +106,15 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     try! realm.write {
       User.current?.selectedSpot = spot
     }
-    let dashboardVC = self.viewControllers?[0] as! DashboardViewController
+    let dashboardVC = self.viewControllers?[0] as? DashboardViewController
     if dashboardVC != nil {
-      dashboardVC.spot = spot
-      dashboardVC.getDataFromServer()
+      dashboardVC!.spot = spot
+      dashboardVC!.getDataFromServer()
+    }
+    
+    let usersVC = self.viewControllers?[1] as? UsersViewController
+    if usersVC != nil {
+      
     }
   }
   

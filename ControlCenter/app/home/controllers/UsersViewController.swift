@@ -9,10 +9,9 @@
 import UIKit
 
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  
-  
-  
+
   @IBOutlet weak var tableView: UITableView!
+  var spot: Spot?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,6 +63,17 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     } else {
       self.noInternetAlert()
     }
+  }
+  
+  func getDataFromServer() -> Void {
+    let spot = User.current?.selectedSpot
+    
+    if spot != nil{
+      
+    }else{
+      self.getClubAssistants()
+    }
+    
   }
 
   
