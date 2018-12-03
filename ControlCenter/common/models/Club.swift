@@ -52,7 +52,7 @@ class Club: Object {
       club.id = id
     }
     
-    if let logoUrl = json["badge_url"].string {
+    if let logoUrl = json["logo"].string {
       club.logoUrl = logoUrl
     }
     return club
