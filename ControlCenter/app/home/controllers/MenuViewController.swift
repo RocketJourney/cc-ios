@@ -53,6 +53,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")
     self.tableView.register(UINib(nibName: "MenuOptionCell", bundle: nil), forCellReuseIdentifier: "kMenuOptionCell")
     self.tableView.register(UINib(nibName: "MenuLogoutCell", bundle: nil), forCellReuseIdentifier: "kMenuLogoutCell")
+    self.tableView.allowsSelection = true
   }
   
   
@@ -134,6 +135,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if User.current?.currentClub != nil {
           let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
           cell.spotNameLabel?.text = spot?.branchName
+          if User.current != nil && User.current?.selectedSpot != nil {
+            if spot != nil && (spot?.id)! == User.current?.selectedSpot?.id {
+              cell.setSelected(true, animated: false)
+              tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+          }
         }
       default:
         let optionCell = tableView.dequeueReusableCell(withIdentifier: "kMenuOptionCell") as! MenuOptionCell
@@ -147,7 +154,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         default:
           let logoutCell = tableView.dequeueReusableCell(withIdentifier: "kMenuLogoutCell") as! MenuLogoutCell
           logoutCell.optionLabel.text = "LOG_OUT".localized
-          return logoutCell          
+          return logoutCell
         }
       }
     }else{
@@ -156,6 +163,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if User.current?.currentClub != nil {
           let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
           cell.spotNameLabel?.text = spot?.branchName
+          if User.current != nil && User.current?.selectedSpot != nil {
+            if spot != nil && (spot?.id)! == User.current?.selectedSpot?.id{
+              cell.setSelected(true, animated: false)
+              tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+          }
         }
       default:
         let optionCell = tableView.dequeueReusableCell(withIdentifier: "kMenuOptionCell") as! MenuOptionCell
@@ -175,6 +188,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     return cell
+  }
+  
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if cell.isSelected {
+      cell.isSelected = true
+    }else {
+      cell.isSelected = false
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -42,6 +42,7 @@ class MenuSpotCell: UITableViewCell {
       self.containerView.backgroundColor = UIColor(hex: 0x4a4a4a)
       self.spotNameLabel.textColor = UIColor.white
     }
+    self.setNeedsDisplay()
   }
   
   override func setHighlighted(_ highlighted: Bool, animated: Bool) {

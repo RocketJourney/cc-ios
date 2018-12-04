@@ -41,6 +41,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     self.tableView.separatorColor = UIColor.clear
     self.tableView.dataSource = self
     self.tableView.delegate = self
+    self.tableView.allowsSelection = true
     self.tableView.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "kStatusCell")
     self.tableView.tableFooterView = UIView()
     
