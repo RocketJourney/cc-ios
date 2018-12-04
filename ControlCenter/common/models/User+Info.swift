@@ -208,4 +208,69 @@ extension User {
       }
     }
   }
+  
+  func getClubAssistansPaginate(clubId: Int, page: Int ,completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(UserRouter.getClubAssistantsPaginate(clubId, page)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let club = User.current?.currentClub {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              let paginator = Paginator.fromJSON(json["data"])
+              club.paginator = paginator
+              if let assistantsJson = json["data"]["users"].array {
+                for assistantJson in assistantsJson {
+                  let assistant = UserAssistant.fromJSON(assistantJson)
+                  realm.add(assistant, update: true)
+                  club.assistants.append(assistant)
+                  User.current?.currentClub?.assistants.append(assistant)
+                }
+              }
+              
+              
+              realm.create(User.self, value: User.current!, update: true)
+            }
+          }
+        }
+        completion()
+      }else {
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
+  
+  
+  func getSpotAssistansPaginate(clubId: Int, spotId: Int, page: Int, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(UserRouter.getSpotAssistantsPaginate(clubId, spotId, page)).responseJSON { (response) in
+      if (response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let spot = User.current?.selectedSpot {
+            let realm = try! Realm(configuration: ControlCenterRealm.config)
+            try! realm.write {
+              
+              let paginator = Paginator.fromJSON(json["data"])
+              spot.paginator = paginator
+              
+              
+              if let assistantsJson = json["data"]["users"].array {
+                for assistantJson in assistantsJson {
+                  let assistant = UserAssistant.fromJSON(assistantJson)
+                  realm.add(assistant, update: true)
+                  User.current?.selectedSpot?.assistants.append(assistant)
+                }
+              }
+              
+              let userModel = User.current              
+              realm.create(User.self, value: userModel!, update: true)
+            }
+          }
+        }
+        completion()
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
 }

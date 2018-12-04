@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CCInfiniteScrolling
 
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -34,6 +35,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.delegate = self
     self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "kUserCell")
     self.tableView.tableFooterView = UIView()
+    self.tableView.infiniteScrollingDisabled = true
+    self.tableView.addBottomInfiniteScrolling {
+      self.reachToBottom()
+    }
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,11 +108,58 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
   }
   
+  
+  private func getClubAssistantsPaginate() -> Void {
+    if self.isNetworkReachable(){
+      let clubModel = User.current?.currentClub
+      User.current?.getClubAssistansPaginate(clubId: (clubModel?.id)!, page: (clubModel?.paginator?.pageNumber)! + 1, completion: {        
+        self.printDataPaginate()
+      }, error: { (error) in
+        if let error = error as? NSError {
+          if error.code == 500 {
+            self.internalServerError()
+          }
+        }
+      })
+    } else {
+      self.noInternetAlert()
+    }
+  }
+  
+  
+  private func getSpotAssistantsPaginate() -> Void {
+    if self.isNetworkReachable(){
+      let spotModel = User.current?.selectedSpot
+      User.current?.getSpotAssistansPaginate(clubId: (spotModel?.clubId)!, spotId: (spotModel?.id)!, page: (spotModel?.paginator?.pageNumber)! + 1, completion: {
+        self.printDataPaginate()
+      }, error: { (error) in
+        if let error = error as? NSError {
+          if error.code == 500 {
+            self.internalServerError()
+          }
+        }
+      })
+    } else {
+      self.noInternetAlert()
+    }
+  }
+  
+  
   func getDataFromServer() -> Void {
     if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotAssistants()
     }else{
       self.getClubAssistants()
+    }
+    
+  }
+  
+  
+  private func getDataFromServerPaginate() -> Void {
+    if User.current != nil && User.current?.selectedSpot != nil {
+      self.getSpotAssistantsPaginate()
+    }else{
+      self.getClubAssistantsPaginate()
     }
     
   }
@@ -122,12 +174,63 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
   }
   
+  
+  private func printDataPaginate() -> Void {
+    if User.current != nil && User.current?.selectedSpot != nil {
+      self.printSpotDataPaginate()
+    }else {
+      self.printClubDataPaginate()
+    }
+  }
+  
+  
+  
   private func printClubData() -> Void {
     self.tableView.reloadData()
   }
   
   private func printSpotData() -> Void {
     self.tableView.reloadData()
+  }
+  
+  
+  private func printClubDataPaginate() -> Void {
+    let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
+    self.tableView.infiniteScrollingDisabled = true
+    self.tableView.reloadData()
+    if index > 0 {
+      UIView.performWithoutAnimation {
+        self.tableView.scrollToRow(
+          at: IndexPath(row: index, section: 0),
+          at: .bottom,
+          animated: false
+        )
+      }
+    }
+   self.tableView.infiniteScrollingDisabled = false
+    
+  }
+  
+  private func printSpotDataPaginate() -> Void {
+    let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
+    self.tableView.infiniteScrollingDisabled = true
+    self.tableView.reloadData()
+    if index > 0 {
+      UIView.performWithoutAnimation {
+        self.tableView.scrollToRow(
+          at: IndexPath(row: index, section: 0),
+          at: .bottom,
+          animated: false
+        )
+      }
+    }
+    self.tableView.infiniteScrollingDisabled = false
+  }
+  
+  
+  
+  private func reachToBottom() -> Void {
+    self.getDataFromServerPaginate()
   }
 
   

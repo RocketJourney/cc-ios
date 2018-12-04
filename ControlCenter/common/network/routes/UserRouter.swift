@@ -16,10 +16,12 @@ enum UserRouter: URLRequestConvertible {
   case getClubStatus(Int)
   case getClubAssistants(Int)
   case getSpotAssistants(Int, Int)
+  case getClubAssistantsPaginate(Int, Int)
+  case getSpotAssistantsPaginate(Int, Int, Int)
   
   func asURLRequest() throws -> URLRequest {
     
-    let urlRequest = RequestBuilderV2.build(path, method: method)
+    var urlRequest = RequestBuilderV2.build(path, method: method)
     switch self {
       
     case .getSpotsFromClub(_):
@@ -31,6 +33,14 @@ enum UserRouter: URLRequestConvertible {
     case .getClubAssistants(_):
       break
     case .getSpotAssistants(_, _):
+      break
+    case .getClubAssistantsPaginate(_, let page):
+      let encoding = Alamofire.URLEncoding.default
+      urlRequest = try encoding.encode(urlRequest, with: ["page" : page])
+      break
+    case .getSpotAssistantsPaginate(_, _, let page):
+      let encoding = Alamofire.URLEncoding.default
+      urlRequest = try encoding.encode(urlRequest, with: ["page" : page])
       break
     }
     
@@ -50,6 +60,10 @@ enum UserRouter: URLRequestConvertible {
       return "/clubs/\(clubId)/spots/all_spots/users"
     case .getSpotAssistants(let clubId, let spotId):
       return "/clubs/\(clubId)/spots/\(spotId)/users"
+    case .getClubAssistantsPaginate(let clubId, _):
+      return "/clubs/\(clubId)/spots/all_spots/users"
+    case .getSpotAssistantsPaginate(let clubId, let spotId, _):
+      return "/clubs/\(clubId)/spots/\(spotId)/users"
     }
   }
   
@@ -59,7 +73,9 @@ enum UserRouter: URLRequestConvertible {
          .getSpotStatus(_, _),
          .getClubStatus(_),
          .getClubAssistants(_),
-         .getSpotAssistants(_, _):
+         .getSpotAssistants(_, _),
+         .getClubAssistantsPaginate(_, _),
+         .getSpotAssistantsPaginate(_, _, _):
       return .get
     }
   }

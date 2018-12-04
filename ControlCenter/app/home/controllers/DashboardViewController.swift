@@ -15,9 +15,6 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   @IBOutlet weak var viewLocationLabel: UILabel!
   
   
-  var spot: Spot?
-  
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
@@ -48,8 +45,8 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     self.viewLocationLabel.font = UIFont.montserratRegular(15)
     self.viewLocationLabel.textColor = UIColor(hex: 0x9a9a9a)
     
-    if self.spot != nil {
-      self.title = self.spot?.branchName
+    if User.current != nil && User.current?.selectedSpot != nil {
+      self.title = User.current?.selectedSpot!.branchName
     }else {
       
     }
@@ -66,12 +63,12 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "kStatusCell") as! StatusCell
-    if self.spot != nil {
+    if User.current != nil && User.current?.selectedSpot != nil {
       if indexPath.row == 0 {
-        cell.counterStatusLabel.text = String(spot!.totalUsersCheckedIn)
+        cell.counterStatusLabel.text = "\(User.current?.selectedSpot?.totalUsersCheckedIn ?? 0)"
         cell.textStatusLabel.text = "USERS_CHECKED_IN".localized
       }else if indexPath.row == 1 {
-        cell.counterStatusLabel.text = String(spot!.totalUsersWithTeam)
+        cell.counterStatusLabel.text = "\(User.current?.selectedSpot?.totalUsersWithTeam ?? 0)"
         cell.textStatusLabel.text = "USERS_WITH_TEAM".localized
       }
     }else{
@@ -94,7 +91,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   
   func getDataFromServer() -> Void {
-    if self.spot != nil {
+    if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotDataFromServer()
     }else {
       self.getClubDataFromServer()
@@ -121,7 +118,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   private func getSpotDataFromServer() -> Void {
     if self.isNetworkReachable(){
-      User.current?.getSpotStatus(clubId: (self.spot?.clubId)!, spotId: (self.spot?.id)!, completion: {
+      User.current?.getSpotStatus(clubId: (User.current?.selectedSpot?.clubId)!, spotId: (User.current?.selectedSpot?.id)!, completion: {
         self.printData()
       }, error: { (error) in
         if let error = error as? NSError {
@@ -136,7 +133,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   }
   
   private func printData() -> Void {
-    if self.spot != nil {
+    if User.current != nil && User.current?.selectedSpot != nil {
       self.printSpotData()
     }else {
       self.printClubData()

@@ -104,6 +104,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     NSLog("spot =======> %@", spot)
     let realm = try! Realm(configuration: ControlCenterRealm.config)
     try! realm.write {
+      spot.assistants = List<UserAssistant>()
       let userModel = User.current
       userModel?.selectedSpot = spot
       realm.create(User.self, value: userModel!, update: true)
@@ -111,14 +112,12 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     
     if self.selectedIndex == 0 {
       let dashboardVC = self.viewControllers?[0] as? DashboardViewController
-      if dashboardVC != nil {
-        dashboardVC!.spot = spot
+      if dashboardVC != nil {        
         dashboardVC!.getDataFromServer()
       }
     }else {
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
-        usersVC?.spot = User.current?.selectedSpot
         usersVC?.getDataFromServer()
       }
     }
