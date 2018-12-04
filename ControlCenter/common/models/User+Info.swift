@@ -183,7 +183,7 @@ extension User {
               
               let paginator = Paginator.fromJSON(json["data"])
               spot.paginator = paginator
-              
+              User.current?.selectedSpot?.paginator = paginator
               let assistants = List<UserAssistant>()
               
               if let assistantsJson = json["data"]["users"].array {
@@ -253,12 +253,13 @@ extension User {
               let paginator = Paginator.fromJSON(json["data"])
               spot.paginator = paginator
               
-              
+              User.current?.selectedSpot?.paginator = paginator              
               if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
                   let assistant = UserAssistant.fromJSON(assistantJson)
                   realm.add(assistant, update: true)
                   User.current?.selectedSpot?.assistants.append(assistant)
+                  
                 }
               }
               

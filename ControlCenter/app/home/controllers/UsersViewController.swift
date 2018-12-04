@@ -10,7 +10,7 @@ import UIKit
 import CCInfiniteScrolling
 
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+  
   @IBOutlet weak var tableView: UITableView!
   var spot: Spot?
   
@@ -52,7 +52,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let club = User.current?.currentClub
       return club?.assistants.count ?? 0
     }
-   
+    
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -195,36 +195,48 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   private func printClubDataPaginate() -> Void {
-    let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
-    self.tableView.infiniteScrollingDisabled = true
-    self.tableView.reloadData()
-    if index > 0 {
-      UIView.performWithoutAnimation {
-        self.tableView.scrollToRow(
-          at: IndexPath(row: index, section: 0),
-          at: .bottom,
-          animated: false
-        )
+    let paginator = User.current?.currentClub?.paginator
+    if paginator != nil &&  (paginator?.totalPages)! > (paginator?.pageNumber)!  {
+      let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
+      self.tableView.infiniteScrollingDisabled = true
+      self.tableView.reloadData()
+      if index > 0 {
+        UIView.performWithoutAnimation {
+          self.tableView.scrollToRow(
+            at: IndexPath(row: index, section: 0),
+            at: .bottom,
+            animated: false
+          )
+        }
       }
+      self.tableView.infiniteScrollingDisabled = false
+    }else{
+      self.tableView.infiniteScrollingDisabled = true
     }
-   self.tableView.infiniteScrollingDisabled = false
+    
+    
     
   }
   
   private func printSpotDataPaginate() -> Void {
-    let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
-    self.tableView.infiniteScrollingDisabled = true
-    self.tableView.reloadData()
-    if index > 0 {
-      UIView.performWithoutAnimation {
-        self.tableView.scrollToRow(
-          at: IndexPath(row: index, section: 0),
-          at: .bottom,
-          animated: false
-        )
+    let paginator = User.current?.currentClub?.paginator
+    if paginator != nil &&  (paginator?.totalPages)! > (paginator?.pageNumber)!  {
+      let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
+      self.tableView.infiniteScrollingDisabled = true
+      self.tableView.reloadData()
+      if index > 0 {
+        UIView.performWithoutAnimation {
+          self.tableView.scrollToRow(
+            at: IndexPath(row: index, section: 0),
+            at: .bottom,
+            animated: false
+          )
+        }
       }
+      self.tableView.infiniteScrollingDisabled = false
+    }else{
+      self.tableView.infiniteScrollingDisabled = true
     }
-    self.tableView.infiniteScrollingDisabled = false
   }
   
   
@@ -232,6 +244,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func reachToBottom() -> Void {
     self.getDataFromServerPaginate()
   }
-
   
+  func setupReachBottom() -> Void {
+    self.tableView.infiniteScrollingDisabled = false
+  }
 }

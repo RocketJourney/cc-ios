@@ -107,6 +107,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       spot.assistants = List<UserAssistant>()
       let userModel = User.current
       userModel?.selectedSpot = spot
+      User.current?.selectedSpot?.assistants = List<UserAssistant>()
       realm.create(User.self, value: userModel!, update: true)
     }
     
@@ -118,6 +119,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     }else {
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
+        usersVC?.setupReachBottom()
         usersVC?.getDataFromServer()
       }
     }
@@ -133,10 +135,19 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       //Do something if index is 0
       NSLog("item 0")
       self.selectedIndex = 0
+      let dashboardVC = self.viewControllers?[0] as? DashboardViewController
+      if dashboardVC != nil {
+        dashboardVC!.getDataFromServer()
+      }
     }
     else if item == (tabBar.items)![1]{
       NSLog("item 1")
       self.selectedIndex = 1
+      let usersVC = self.viewControllers?[1] as? UsersViewController
+      if usersVC != nil {
+        usersVC?.setupReachBottom()
+        usersVC?.getDataFromServer()
+      }
     }
   }
   
