@@ -54,6 +54,10 @@ class Club: Object {
     if let logoUrl = json["logo"].string {
       club.logoUrl = logoUrl
     }
+    
+    if let logoUrl = json["badge_url"].string {
+      club.logoUrl = logoUrl
+    }
     return club
   }
 }
