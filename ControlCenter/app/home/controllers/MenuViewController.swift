@@ -50,7 +50,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.tableView.backgroundColor = UIColor(hex: 0x4a4a4a)
-    self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")    
+    self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")
+    self.tableView.register(UINib(nibName: "MenuOptionCell", bundle: nil), forCellReuseIdentifier: "kMenuOptionCell")
+    self.tableView.register(UINib(nibName: "MenuLogoutCell", bundle: nil), forCellReuseIdentifier: "kMenuLogoutCell")
   }
   
   
@@ -134,13 +136,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
           cell.spotNameLabel?.text = spot?.branchName
         }
       default:
+        let optionCell = tableView.dequeueReusableCell(withIdentifier: "kMenuOptionCell") as! MenuOptionCell
         switch indexPath.row {
         case 0:
-          cell.spotNameLabel.text = "TERMS_OF_SERVICE".localized
+          optionCell.optionLabel.text = "TERMS_OF_SERVICE".localized
+          return optionCell
         case 1:
-          cell.spotNameLabel.text = "PRIVACY_POLICY".localized
+          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
+          return optionCell
         default:
-          cell.spotNameLabel.text = "LOG_OUT".localized
+          let logoutCell = tableView.dequeueReusableCell(withIdentifier: "kMenuLogoutCell") as! MenuLogoutCell
+          logoutCell.optionLabel.text = "LOG_OUT".localized
+          return logoutCell          
         }
       }
     }else{
@@ -151,13 +158,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
           cell.spotNameLabel?.text = spot?.branchName
         }
       default:
+        let optionCell = tableView.dequeueReusableCell(withIdentifier: "kMenuOptionCell") as! MenuOptionCell
         switch indexPath.row {
         case 0:
-          cell.spotNameLabel.text = "TERMS_OF_SERVICE".localized
+          optionCell.optionLabel.text = "TERMS_OF_SERVICE".localized
+          return optionCell
         case 1:
-          cell.spotNameLabel.text = "PRIVACY_POLICY".localized
+          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
+          return optionCell
         default:
-          cell.spotNameLabel.text = "LOG_OUT".localized
+          let logoutCell = tableView.dequeueReusableCell(withIdentifier: "kMenuLogoutCell") as! MenuLogoutCell
+          logoutCell.optionLabel.text = "LOG_OUT".localized
+          return logoutCell
         }
       }
     }

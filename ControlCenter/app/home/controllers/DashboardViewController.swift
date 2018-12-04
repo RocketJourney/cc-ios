@@ -13,6 +13,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   @IBOutlet var barItem: UITabBarItem!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var viewLocationLabel: UILabel!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   
   
@@ -102,9 +103,15 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   private func getClubDataFromServer() -> Void {
     if self.isNetworkReachable(){
+      self.tableView.isHidden = true
+      self.showActivityIndicator()
       User.current?.getClubStatus(clubId: (User.current?.currentClub?.id)!, completion: {
+        self.hideActivityIndicator()
+        self.tableView.isHidden = false
         self.printData()
       }, error: { (error) in
+        self.hideActivityIndicator()
+        self.tableView.isHidden = false
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -120,9 +127,15 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   private func getSpotDataFromServer() -> Void {
     if self.isNetworkReachable(){
+      self.tableView.isHidden = true
+      self.showActivityIndicator()
       User.current?.getSpotStatus(clubId: (User.current?.selectedSpot?.clubId)!, spotId: (User.current?.selectedSpot?.id)!, completion: {
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         self.printData()
       }, error: { (error) in
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -151,4 +164,13 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   }
   
   
+  private func showActivityIndicator() -> Void {
+    self.activityIndicator.startAnimating()
+    self.activityIndicator.isHidden = false
+  }
+  
+  private func hideActivityIndicator() -> Void {
+    self.activityIndicator.stopAnimating()
+    self.activityIndicator.isHidden = true
+  }
 }

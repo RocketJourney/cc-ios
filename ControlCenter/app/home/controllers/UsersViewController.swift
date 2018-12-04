@@ -12,6 +12,9 @@ import CCInfiniteScrolling
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
+  
   var spot: Spot?
   
   override func viewDidLoad() {
@@ -76,9 +79,15 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   private func getClubAssistants() -> Void {
     if self.isNetworkReachable(){
+      self.tableView.isHidden = true
+      self.showActivityIndicator()
       User.current?.getClubAssistans(clubId: (User.current?.currentClub?.id)!, completion: {
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         self.printData()
       }, error: { (error) in
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -93,10 +102,16 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   private func getSpotAssistants() -> Void {
     if self.isNetworkReachable(){
+      self.tableView.isHidden = true
+      self.showActivityIndicator()
       let spotModel = User.current?.selectedSpot
       User.current?.getSpotAssistans(clubId: (spotModel?.clubId)!, spotId: (spotModel?.id)!, completion: {
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         self.printData()
       }, error: { (error) in
+        self.tableView.isHidden = false
+        self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -111,8 +126,9 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   private func getClubAssistantsPaginate() -> Void {
     if self.isNetworkReachable(){
+      
       let clubModel = User.current?.currentClub
-      User.current?.getClubAssistansPaginate(clubId: (clubModel?.id)!, page: (clubModel?.paginator?.pageNumber)! + 1, completion: {        
+      User.current?.getClubAssistansPaginate(clubId: (clubModel?.id)!, page: (clubModel?.paginator?.pageNumber)! + 1, completion: {
         self.printDataPaginate()
       }, error: { (error) in
         if let error = error as? NSError {
@@ -132,7 +148,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
       let spotModel = User.current?.selectedSpot
       User.current?.getSpotAssistansPaginate(clubId: (spotModel?.clubId)!, spotId: (spotModel?.id)!, page: (spotModel?.paginator?.pageNumber)! + 1, completion: {
         self.printDataPaginate()
-      }, error: { (error) in
+      }, error: { (error) in        
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -247,5 +263,15 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func setupReachBottom() -> Void {
     self.tableView.infiniteScrollingDisabled = false
+  }
+  
+  private func showActivityIndicator() -> Void {
+    self.activityIndicator.startAnimating()
+    self.activityIndicator.isHidden = false
+  }
+  
+  private func hideActivityIndicator() -> Void {
+    self.activityIndicator.stopAnimating()
+    self.activityIndicator.isHidden = true
   }
 }

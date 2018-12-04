@@ -181,17 +181,27 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tCk-Pe-vNe">
+                                <rect key="frame" x="170.5" y="153" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="fUI-oI-67A"/>
+                                    <constraint firstAttribute="width" constant="34" id="xog-O7-lMR"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MwM-vt-Mlw" firstAttribute="top" secondItem="7O4-f5-Tjx" secondAttribute="bottom" id="Rg3-dt-88J"/>
                             <constraint firstAttribute="trailing" secondItem="7O4-f5-Tjx" secondAttribute="trailing" id="UFg-bE-ibc"/>
+                            <constraint firstItem="tCk-Pe-vNe" firstAttribute="centerX" secondItem="rY5-x6-esR" secondAttribute="centerX" id="XaE-cU-Gec"/>
                             <constraint firstItem="7O4-f5-Tjx" firstAttribute="top" secondItem="rY5-x6-esR" secondAttribute="top" constant="16" id="cKI-8T-NJF"/>
+                            <constraint firstItem="tCk-Pe-vNe" firstAttribute="top" secondItem="rY5-x6-esR" secondAttribute="top" constant="153" id="nYx-PE-pkT"/>
                             <constraint firstItem="7O4-f5-Tjx" firstAttribute="leading" secondItem="rY5-x6-esR" secondAttribute="leading" id="nbO-aF-hqb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Users" image="users-icon" selectedImage="users-icon" id="nQf-Io-9JW"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="tCk-Pe-vNe" id="XkB-xb-Msi"/>
                         <outlet property="tableView" destination="7O4-f5-Tjx" id="myP-dV-AzG"/>
                     </connections>
                 </viewController>
@@ -221,10 +231,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="q9f-bh-8P7">
+                                <rect key="frame" x="170.5" y="200" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="TTX-h7-w5Z"/>
+                                    <constraint firstAttribute="height" constant="34" id="WZx-DU-dfW"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ETd-Q7-8d4" firstAttribute="top" secondItem="xbE-ts-x83" secondAttribute="bottom" id="Bgn-Y8-VTS"/>
+                            <constraint firstItem="q9f-bh-8P7" firstAttribute="centerX" secondItem="pLs-hf-jsc" secondAttribute="centerX" id="HvA-sE-t9k"/>
+                            <constraint firstItem="q9f-bh-8P7" firstAttribute="top" secondItem="X3D-EA-ziO" secondAttribute="bottom" constant="153" id="QB3-pl-MOR"/>
                             <constraint firstItem="xbE-ts-x83" firstAttribute="top" secondItem="X3D-EA-ziO" secondAttribute="bottom" constant="6" id="TJI-pT-qFP"/>
                             <constraint firstItem="X3D-EA-ziO" firstAttribute="top" secondItem="Voa-6O-V9p" secondAttribute="bottom" constant="6" id="UNd-lS-VOH"/>
                             <constraint firstItem="X3D-EA-ziO" firstAttribute="leading" secondItem="pLs-hf-jsc" secondAttribute="leadingMargin" constant="5" id="UmF-Oi-wMj"/>
@@ -237,6 +256,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="q9f-bh-8P7" id="ei1-cE-5TS"/>
                         <outlet property="tableView" destination="xbE-ts-x83" id="79R-UP-gvq"/>
                         <outlet property="viewLocationLabel" destination="X3D-EA-ziO" id="x1r-lv-g12"/>
                     </connections>

@@ -36,6 +36,8 @@
 		F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */; };
 		F05B23CE21B632B700D76F86 /* HomePreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */; };
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
+		F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */; };
+		F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */; };
 		F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F28521960C0900BB22EF /* CreateAccountViewController.swift */; };
 		F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F287219622FB00BB22EF /* JoinClubViewController.swift */; };
 		F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F2892196230700BB22EF /* ChooseClubViewController.swift */; };
@@ -141,6 +143,8 @@
 		F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterSeparatorView.xib; sourceTree = "<group>"; };
 		F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreludeSegue.swift; sourceTree = "<group>"; };
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
+		F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCell.swift; sourceTree = "<group>"; };
+		F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLogoutCell.xib; sourceTree = "<group>"; };
 		F079F28521960C0900BB22EF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F079F287219622FB00BB22EF /* JoinClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClubViewController.swift; sourceTree = "<group>"; };
 		F079F2892196230700BB22EF /* ChooseClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClubViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +342,10 @@
 		F05065EE2194C91200675D86 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */,
+				F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */,
+				F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */,
+				F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */,
 				F05B23C521B623E500D76F86 /* MenuOptionCell.swift */,
 				F05B23C621B623E500D76F86 /* MenuOptionCell.xib */,
 				F0B0108521AF6D0200DD82E7 /* MenuSpotCell.swift */,
@@ -346,8 +354,6 @@
 				F0B0108A21B07B6100DD82E7 /* StatusCell.xib */,
 				F00C2E8A21B1983D0010EB18 /* UserCell.swift */,
 				F00C2E8B21B1983D0010EB18 /* UserCell.xib */,
-				F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */,
-				F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
 				F079F28F2196351F00BB22EF /* ClubTableViewCell.xib in Resources */,
+				F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,6 +765,7 @@
 				F05B23C721B623E500D76F86 /* MenuOptionCell.swift in Sources */,
 				F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
+				F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */,
 				F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */,
 				F0CC36FD21A3AF2400B89575 /* SignUpHomeSegue.swift in Sources */,
 				F079F29121963FFA00BB22EF /* RecoverPasswordViewController.swift in Sources */,
