@@ -12,7 +12,10 @@ import Crashlytics
 import Fabric
 import RealmSwift
 
+
+
 extension AppDelegate {
+    
   
   static let ratioImages: CGFloat = 0.286
   

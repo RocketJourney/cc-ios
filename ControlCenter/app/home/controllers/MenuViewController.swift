@@ -100,14 +100,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 1:
           return (User.current?.currentClub?.sortedSpotsBranchName.count)!
         default:
-          return 3
+          return 2
         }
       }else {
         switch section {
         case 0:
           return (User.current?.currentClub?.sortedSpotsBranchName.count)!
         default:
-          return 3
+          return 2
         }
       }
     }else{
@@ -131,6 +131,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else if User.current?.permission == "some_spots" {
           cell.spotNameLabel?.text = "ALL_MY_LOCATIONS".localized
         }
+        if User.current?.selectedSpot == nil {
+          cell.setSelected(true, animated: false)
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }else{
+          cell.setSelected(false, animated: false)
+          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
       case 1:
         if User.current?.currentClub != nil {
           let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
@@ -148,9 +155,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
           optionCell.optionLabel.text = "TERMS_OF_SERVICE".localized
           return optionCell
-        case 1:
-          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
-          return optionCell
+//        case 1:
+//          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
+//          return optionCell
         default:
           let logoutCell = tableView.dequeueReusableCell(withIdentifier: "kMenuLogoutCell") as! MenuLogoutCell
           logoutCell.optionLabel.text = "LOG_OUT".localized
@@ -176,9 +183,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
           optionCell.optionLabel.text = "TERMS_OF_SERVICE".localized
           return optionCell
-        case 1:
-          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
-          return optionCell
+//        case 1:
+//          optionCell.optionLabel.text = "PRIVACY_POLICY".localized
+//          return optionCell
         default:
           let logoutCell = tableView.dequeueReusableCell(withIdentifier: "kMenuLogoutCell") as! MenuLogoutCell
           logoutCell.optionLabel.text = "LOG_OUT".localized
@@ -218,9 +225,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
       default:
         switch indexPath.row {
         case 0:
+          self.displayTermsOfConditions()
           break
-        case 1:
-          break
+//        case 1:
+//          self.displayTermsOfConditions()
+//          break
         default:
           self.dismissView()
           self.spotSelectedDelegate?.logout()
@@ -233,8 +242,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.spotSelectedDelegate?.spotSelected(spot: spot!)
         self.dismissView()
       default:
-        self.dismissView()
-        self.spotSelectedDelegate?.logout()
+        switch indexPath.row {
+        case 0:
+          self.displayTermsOfConditions()
+          break
+          //        case 1:
+          //          self.displayTermsOfConditions()
+        //          break
+        default:
+          self.dismissView()
+          self.spotSelectedDelegate?.logout()
+        }
       }
     }
     
@@ -250,5 +268,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     return 10
   }
   
+  
+  private func displayTermsOfConditions() -> Void {
+    let termsViewController = WebViewController(nibName: "WebViewController", bundle: nil)
+    let nav = UINavigationController(rootViewController: termsViewController)
+    nav.navigationBar.isTranslucent = false
+    nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    self.present(nav, animated: true, completion: nil)
+  }
   
 }

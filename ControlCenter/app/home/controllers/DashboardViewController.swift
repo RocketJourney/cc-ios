@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class DashboardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
@@ -52,6 +53,8 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     
     self.viewLocationLabel.font = UIFont.montserratRegular(15)
     self.viewLocationLabel.textColor = UIColor(hex: 0x9a9a9a)
+    
+    self.printLocations()
         
   }
   
@@ -105,13 +108,16 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   private func getClubDataFromServer() -> Void {
     if self.isNetworkReachable(){
       self.tableView.isHidden = true
+      self.viewLocationLabel.isHidden = true
       self.showActivityIndicator()
       User.current?.getClubStatus(clubId: (User.current?.currentClub?.id)!, completion: {
         self.hideActivityIndicator()
         self.tableView.isHidden = false
+        self.viewLocationLabel.isHidden = false
         self.printData()
       }, error: { (error) in
         self.hideActivityIndicator()
+        self.viewLocationLabel.isHidden = false
         self.tableView.isHidden = false
         if let error = error as? NSError {
           if error.code == 500 {
@@ -129,13 +135,16 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   private func getSpotDataFromServer() -> Void {
     if self.isNetworkReachable(){
       self.tableView.isHidden = true
+      self.viewLocationLabel.isHidden = true
       self.showActivityIndicator()
       User.current?.getSpotStatus(clubId: (User.current?.selectedSpot?.clubId)!, spotId: (User.current?.selectedSpot?.id)!, completion: {
         self.tableView.isHidden = false
+        self.viewLocationLabel.isHidden = false
         self.hideActivityIndicator()
         self.printData()
       }, error: { (error) in
         self.tableView.isHidden = false
+        self.viewLocationLabel.isHidden = false
         self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
@@ -158,10 +167,13 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   
   private func printClubData() -> Void {
     self.tableView.reloadData()
+    self.printLocations()
+    
   }
   
   private func printSpotData() -> Void {
     self.tableView.reloadData()
+    self.printLocations()
   }
   
   
@@ -173,5 +185,25 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   private func hideActivityIndicator() -> Void {
     self.activityIndicator.stopAnimating()
     self.activityIndicator.isHidden = true
+  }
+  
+  
+  private func printLocations() -> Void {
+    if User.current?.selectedSpot != nil {
+      
+      self.viewLocationLabel.snp.remakeConstraints { (make) in
+        make.height.equalTo(0)
+      }
+    }else{
+      self.viewLocationLabel.snp.remakeConstraints { (make) in
+        make.height.equalTo(21)
+      }
+      if User.current?.currentClub != nil && (User.current?.currentClub?.accesibleSpots.count)! > 2 {
+        self.viewLocationLabel.text = "\(User.current?.currentClub?.accesibleSpots.count ?? 0) " + "LOCATIONS".localized
+      }else{
+        self.viewLocationLabel.text = "1 " + "LOCATION".localized
+      }
+      
+    }
   }
 }

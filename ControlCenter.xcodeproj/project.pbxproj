@@ -38,6 +38,19 @@
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
 		F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */; };
 		F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */; };
+		F073A74D21B73B2600E37D5A /* terms.css in Resources */ = {isa = PBXBuildFile; fileRef = F073A74221B73B2500E37D5A /* terms.css */; };
+		F073A74E21B73B2600E37D5A /* terms-es.html in Resources */ = {isa = PBXBuildFile; fileRef = F073A74321B73B2500E37D5A /* terms-es.html */; };
+		F073A74F21B73B2600E37D5A /* terms-noresell.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74421B73B2500E37D5A /* terms-noresell.png */; };
+		F073A75021B73B2600E37D5A /* terms-comply.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74521B73B2500E37D5A /* terms-comply.png */; };
+		F073A75121B73B2600E37D5A /* terms-noresell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74621B73B2500E37D5A /* terms-noresell@2x.png */; };
+		F073A75221B73B2600E37D5A /* terms-gift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74721B73B2500E37D5A /* terms-gift@2x.png */; };
+		F073A75321B73B2600E37D5A /* terms-gift.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74821B73B2500E37D5A /* terms-gift.png */; };
+		F073A75421B73B2600E37D5A /* terms-comply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74921B73B2500E37D5A /* terms-comply@2x.png */; };
+		F073A75521B73B2600E37D5A /* terms-nostore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74A21B73B2500E37D5A /* terms-nostore@2x.png */; };
+		F073A75621B73B2600E37D5A /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = F073A74B21B73B2500E37D5A /* terms.html */; };
+		F073A75721B73B2600E37D5A /* terms-nostore.png in Resources */ = {isa = PBXBuildFile; fileRef = F073A74C21B73B2600E37D5A /* terms-nostore.png */; };
+		F073A75A21B73C7000E37D5A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073A75821B73C7000E37D5A /* WebViewController.swift */; };
+		F073A75B21B73C7000E37D5A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F073A75921B73C7000E37D5A /* WebViewController.xib */; };
 		F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F28521960C0900BB22EF /* CreateAccountViewController.swift */; };
 		F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F287219622FB00BB22EF /* JoinClubViewController.swift */; };
 		F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F2892196230700BB22EF /* ChooseClubViewController.swift */; };
@@ -145,6 +158,19 @@
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCell.swift; sourceTree = "<group>"; };
 		F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLogoutCell.xib; sourceTree = "<group>"; };
+		F073A74221B73B2500E37D5A /* terms.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = terms.css; sourceTree = "<group>"; };
+		F073A74321B73B2500E37D5A /* terms-es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "terms-es.html"; sourceTree = "<group>"; };
+		F073A74421B73B2500E37D5A /* terms-noresell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-noresell.png"; sourceTree = "<group>"; };
+		F073A74521B73B2500E37D5A /* terms-comply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-comply.png"; sourceTree = "<group>"; };
+		F073A74621B73B2500E37D5A /* terms-noresell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-noresell@2x.png"; sourceTree = "<group>"; };
+		F073A74721B73B2500E37D5A /* terms-gift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-gift@2x.png"; sourceTree = "<group>"; };
+		F073A74821B73B2500E37D5A /* terms-gift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-gift.png"; sourceTree = "<group>"; };
+		F073A74921B73B2500E37D5A /* terms-comply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-comply@2x.png"; sourceTree = "<group>"; };
+		F073A74A21B73B2500E37D5A /* terms-nostore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-nostore@2x.png"; sourceTree = "<group>"; };
+		F073A74B21B73B2500E37D5A /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
+		F073A74C21B73B2600E37D5A /* terms-nostore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terms-nostore.png"; sourceTree = "<group>"; };
+		F073A75821B73C7000E37D5A /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		F073A75921B73C7000E37D5A /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		F079F28521960C0900BB22EF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F079F287219622FB00BB22EF /* JoinClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClubViewController.swift; sourceTree = "<group>"; };
 		F079F2892196230700BB22EF /* ChooseClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClubViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +334,8 @@
 				F03BD8CD21ACAD3300911917 /* UsersViewController.swift */,
 				F0D2DDE221ADC4FB003573DD /* MenuViewController.swift */,
 				F0D2DDE321ADC4FB003573DD /* MenuViewController.xib */,
+				F073A75821B73C7000E37D5A /* WebViewController.swift */,
+				F073A75921B73C7000E37D5A /* WebViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -419,9 +447,28 @@
 			path = prelude;
 			sourceTree = "<group>";
 		};
+		F073A74121B73B0600E37D5A /* html */ = {
+			isa = PBXGroup;
+			children = (
+				F073A74521B73B2500E37D5A /* terms-comply.png */,
+				F073A74921B73B2500E37D5A /* terms-comply@2x.png */,
+				F073A74321B73B2500E37D5A /* terms-es.html */,
+				F073A74821B73B2500E37D5A /* terms-gift.png */,
+				F073A74721B73B2500E37D5A /* terms-gift@2x.png */,
+				F073A74421B73B2500E37D5A /* terms-noresell.png */,
+				F073A74621B73B2500E37D5A /* terms-noresell@2x.png */,
+				F073A74C21B73B2600E37D5A /* terms-nostore.png */,
+				F073A74A21B73B2500E37D5A /* terms-nostore@2x.png */,
+				F073A74221B73B2500E37D5A /* terms.css */,
+				F073A74B21B73B2500E37D5A /* terms.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
 		F07F54B2219219C800080D94 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				F073A74121B73B0600E37D5A /* html */,
 				F05065F92194EFB600675D86 /* strings */,
 				F07F54B52192752300080D94 /* fonts */,
 				F016901C2191073E001526DA /* Assets.xcassets */,
@@ -618,7 +665,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */,
+				F073A74E21B73B2600E37D5A /* terms-es.html in Resources */,
+				F073A75621B73B2600E37D5A /* terms.html in Resources */,
 				F0B0108C21B07B6100DD82E7 /* StatusCell.xib in Resources */,
+				F073A75321B73B2600E37D5A /* terms-gift.png in Resources */,
+				F073A75421B73B2600E37D5A /* terms-comply@2x.png in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
 				F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */,
 				F0B0108821AF6D0200DD82E7 /* MenuSpotCell.xib in Resources */,
@@ -626,16 +677,24 @@
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
 				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
 				F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */,
+				F073A75221B73B2600E37D5A /* terms-gift@2x.png in Resources */,
 				F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */,
 				F05B23C821B623E500D76F86 /* MenuOptionCell.xib in Resources */,
+				F073A74D21B73B2600E37D5A /* terms.css in Resources */,
 				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
+				F073A75721B73B2600E37D5A /* terms-nostore.png in Resources */,
+				F073A75121B73B2600E37D5A /* terms-noresell@2x.png in Resources */,
+				F073A75B21B73C7000E37D5A /* WebViewController.xib in Resources */,
 				F05066012194F18A00675D86 /* Localizable.strings in Resources */,
+				F073A75521B73B2600E37D5A /* terms-nostore@2x.png in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
 				F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
 				F079F28F2196351F00BB22EF /* ClubTableViewCell.xib in Resources */,
 				F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */,
+				F073A75021B73B2600E37D5A /* terms-comply.png in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
+				F073A74F21B73B2600E37D5A /* terms-noresell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +818,7 @@
 				F05B23CA21B624AA00D76F86 /* FooterSeparatorView.swift in Sources */,
 				F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
+				F073A75A21B73C7000E37D5A /* WebViewController.swift in Sources */,
 				F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */,
 				F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
