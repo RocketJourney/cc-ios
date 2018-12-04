@@ -15,15 +15,21 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
   @IBOutlet weak var viewLocationLabel: UILabel!
   
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
     self.getDataFromServer()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+  }
       
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.printData()
+    
   }
   
   
@@ -44,13 +50,9 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     
     self.viewLocationLabel.font = UIFont.montserratRegular(15)
     self.viewLocationLabel.textColor = UIColor(hex: 0x9a9a9a)
-    
-    if User.current != nil && User.current?.selectedSpot != nil {
-      self.title = User.current?.selectedSpot!.branchName
-    }else {
-      
-    }
+        
   }
+  
   
   
   func numberOfSections(in tableView: UITableView) -> Int {

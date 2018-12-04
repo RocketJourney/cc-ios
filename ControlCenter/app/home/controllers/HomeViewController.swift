@@ -18,6 +18,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   var club: Club?
   var titleViewCache: UIView?
+  var titleLabel: UILabel?
   
   
   var menuButton: UIBarButtonItem?
@@ -27,12 +28,17 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     self.setupView()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.displayTitle()
+  }
+  
   private func setupView() -> Void {
     self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
     let clubModel = User.current?.currentClub
-    self.navigationItem.titleView = self.titleView((clubModel?.logoUrl)!, name: (clubModel?.name)!)
     self.setupMenu()
     self.setupMenuButton()
+    self.displayTitle()
     self.tabBar.barTintColor = UIColor(hex: 0x333333)
     self.tabBar.backgroundColor = UIColor(hex: 0x333333)
   }
@@ -49,27 +55,25 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   
   func titleView(_ badgeUrl:String, name:String)->UIView {
-    if let titleViewCache = self.titleViewCache {
-      return titleViewCache
-    } else {
-      let xview = UIView()
-      let imgView = UIImageView()
-      imgView.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
-      imgView.layer.masksToBounds = true
-      imgView.layer.cornerRadius = AppDelegate.ratioImages * imgView.frame.height
-      imgView.sd_setImage(with: URL(string: badgeUrl))
-      xview.addSubview(imgView)
-      let lbl = UILabel()
-      lbl.text = name
-      lbl.font = UIFont.montserratBold(18)
-      lbl.textColor = UIColor.white
-      lbl.sizeToFit()
-      lbl.center = CGPoint(x: 36 + (lbl.frame.size.width / 2), y: 14)
-      xview.addSubview(lbl)
-      titleViewCache = xview
-      xview.frame = CGRect(x: 0, y: 0, width: 36 + lbl.frame.size.width, height: 28)
-      return xview
-    }
+    
+    let xview = UIView()
+    let imgView = UIImageView()
+    imgView.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
+    imgView.layer.masksToBounds = true
+    imgView.layer.cornerRadius = AppDelegate.ratioImages * imgView.frame.height
+    imgView.sd_setImage(with: URL(string: badgeUrl))
+    xview.addSubview(imgView)
+    self.titleLabel = UILabel()
+    self.titleLabel!.text = name
+    self.titleLabel!.font = UIFont.montserratBold(18)
+    self.titleLabel!.textColor = UIColor.white
+    self.titleLabel!.sizeToFit()
+    self.titleLabel!.center = CGPoint(x: 36 + (self.titleLabel!.frame.size.width / 2), y: 14)
+    xview.addSubview(self.titleLabel!)
+    titleViewCache = xview
+    xview.frame = CGRect(x: 0, y: 0, width: 36 + self.titleLabel!.frame.size.width, height: 28)
+    return xview
+    
   }
   
   
@@ -107,6 +111,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       spot.assistants = List<UserAssistant>()
       let userModel = User.current
       userModel?.selectedSpot = spot
+      User.current?.selectedSpot?.paginator = nil
       User.current?.selectedSpot?.assistants = List<UserAssistant>()
       realm.create(User.self, value: userModel!, update: true)
     }
@@ -123,10 +128,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         usersVC?.getDataFromServer()
       }
     }
-    
-    
-    
-    
+    self.viewDidAppear(false)
   }
   
   
@@ -137,22 +139,33 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       self.selectedIndex = 0
       let dashboardVC = self.viewControllers?[0] as? DashboardViewController
       if dashboardVC != nil {
-        dashboardVC!.getDataFromServer()
+        
       }
+      
     }
     else if item == (tabBar.items)![1]{
       NSLog("item 1")
       self.selectedIndex = 1
       let usersVC = self.viewControllers?[1] as? UsersViewController
-      if usersVC != nil {
-        usersVC?.setupReachBottom()
-        usersVC?.getDataFromServer()
+      if usersVC != nil {        
       }
     }
   }
   
   
+  private func displayTitle() -> Void {
+    if User.current != nil {
+      if User.current?.selectedSpot != nil{
+        self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: (User.current?.selectedSpot?.branchName)!)
+      }else {
+        if User.current?.permission == "owner"{
+          self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_LOCATIONS".localized)
+        }else if User.current?.permission == "some_spots"{
+          self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_MY_LOCATIONS".localized)
+        }
+      }
+    }
+  }
   
   
-
 }

@@ -63,3 +63,7 @@
 
 "USERS_CHECKED_IN"="| USUARIOS QUE HAN HECHO CHECK-IN";
 "USERS_WITH_TEAM"="USUARIOS CON EQUIPO";
+
+"ALL_LOCATIONS"="Todas las Sucursales";
+"ALL_MY_LOCATIONS"="Todas mis Sucursales";
+"LOCATIONS"="Sucursales";

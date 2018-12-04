@@ -72,20 +72,82 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   }
   
+  
+  
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    
+    if User.current != nil {
+      if (User.current?.permission == "owner" || User.current?.permission == "all_spots" || User.current?.permission == "some_spots") && (User.current?.currentClub?.accesibleSpots.count)! > 1 {
+        return 3
+      }else{
+        return 2
+      }
+    }else{
+      return 0
+    }
   }
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (User.current?.currentClub?.accesibleSpots.count)!
+    if User.current != nil {
+      if (User.current?.permission == "owner" || User.current?.permission == "all_spots" || User.current?.permission == "some_spots") && (User.current?.currentClub?.accesibleSpots.count)! > 1 {
+        switch section {
+        case 0:
+          return 1
+        case 1:
+          return (User.current?.currentClub?.sortedSpotsBranchName.count)!
+        default:
+          return 3
+        }
+      }else {
+        switch section {
+        case 0:
+          return (User.current?.currentClub?.sortedSpotsBranchName.count)!
+        default:
+          return 3
+        }
+      }
+    }else{
+      return 0
+    }
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "kMenuSpotCell") as! MenuSpotCell
-    let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
-    cell.spotNameLabel.text = spot?.branchName
+    
+    if (User.current?.permission == "owner" ||
+      User.current?.permission == "all_spots" ||
+      User.current?.permission == "some_spots") && (User.current?.currentClub?.accesibleSpots.count)! > 1 {
+      switch indexPath.section {
+      case 0:
+        if User.current?.permission == "owner" || User.current?.permission == "all_spots" {
+          cell.spotNameLabel?.text = "ALL_LOCATIONS".localized
+        }else if User.current?.permission == "some_spots" {
+          cell.spotNameLabel?.text = "ALL_MY_LOCATIONS".localized
+        }
+      case 1:
+        if User.current?.currentClub != nil {
+          let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+          cell.spotNameLabel?.text = spot?.branchName
+        }
+      default:
+        cell.spotNameLabel?.text = "aa"
+      }
+    }else{
+      switch indexPath.section {
+      case 0:
+        if User.current?.currentClub != nil {
+          let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+          cell.spotNameLabel?.text = spot?.branchName
+        }
+      default:
+        cell.spotNameLabel?.text = "aa"
+      }
+    }
+    
     return cell
   }
   
@@ -98,4 +160,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.spotSelectedDelegate?.spotSelected(spot: spot!)
     self.dismissView()
   }
+  
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let footerView = UINib(nibName: "FooterSeparatorView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! FooterSeparatorView
+    return footerView
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 10
+  }
+  
+  
 }

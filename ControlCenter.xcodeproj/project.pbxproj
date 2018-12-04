@@ -30,6 +30,10 @@
 		F05066062195027400675D86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05066052195027400675D86 /* LoginViewController.swift */; };
 		F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0506607219504EC00675D86 /* CheckEmailViewController.swift */; };
 		F050660D21950A9200675D86 /* LoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050660C21950A9200675D86 /* LoginSegue.swift */; };
+		F05B23C721B623E500D76F86 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23C521B623E500D76F86 /* MenuOptionCell.swift */; };
+		F05B23C821B623E500D76F86 /* MenuOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23C621B623E500D76F86 /* MenuOptionCell.xib */; };
+		F05B23CA21B624AA00D76F86 /* FooterSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */; };
+		F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */; };
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
 		F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F28521960C0900BB22EF /* CreateAccountViewController.swift */; };
 		F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F287219622FB00BB22EF /* JoinClubViewController.swift */; };
@@ -130,6 +134,10 @@
 		F05066052195027400675D86 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F0506607219504EC00675D86 /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		F050660C21950A9200675D86 /* LoginSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSegue.swift; sourceTree = "<group>"; };
+		F05B23C521B623E500D76F86 /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
+		F05B23C621B623E500D76F86 /* MenuOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuOptionCell.xib; sourceTree = "<group>"; };
+		F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterSeparatorView.swift; sourceTree = "<group>"; };
+		F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterSeparatorView.xib; sourceTree = "<group>"; };
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F079F28521960C0900BB22EF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F079F287219622FB00BB22EF /* JoinClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClubViewController.swift; sourceTree = "<group>"; };
@@ -328,12 +336,16 @@
 		F05065EE2194C91200675D86 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				F05B23C521B623E500D76F86 /* MenuOptionCell.swift */,
+				F05B23C621B623E500D76F86 /* MenuOptionCell.xib */,
 				F0B0108521AF6D0200DD82E7 /* MenuSpotCell.swift */,
 				F0B0108621AF6D0200DD82E7 /* MenuSpotCell.xib */,
 				F0B0108921B07B6100DD82E7 /* StatusCell.swift */,
 				F0B0108A21B07B6100DD82E7 /* StatusCell.xib */,
 				F00C2E8A21B1983D0010EB18 /* UserCell.swift */,
 				F00C2E8B21B1983D0010EB18 /* UserCell.xib */,
+				F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */,
+				F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -599,12 +611,14 @@
 				F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */,
 				F0B0108C21B07B6100DD82E7 /* StatusCell.xib in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
+				F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */,
 				F0B0108821AF6D0200DD82E7 /* MenuSpotCell.xib in Resources */,
 				F0D2DDE521ADC4FB003573DD /* MenuViewController.xib in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
 				F07F54BE219277A400080D94 /* Montserrat-Regular.ttf in Resources */,
 				F07F54BC219277A400080D94 /* Montserrat-Black.ttf in Resources */,
 				F07F54C0219277A400080D94 /* Montserrat-Bold.ttf in Resources */,
+				F05B23C821B623E500D76F86 /* MenuOptionCell.xib in Resources */,
 				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
 				F05066012194F18A00675D86 /* Localizable.strings in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
@@ -732,11 +746,13 @@
 				F0DFBD9F219E51FE00F94BA1 /* InvitationRouter.swift in Sources */,
 				F0DFBD9B219E4E3100F94BA1 /* User+Login.swift in Sources */,
 				F079F28E2196351F00BB22EF /* ClubTableViewCell.swift in Sources */,
+				F05B23CA21B624AA00D76F86 /* FooterSeparatorView.swift in Sources */,
 				F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
 				F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */,
 				F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
+				F05B23C721B623E500D76F86 /* MenuOptionCell.swift in Sources */,
 				F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */,
