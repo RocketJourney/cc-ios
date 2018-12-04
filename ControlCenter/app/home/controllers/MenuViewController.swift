@@ -134,7 +134,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
           cell.spotNameLabel?.text = spot?.branchName
         }
       default:
-        cell.spotNameLabel?.text = "aa"
+        switch indexPath.row {
+        case 0:
+          cell.spotNameLabel.text = "TERMS_OF_SERVICE".localized
+        case 1:
+          cell.spotNameLabel.text = "PRIVACY_POLICY".localized
+        default:
+          cell.spotNameLabel.text = "LOG_OUT".localized
+        }
       }
     }else{
       switch indexPath.section {
@@ -144,7 +151,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
           cell.spotNameLabel?.text = spot?.branchName
         }
       default:
-        cell.spotNameLabel?.text = "aa"
+        switch indexPath.row {
+        case 0:
+          cell.spotNameLabel.text = "TERMS_OF_SERVICE".localized
+        case 1:
+          cell.spotNameLabel.text = "PRIVACY_POLICY".localized
+        default:
+          cell.spotNameLabel.text = "LOG_OUT".localized
+        }
       }
     }
     
@@ -156,9 +170,40 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
-    self.spotSelectedDelegate?.spotSelected(spot: spot!)
-    self.dismissView()
+    if (User.current?.permission == "owner" ||
+      User.current?.permission == "all_spots" ||
+      User.current?.permission == "some_spots") && (User.current?.currentClub?.accesibleSpots.count)! > 1 {
+      switch indexPath.section {
+      case 0:
+        self.spotSelectedDelegate?.topLocations()
+        self.dismissView()
+      case 1:
+        let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+        self.spotSelectedDelegate?.spotSelected(spot: spot!)
+        self.dismissView()
+      default:
+        switch indexPath.row {
+        case 0:
+          break
+        case 1:
+          break
+        default:
+          self.dismissView()
+          self.spotSelectedDelegate?.logout()
+        }
+      }
+    }else{
+      switch indexPath.section {
+      case 0:
+        let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+        self.spotSelectedDelegate?.spotSelected(spot: spot!)
+        self.dismissView()
+      default:
+        self.dismissView()
+        self.spotSelectedDelegate?.logout()
+      }
+    }
+    
   }
   
   

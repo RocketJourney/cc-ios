@@ -34,6 +34,7 @@
 		F05B23C821B623E500D76F86 /* MenuOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23C621B623E500D76F86 /* MenuOptionCell.xib */; };
 		F05B23CA21B624AA00D76F86 /* FooterSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */; };
 		F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */; };
+		F05B23CE21B632B700D76F86 /* HomePreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */; };
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
 		F079F28621960C0900BB22EF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F28521960C0900BB22EF /* CreateAccountViewController.swift */; };
 		F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F079F287219622FB00BB22EF /* JoinClubViewController.swift */; };
@@ -138,6 +139,7 @@
 		F05B23C621B623E500D76F86 /* MenuOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuOptionCell.xib; sourceTree = "<group>"; };
 		F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterSeparatorView.swift; sourceTree = "<group>"; };
 		F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterSeparatorView.xib; sourceTree = "<group>"; };
+		F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreludeSegue.swift; sourceTree = "<group>"; };
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F079F28521960C0900BB22EF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F079F287219622FB00BB22EF /* JoinClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClubViewController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				F0CC370221A472B600B89575 /* PreludeHomeSegue.swift */,
 				F0CC370421A498EE00B89575 /* PreludeChooseClubSegue.swift */,
 				F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */,
+				F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				F0B0108421AF060500DD82E7 /* Spot.swift in Sources */,
 				F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */,
 				F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */,
+				F05B23CE21B632B700D76F86 /* HomePreludeSegue.swift in Sources */,
 				F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */,
 				F079F288219622FB00BB22EF /* JoinClubViewController.swift in Sources */,
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,

@@ -219,6 +219,7 @@ extension User {
             try! realm.write {
               let paginator = Paginator.fromJSON(json["data"])
               club.paginator = paginator
+              User.current?.currentClub?.paginator = paginator
               if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
                   let assistant = UserAssistant.fromJSON(assistantJson)

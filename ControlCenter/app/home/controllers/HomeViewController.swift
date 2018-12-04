@@ -12,6 +12,8 @@ import SideMenu
 
 protocol SpotSelectionDelegate {
   func spotSelected(spot: Spot)
+  func logout()
+  func topLocations()
 }
 
 class HomeViewController: UITabBarController, SpotSelectionDelegate {
@@ -34,8 +36,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   }
   
   private func setupView() -> Void {
-    self.view.backgroundColor = UIColor(hex: 0x1a1a1a)
-    let clubModel = User.current?.currentClub
+    self.view.backgroundColor = UIColor(hex: 0x1a1a1a)    
     self.setupMenu()
     self.setupMenuButton()
     self.displayTitle()
@@ -48,8 +49,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     try! realm.write {
       realm.deleteAll()
     }
-    self.dismissView()    
-    NotificationCenter.default.post(name: NSNotification.Name("showIntroViewController"), object: nil)
+    self.performSegue(withIdentifier: "kHomePreludeSegue", sender: nil)
     
   }
   
@@ -131,6 +131,35 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     self.viewDidAppear(false)
   }
   
+  func logout() {
+    self.logoutAction()
+  }
+  
+  func topLocations() {
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      let userModel = User.current
+      userModel?.selectedSpot = nil
+      User.current?.selectedSpot = nil
+      User.current?.currentClub?.assistants = List<UserAssistant>()
+      User.current?.currentClub?.paginator = nil
+      realm.create(User.self, value: userModel!, update: true)
+    }
+    self.displayTitle()
+    if self.selectedIndex == 0 {
+      let dashboardVC = self.viewControllers?[0] as? DashboardViewController
+      if dashboardVC != nil {
+        dashboardVC!.getDataFromServer()
+      }
+    }else {
+      let usersVC = self.viewControllers?[1] as? UsersViewController
+      if usersVC != nil {
+        usersVC?.setupReachBottom()
+        usersVC?.getDataFromServer()
+      }
+    }
+  }
+  
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     if item == (tabBar.items)![0]{
@@ -147,7 +176,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       NSLog("item 1")
       self.selectedIndex = 1
       let usersVC = self.viewControllers?[1] as? UsersViewController
-      if usersVC != nil {        
+      if usersVC != nil {
       }
     }
   }
