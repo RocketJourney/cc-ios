@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2si-wD-9eJ"; */
+"2si-wD-9eJ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BnF-d3-910"; */
+"BnF-d3-910.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "OVy-ra-M6n"; */
+"OVy-ra-M6n.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "U6g-wR-cCg"; */
+"U6g-wR-cCg.title" = "Dashboard";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "nQf-Io-9JW"; */
+"nQf-Io-9JW.title" = "Users";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wBt-X6-GPp"; */
+"wBt-X6-GPp.text" = "Label";

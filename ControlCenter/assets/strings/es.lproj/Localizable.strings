@@ -57,3 +57,19 @@
 
 "ACCOUNT_ALREADY_LINKED"="Tu Cuenta Fue Ligada";
 "ACCOUNT_ALREADY_LINKED_TEXT"="Tu cuenta fue ligada a este club. Inicia sesión con tu email y contraseña.";
+
+"DASHBOARD"="Tablero";
+"USERS"="Usuarios";
+
+"USERS_CHECKED_IN"="| USUARIOS QUE HAN HECHO CHECK-IN";
+"USERS_WITH_TEAM"="USUARIOS CON EQUIPO";
+
+"ALL_LOCATIONS"="Todas las Sucursales";
+"ALL_MY_LOCATIONS"="Todas mis Sucursales";
+"LOCATIONS"="Sucursales";
+"LOCATION"="Sucursal";
+
+"TERMS_OF_SERVICE"="Términos de Uso";
+"PRIVACY_POLICY"="Política de Privacidad";
+"LOG_OUT"="Cerrar Sesión";
+

@@ -72,7 +72,7 @@ extension User {
             realm.deleteAll()
             
             
-            if let clubs = json["data"]["clubs"].array{
+            if let clubs = json["data"]["clubs"].array {
               for jsonClub in clubs{
                 let clubModel = Club.fromJSON(jsonClub)
                 realm.add(clubModel, update: true)

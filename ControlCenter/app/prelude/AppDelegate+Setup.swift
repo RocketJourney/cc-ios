@@ -12,7 +12,10 @@ import Crashlytics
 import Fabric
 import RealmSwift
 
+
+
 extension AppDelegate {
+    
   
   static let ratioImages: CGFloat = 0.286
   
@@ -23,8 +26,13 @@ extension AppDelegate {
     
     
     UINavigationBar.appearance().tintColor = UIColor.rocketYellow()
-    UINavigationBar.appearance().barTintColor = UIColor(hex: 0x1a1a1a)
+    UINavigationBar.appearance().barTintColor = UIColor(hex: 0x333333)
     UINavigationBar.appearance().isTranslucent = false
+    
+    
+    UITabBar.appearance().isOpaque = true
+    UITabBar.appearance().backgroundColor = UIColor.white
+    UITabBar.appearance().tintColor = UIColor.rocketYellow()
   }
   
   func setupDB() -> Void {
@@ -37,9 +45,53 @@ extension AppDelegate {
       if oldSchemaVersion < 2 {
         //add id to User model
       }
+      
+      if oldSchemaVersion < 3 {
+        // add permission to User model
+      }
+      
+      if oldSchemaVersion < 4 {
+        // add Spot model
+      }
+      
+      if oldSchemaVersion < 5 {
+        // add accesibleSpots to Club model
+      }
+      
+      if oldSchemaVersion < 6 {
+        // add spot model
+      }
+      
+      if oldSchemaVersion < 7 {
+        // add status attributes to Club
+      }
+      
+      if oldSchemaVersion < 8 {
+        // add assistans to Club and spot models
+      }
+      
+      if oldSchemaVersion < 9 {
+        //add paginator to club and spot models
+      }
+      
+      if oldSchemaVersion < 10 {
+        //add selectedSpot tu current User model
+      }
+      
+      if oldSchemaVersion < 11 {
+        //add selectedSpot tu current User model
+      }
+      
+      if oldSchemaVersion < 12 {
+        //add selectedSpot (dynamic) tu current User model
+      }
+      
+      if oldSchemaVersion < 13 {
+        //add paginate (dynamic) tu current Spot & club model
+      }
     }
     
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 13, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
   }
 }

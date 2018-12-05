@@ -16,10 +16,24 @@ class Club: Object {
   @objc dynamic var nameSpace = ""
   @objc dynamic var name = ""
   @objc dynamic var logoUrl = ""
+  @objc dynamic var totalUsersWithTeam = 0
+  @objc dynamic var totalUsersCheckedIn = 0
+  @objc dynamic var spotCount = 0
+  @objc dynamic var paginator: Paginator?
   
+  var accesibleSpots = List<Spot>()
+  var assistants = List<UserAssistant>()
   
   override static func primaryKey() -> String {
     return "id"
+  }
+  
+  
+  var sortedSpotsBranchName:Results<Spot> {
+    get{
+      let sortDescriptors = [SortDescriptor(keyPath: "branchName", ascending: true)]
+      return self.accesibleSpots.sorted(by: sortDescriptors)
+    }
   }
   
   
@@ -38,6 +52,10 @@ class Club: Object {
     }
     
     if let logoUrl = json["logo"].string {
+      club.logoUrl = logoUrl
+    }
+    
+    if let logoUrl = json["badge_url"].string {
       club.logoUrl = logoUrl
     }
     return club

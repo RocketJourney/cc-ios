@@ -7,11 +7,13 @@ target 'ControlCenter' do
   
   pod 'Alamofire'
   pod 'Branch'
+  pod 'CCInfiniteScrolling'
   pod 'Crashlytics'
   pod 'Fabric'
   pod 'IQKeyboardManagerSwift'
   pod 'ReachabilitySwift'
   pod 'RealmSwift'
+  pod 'SideMenu', '5.0.0'
   pod 'SDWebImage'
   pod 'SnapKit'
   pod 'SwiftHEXColors'

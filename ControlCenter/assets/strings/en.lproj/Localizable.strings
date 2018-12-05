@@ -57,3 +57,18 @@
 
 "ACCOUNT_ALREADY_LINKED"="Your Account Was Linked";
 "ACCOUNT_ALREADY_LINKED_TEXT"="Your account was linked to this club. Log in with your email and password.";
+
+"DASHBOARD"="Dashboard";
+"USERS"="Users";
+
+"USERS_CHECKED_IN"="USERS THAT HAVE CHECKED IN";
+"USERS_WITH_TEAM"="USERS WITH TEAM";
+
+"ALL_LOCATIONS"="All Locations";
+"ALL_MY_LOCATIONS"="All my Locations";
+"LOCATIONS"="Locations";
+"LOCATION"="Location";
+
+"TERMS_OF_SERVICE"="Terms of Service";
+"PRIVACY_POLICY"="Privacy Policy";
+"LOG_OUT"="Log Out";
