@@ -223,8 +223,7 @@ extension User {
               if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
                   let assistant = UserAssistant.fromJSON(assistantJson)
-                  realm.add(assistant, update: true)
-                  club.assistants.append(assistant)
+                  realm.add(assistant, update: true)                  
                   User.current?.currentClub?.assistants.append(assistant)
                 }
               }

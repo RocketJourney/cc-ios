@@ -38,7 +38,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.delegate = self
     self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "kUserCell")
     self.tableView.tableFooterView = UIView()
-    self.tableView.infiniteScrollingDisabled = true
+    self.tableView.infiniteScrollingDisabled = false
     self.tableView.addBottomInfiniteScrolling {
       self.reachToBottom()
     }
@@ -128,6 +128,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     if self.isNetworkReachable(){
       
       let clubModel = User.current?.currentClub
+      NSLog("paginator ====> %@", (clubModel?.paginator)!)
       User.current?.getClubAssistansPaginate(clubId: (clubModel?.id)!, page: (clubModel?.paginator?.pageNumber)! + 1, completion: {
         self.printDataPaginate()
       }, error: { (error) in
@@ -146,9 +147,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func getSpotAssistantsPaginate() -> Void {
     if self.isNetworkReachable(){
       let spotModel = User.current?.selectedSpot
+      NSLog("paginator ====> %@", (spotModel?.paginator)!)
       User.current?.getSpotAssistansPaginate(clubId: (spotModel?.clubId)!, spotId: (spotModel?.id)!, page: (spotModel?.paginator?.pageNumber)! + 1, completion: {
         self.printDataPaginate()
-      }, error: { (error) in        
+      }, error: { (error) in
         if let error = error as? NSError {
           if error.code == 500 {
             self.internalServerError()
@@ -203,18 +205,21 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   private func printClubData() -> Void {
     self.tableView.reloadData()
+    self.tableView.infiniteScrollingDisabled = false
+    self.scrollToTop()
   }
   
   private func printSpotData() -> Void {
     self.tableView.reloadData()
+    self.tableView.infiniteScrollingDisabled = false
+    self.scrollToTop()
   }
   
   
   private func printClubDataPaginate() -> Void {
     let paginator = User.current?.currentClub?.paginator
-    if paginator != nil &&  (paginator?.totalPages)! > (paginator?.pageNumber)!  {
+    if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
       let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
-      self.tableView.infiniteScrollingDisabled = true
       self.tableView.reloadData()
       if index > 0 {
         UIView.performWithoutAnimation {
@@ -225,7 +230,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
           )
         }
       }
-      self.tableView.infiniteScrollingDisabled = false
+     
     }else{
       self.tableView.infiniteScrollingDisabled = true
     }
@@ -235,22 +240,22 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   private func printSpotDataPaginate() -> Void {
-    let paginator = User.current?.currentClub?.paginator
-    if paginator != nil &&  (paginator?.totalPages)! > (paginator?.pageNumber)!  {
+    let paginator = User.current?.selectedSpot?.paginator
+    if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
       let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
-      self.tableView.infiniteScrollingDisabled = true
+      
       self.tableView.reloadData()
       if index > 0 {
         UIView.performWithoutAnimation {
           self.tableView.scrollToRow(
             at: IndexPath(row: index, section: 0),
             at: .bottom,
-            animated: false
+            animated: true
           )
         }
       }
-      self.tableView.infiniteScrollingDisabled = false
-    }else{
+      
+    }else {
       self.tableView.infiniteScrollingDisabled = true
     }
   }
@@ -273,5 +278,31 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func hideActivityIndicator() -> Void {
     self.activityIndicator.stopAnimating()
     self.activityIndicator.isHidden = true
+  }
+  
+  private func scrollToTop() -> Void {
+    if User.current != nil && User.current?.selectedSpot != nil {
+      if (User.current?.selectedSpot?.assistants.count)! > 0 {
+        UIView.performWithoutAnimation {
+          self.tableView.scrollToRow(
+            at: IndexPath(row: 0, section: 0),
+            at: .top,
+            animated: false
+          )
+        }
+      }
+    }else {
+      let club = User.current?.currentClub
+      if (club?.assistants.count)! > 0 {
+        UIView.performWithoutAnimation {
+          self.tableView.scrollToRow(
+            at: IndexPath(row: 0, section: 0),
+            at: .top,
+            animated: false
+          )
+        }
+      }
+      
+    }
   }
 }
