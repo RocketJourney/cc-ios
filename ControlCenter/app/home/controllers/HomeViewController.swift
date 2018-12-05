@@ -161,17 +161,19 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      User.current?.selectedSpot!.assistants = List<UserAssistant>()
+      let userModel = User.current
+      userModel?.selectedSpot = User.current?.selectedSpot
+      User.current?.selectedSpot?.paginator = nil
+      User.current?.selectedSpot?.assistants = List<UserAssistant>()
+      realm.create(User.self, value: userModel!, update: true)
+    }
+    
     if item == (tabBar.items)![0]{
       if User.current != nil && User.current?.selectedSpot != nil {
-        let realm = try! Realm(configuration: ControlCenterRealm.config)
-        try! realm.write {
-          User.current?.selectedSpot!.assistants = List<UserAssistant>()
-          let userModel = User.current
-          userModel?.selectedSpot = User.current?.selectedSpot
-          User.current?.selectedSpot?.paginator = nil
-          User.current?.selectedSpot?.assistants = List<UserAssistant>()
-          realm.create(User.self, value: userModel!, update: true)
-        }
+        
       }
       //Do something if index is 0
       NSLog("item 0")
@@ -181,16 +183,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         dashboardVC!.getDataFromServer()
       }
       
-    }else if item == (tabBar.items)![1]{
-      let realm = try! Realm(configuration: ControlCenterRealm.config)
-      try! realm.write {
-        let userModel = User.current
-        userModel?.selectedSpot = nil
-        User.current?.selectedSpot = nil
-        User.current?.currentClub?.assistants = List<UserAssistant>()
-        User.current?.currentClub?.paginator = nil
-        realm.create(User.self, value: userModel!, update: true)
-      }
+    }else if item == (tabBar.items)![1]{      
       NSLog("item 1")
       self.selectedIndex = 1
       let usersVC = self.viewControllers?[1] as? UsersViewController

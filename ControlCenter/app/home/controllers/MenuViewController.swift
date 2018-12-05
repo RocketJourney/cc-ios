@@ -50,10 +50,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.tableView.backgroundColor = UIColor(hex: 0x4a4a4a)
+    self.tableView.register(UINib(nibName: "HeaderMenuCell", bundle: nil), forCellReuseIdentifier: "kHeaderMenuCell")
     self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")
     self.tableView.register(UINib(nibName: "MenuOptionCell", bundle: nil), forCellReuseIdentifier: "kMenuOptionCell")
     self.tableView.register(UINib(nibName: "MenuLogoutCell", bundle: nil), forCellReuseIdentifier: "kMenuLogoutCell")
-    self.tableView.allowsSelection = true
   }
   
   
@@ -126,18 +126,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
       User.current?.permission == "some_spots") && (User.current?.currentClub?.accesibleSpots.count)! > 1 {
       switch indexPath.section {
       case 0:
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: "kHeaderMenuCell") as! HeaderMenuCell
         if User.current?.permission == "owner" || User.current?.permission == "all_spots" {
-          cell.spotNameLabel?.text = "ALL_LOCATIONS".localized
+          headerCell.headerTitleLabel?.text = "ALL_LOCATIONS".localized
         }else if User.current?.permission == "some_spots" {
-          cell.spotNameLabel?.text = "ALL_MY_LOCATIONS".localized
+          headerCell.headerTitleLabel?.text = "ALL_MY_LOCATIONS".localized
         }
         if User.current?.selectedSpot == nil {
-          cell.setSelected(true, animated: false)
+          headerCell.setSelected(true, animated: false)
           tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }else{
-          cell.setSelected(false, animated: false)
+          headerCell.setSelected(false, animated: false)
           tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
+        return headerCell
       case 1:
         if User.current?.currentClub != nil {
           let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
@@ -199,11 +201,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if cell.isSelected {
-      cell.isSelected = true
-    }else {
-      cell.isSelected = false
+    if indexPath.section == 0 {
+      if User.current?.selectedSpot == nil{
+        cell.isSelected = true
+      }else{
+        cell.isSelected = false
+      }
+    }else{
+      if cell.isSelected {
+        cell.isSelected = true
+      }else {
+        cell.isSelected = false
+      }
     }
+    
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
