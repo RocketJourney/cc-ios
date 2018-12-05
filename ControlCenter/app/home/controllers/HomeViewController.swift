@@ -163,11 +163,14 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     let realm = try! Realm(configuration: ControlCenterRealm.config)
     try! realm.write {
-      User.current?.selectedSpot!.assistants = List<UserAssistant>()
+      
       let userModel = User.current
       userModel?.selectedSpot = User.current?.selectedSpot
-      User.current?.selectedSpot?.paginator = nil
-      User.current?.selectedSpot?.assistants = List<UserAssistant>()
+      if userModel?.selectedSpot != nil {
+        User.current?.selectedSpot!.assistants = List<UserAssistant>()
+        User.current?.selectedSpot?.paginator = nil
+      }
+      
       realm.create(User.self, value: userModel!, update: true)
     }
     

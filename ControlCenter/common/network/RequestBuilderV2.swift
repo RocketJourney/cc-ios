@@ -14,7 +14,7 @@ class RequestBuilderV2 {
   #if DEBUG
   static let baseURL = "https://api.testin.space/api/v2"
   #elseif RELEASE
-  static let baseURL = "https://api.testin.space/api/v2"
+  static let baseURL = "https://rocket-api.com/api/v2"
   #endif
   
   
