@@ -174,10 +174,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       realm.create(User.self, value: userModel!, update: true)
     }
     
-    if item == (tabBar.items)![0]{
-      if User.current != nil && User.current?.selectedSpot != nil {
-        
-      }
+    if item == (tabBar.items)![0]{      
       //Do something if index is 0
       NSLog("item 0")
       self.selectedIndex = 0

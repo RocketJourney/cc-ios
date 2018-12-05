@@ -139,7 +139,7 @@ extension User {
           if let club = User.current?.currentClub {
             let realm = try! Realm(configuration: ControlCenterRealm.config)
             try! realm.write {
-              let user = User.current
+              
               let paginator = Paginator.fromJSON(json["data"])
               club.paginator = paginator
               let assistants = List<UserAssistant>()
@@ -152,10 +152,7 @@ extension User {
                 }
                 
               }
-              
-              
-              
-              
+             
               club.assistants = assistants
               realm.create(Club.self, value: club, update: true)
               User.current?.currentClub = club
