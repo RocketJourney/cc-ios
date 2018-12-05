@@ -139,7 +139,8 @@ extension User {
           if let club = User.current?.currentClub {
             let realm = try! Realm(configuration: ControlCenterRealm.config)
             try! realm.write {
-              
+              club.assistants = List<UserAssistant>()
+              User.current?.currentClub?.assistants = List<UserAssistant>()
               let paginator = Paginator.fromJSON(json["data"])
               club.paginator = paginator
               let assistants = List<UserAssistant>()
@@ -148,9 +149,7 @@ extension User {
                  let assistant = UserAssistant.fromJSON(assistantJson)
                   realm.add(assistant, update: true)
                   club.assistants.append(assistant)
-                  
-                }
-                
+                }                
               }
              
               club.assistants = assistants
@@ -177,7 +176,8 @@ extension User {
           if let spot = User.current?.selectedSpot {
             let realm = try! Realm(configuration: ControlCenterRealm.config)
             try! realm.write {
-              
+              User.current?.selectedSpot?.assistants = List<UserAssistant>()
+              spot.assistants = List<UserAssistant>()
               let paginator = Paginator.fromJSON(json["data"])
               spot.paginator = paginator
               User.current?.selectedSpot?.paginator = paginator

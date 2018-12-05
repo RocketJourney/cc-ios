@@ -13,7 +13,12 @@ import SwiftyJSON
 extension AppDelegate {
   
   func setupBranch(_ launchOptions:[AnyHashable: Any]?) {
+    #if DEBUG
     Branch.setUseTestBranchKey(true)
+    #elseif RELEASE
+    Branch.setUseTestBranchKey(false)
+    #endif
+    
     let branch = Branch.getInstance()
     
     branch?.initSession(launchOptions: launchOptions, isReferrable: true,

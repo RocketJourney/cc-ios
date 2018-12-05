@@ -167,14 +167,38 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       let userModel = User.current
       userModel?.selectedSpot = User.current?.selectedSpot
       if userModel?.selectedSpot != nil {
+        let spot = userModel?.selectedSpot
+        spot?.assistants = List<UserAssistant>()
+        spot?.paginator = nil
+        realm.create(Spot.self, value: spot!, update: true)
+        userModel?.selectedSpot = spot
         User.current?.selectedSpot!.assistants = List<UserAssistant>()
         User.current?.selectedSpot?.paginator = nil
+      }else {
+        if User.current != nil && User.current?.currentClub != nil {
+          let club = User.current?.currentClub
+          
+          userModel?.currentClub?.assistants = List<UserAssistant>()
+          userModel?.currentClub?.paginator = nil
+          
+          club?.assistants = List<UserAssistant>()
+          club?.paginator = nil
+          
+          userModel?.currentClub = club
+          
+          realm.create(Club.self, value: club!, update: true)
+          userModel?.currentClub = club
+          
+          User.current?.currentClub?.assistants = List<UserAssistant>()
+          User.current?.currentClub?.paginator = nil
+          realm.create(User.self, value: User.current!, update: true)
+        }
       }
       
       realm.create(User.self, value: userModel!, update: true)
     }
     
-    if item == (tabBar.items)![0]{      
+    if item == (tabBar.items)![0]{
       //Do something if index is 0
       NSLog("item 0")
       self.selectedIndex = 0
