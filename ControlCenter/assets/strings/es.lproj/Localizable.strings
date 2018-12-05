@@ -1,0 +1,75 @@
+/* 
+  File.strings
+  ControlCenter
+
+  Created by Erik on 11/8/18.
+  Copyright © 2018 RocketJourney. All rights reserved.
+*/
+"NO_NETWORK_ERROR_TITLE"="No Hay Conexión a Internet";
+"NO_NETWORK_ERROR_MESSAGE"="Por favor revisa tu conexión a internet y vuelve a intentarlo.";
+
+"ALREADY_HAVE_ACCOUNT"="¿Ya tienes cuenta?";
+"LOGIN"="Iniciar Sesión";
+"DONT_HAVE_ACCOUNT"="¿No tienes cuenta?";
+"CREATE_ACCOUNT_TEXT"="Pídele al gerente de tu gym un link de invitación para crear una cuenta.";
+"FORGOT"="¿La olvidaste?";
+"SIGN_UP_FORM_EMAIL"="Email";
+"SIGN_UP_FORM_PASSWORD"="Contraseña";
+
+"RECOVER_PASSWORD"="Recuperar Contraseña";
+"RECOVER"="Recuperar";
+
+"CREATE_ACCOUNT"="Crear Cuenta";
+"EMAIL"="Email";
+"NEXT"="Siguiente";
+
+"INTERNAL_SERVER_ERROR_TITLE"="Error Interno del Servidor";
+"INTERNAL_SERVER_ERROR_MESSAGE"="Lo sentimos, por favor intenta de nuevo más tarde.";
+"DISMISS"="Continuar";
+"OK"="Ok";
+
+"NAME"="Nombre";
+"LAST_NAME"="Apellido";
+"PASSWORD"="Contraseña";
+"CREATE_ACCOUNT"="Crear Cuenta";
+"HIDE"="OCULTAR";
+"SHOW"="MOSTRAR";
+
+"CHOOSE_CLUB"="Elige un Club";
+
+"EMAIL_ALREADY_REGISTERED"="Email Ya Está Registrado";
+"ALREADY_ACCOUNT"="Ya existe una cuenta con este email ligada a este club.";
+
+"EMAIL_PASSWORD_NO_MATCH"="Email & Contraseña No Coinciden";
+"TRY_AGAIN"="Por favor reintenta.";
+
+"EMAIL_SENT"="Email Enviado";
+"EMAIL_SENT_TEXT"="Consulta tu email y sigue las instrucciones para restablecer tu contraseña.";
+
+"EMAIL_NOT_REGISTERED"="Email No Está Registrado";
+"EMAIL_NOT_REGISTERED_TEXT"="Por favor reintenta o registra una cuenta.";
+
+"SIGN_VALIDATION_TITLE"="Contraseña Inválida";
+"SIGN_VALIDATION_MESSAGE"="La contraseña debe tener al menos 6 caracteres.";
+
+"LINK_EXPIRED"="Link Expiró";
+"LINK_EXPIRED_TEXT"="Pídele al gerente de tu gym otro link de invitación.";
+
+"ACCOUNT_ALREADY_LINKED"="Tu Cuenta Fue Ligada";
+"ACCOUNT_ALREADY_LINKED_TEXT"="Tu cuenta fue ligada a este club. Inicia sesión con tu email y contraseña.";
+
+"DASHBOARD"="Tablero";
+"USERS"="Usuarios";
+
+"USERS_CHECKED_IN"="USUARIOS QUE HAN HECHO CHECK-IN";
+"USERS_WITH_TEAM"="USUARIOS CON EQUIPO";
+
+"ALL_LOCATIONS"="Todas las Sucursales";
+"ALL_MY_LOCATIONS"="Todas mis Sucursales";
+"LOCATIONS"="Sucursales";
+"LOCATION"="Sucursal";
+
+"TERMS_OF_SERVICE"="Términos de Uso";
+"PRIVACY_POLICY"="Política de Privacidad";
+"LOG_OUT"="Cerrar Sesión";
+
