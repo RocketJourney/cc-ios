@@ -146,12 +146,12 @@ extension User {
               let assistants = List<UserAssistant>()
               if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
-                 let assistant = UserAssistant.fromJSON(assistantJson)
+                  let assistant = UserAssistant.fromJSON(assistantJson)
                   realm.add(assistant, update: true)
                   club.assistants.append(assistant)
-                }                
+                }
               }
-             
+              
               club.assistants = assistants
               realm.create(Club.self, value: club, update: true)
               User.current?.currentClub = club
@@ -161,10 +161,10 @@ extension User {
           }
         }
         completion()
-      }else {
+      }else{
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
       }
-    }
+    }    
   }
   
   

@@ -20,7 +20,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
-    self.getDataFromServer()
+    
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -165,9 +165,14 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func getDataFromServer() -> Void {
     if User.current != nil && User.current?.selectedSpot != nil {
-      self.getSpotAssistants()
+      DispatchQueue.main.asyncAfter(deadline:.now() + 0.1) {
+        self.getSpotAssistants()
+      }
+                  
     }else{
-      self.getClubAssistants()
+      DispatchQueue.main.asyncAfter(deadline:.now() + 0.1) {
+        self.getClubAssistants()
+      }
     }
     
   }
