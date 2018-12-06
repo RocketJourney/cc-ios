@@ -189,7 +189,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     if User.current != nil && User.current?.selectedSpot != nil {
       let realm = try! Realm(configuration: ControlCenterRealm.config)
       try! realm.write {
-        User.current?.selectedSpot!.assistants = List<UserAssistant>()
+        User.current?.selectedSpot!.assistants.removeAll()
         User.current?.selectedSpot?.paginator = nil
         realm.create(User.self, value: User.current!, update: true)
       }
@@ -202,7 +202,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       let realm = try! Realm(configuration: ControlCenterRealm.config)
       try! realm.write {
         User.current?.currentClub?.paginator = nil
-        User.current?.currentClub?.assistants = List<UserAssistant>()
+        User.current?.currentClub?.assistants.removeAll()
         realm.create(User.self, value: User.current!, update: true)
       }
     }
