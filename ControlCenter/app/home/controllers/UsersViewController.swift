@@ -164,15 +164,11 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   func getDataFromServer() -> Void {
-    if User.current != nil && User.current?.selectedSpot != nil {
-      DispatchQueue.main.asyncAfter(deadline:.now() + 0.1) {
-        self.getSpotAssistants()
-      }
-                  
+    if User.current != nil && User.current?.selectedSpot != nil {      
+      self.getSpotAssistants()
     }else{
-      DispatchQueue.main.asyncAfter(deadline:.now() + 0.1) {
         self.getClubAssistants()
-      }
+
     }
     
   }
