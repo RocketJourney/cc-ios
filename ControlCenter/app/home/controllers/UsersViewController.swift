@@ -164,11 +164,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   func getDataFromServer() -> Void {
-    if User.current != nil && User.current?.selectedSpot != nil {      
+    if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotAssistants()
     }else{
-        self.getClubAssistants()
-
+      self.getClubAssistants()
     }
     
   }
@@ -231,7 +230,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
           )
         }
       }
-     
+      
     }else{
       self.tableView.infiniteScrollingDisabled = true
     }
