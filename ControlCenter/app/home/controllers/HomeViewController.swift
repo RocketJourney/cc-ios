@@ -106,6 +106,12 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   func spotSelected(spot: Spot) {
     NSLog("spot =======> %@", spot)
+    
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      User.current?.selectedSpot = spot
+      realm.create(User.self, value: User.current!, update: true)
+    }
     self.resetSpotPaginator()
     
     if self.selectedIndex == 0 {
@@ -146,9 +152,10 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     
-    self.resetSpotPaginator()
-    self.resetClubPaginator()
-    
+    if User.current?.selectedSpot == nil {
+      self.resetSpotPaginator()
+      self.resetClubPaginator()
+    }            
     if item == (tabBar.items)![0]{
       //Do something if index is 0
       NSLog("item 0")
