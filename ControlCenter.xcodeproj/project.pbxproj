@@ -1054,7 +1054,7 @@
 			baseConfigurationReference = E17CDEEB75FFBC0102B42F7B /* Pods-ControlCenter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUNDLE_ID = com.rocketjourney.controlcenter.CCStaging;
+				BUNDLE_ID = com.rocketjourney.controlcenter.staging;
 				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1078,7 +1078,7 @@
 			baseConfigurationReference = 9565782C9D11F33C9AFD3799 /* Pods-ControlCenter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUNDLE_ID = com.rocketjourney.controlcenter.ControlCenter;
+				BUNDLE_ID = com.rocketjourney.controlcenter;
 				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9T32S589G;

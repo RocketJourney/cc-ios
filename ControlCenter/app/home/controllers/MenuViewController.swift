@@ -54,6 +54,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.register(UINib(nibName: "MenuSpotCell", bundle: nil), forCellReuseIdentifier: "kMenuSpotCell")
     self.tableView.register(UINib(nibName: "MenuOptionCell", bundle: nil), forCellReuseIdentifier: "kMenuOptionCell")
     self.tableView.register(UINib(nibName: "MenuLogoutCell", bundle: nil), forCellReuseIdentifier: "kMenuLogoutCell")
+    
+    self.ownerButton.isHidden = true
   }
   
   

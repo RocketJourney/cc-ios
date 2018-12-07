@@ -141,17 +141,20 @@ extension User {
             try! realm.write {
               club.assistants = List<UserAssistant>()
               User.current?.currentClub?.assistants = List<UserAssistant>()
+              User.current?.currentClub?.paginator = nil
+              realm.create(User.self, value: User.current!, update: true)
               let paginator = Paginator.fromJSON(json["data"])
               club.paginator = paginator
               let assistants = List<UserAssistant>()
               if let assistantsJson = json["data"]["users"].array {
                 for assistantJson in assistantsJson {
-                 let assistant = UserAssistant.fromJSON(assistantJson)
+                  let assistant = UserAssistant.fromJSON(assistantJson)
                   realm.add(assistant, update: true)
                   club.assistants.append(assistant)
-                }                
+                  User.current?.currentClub?.assistants.append(assistant)
+                }
               }
-             
+              
               club.assistants = assistants
               realm.create(Club.self, value: club, update: true)
               User.current?.currentClub = club
@@ -159,12 +162,15 @@ extension User {
               realm.create(User.self, value: User.current!, update: true)
             }
           }
+        
         }
+        
+        
         completion()
-      }else {
+      }else{
         error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
       }
-    }
+    }    
   }
   
   

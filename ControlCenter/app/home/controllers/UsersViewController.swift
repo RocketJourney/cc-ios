@@ -20,7 +20,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
-    self.getDataFromServer()
+    
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -230,7 +230,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
           )
         }
       }
-     
+      
     }else{
       self.tableView.infiniteScrollingDisabled = true
     }

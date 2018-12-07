@@ -106,15 +106,13 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   func spotSelected(spot: Spot) {
     NSLog("spot =======> %@", spot)
+    
     let realm = try! Realm(configuration: ControlCenterRealm.config)
     try! realm.write {
-      spot.assistants = List<UserAssistant>()
-      let userModel = User.current
-      userModel?.selectedSpot = spot
-      User.current?.selectedSpot?.paginator = nil
-      User.current?.selectedSpot?.assistants = List<UserAssistant>()
-      realm.create(User.self, value: userModel!, update: true)
+      User.current?.selectedSpot = spot
+      realm.create(User.self, value: User.current!, update: true)
     }
+    self.resetSpotPaginator()
     
     if self.selectedIndex == 0 {
       let dashboardVC = self.viewControllers?[0] as? DashboardViewController
@@ -136,15 +134,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   }
   
   func topLocations() {
-    let realm = try! Realm(configuration: ControlCenterRealm.config)
-    try! realm.write {
-      let userModel = User.current
-      userModel?.selectedSpot = nil
-      User.current?.selectedSpot = nil
-      User.current?.currentClub?.assistants = List<UserAssistant>()
-      User.current?.currentClub?.paginator = nil
-      realm.create(User.self, value: userModel!, update: true)
-    }
+    self.resetClubPaginator()
     self.displayTitle()
     if self.selectedIndex == 0 {
       let dashboardVC = self.viewControllers?[0] as? DashboardViewController
@@ -161,43 +151,11 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-    let realm = try! Realm(configuration: ControlCenterRealm.config)
-    try! realm.write {
-      
-      let userModel = User.current
-      userModel?.selectedSpot = User.current?.selectedSpot
-      if userModel?.selectedSpot != nil {
-        let spot = userModel?.selectedSpot
-        spot?.assistants = List<UserAssistant>()
-        spot?.paginator = nil
-        realm.create(Spot.self, value: spot!, update: true)
-        userModel?.selectedSpot = spot
-        User.current?.selectedSpot!.assistants = List<UserAssistant>()
-        User.current?.selectedSpot?.paginator = nil
-      }else {
-        if User.current != nil && User.current?.currentClub != nil {
-          let club = User.current?.currentClub
-          
-          userModel?.currentClub?.assistants = List<UserAssistant>()
-          userModel?.currentClub?.paginator = nil
-          
-          club?.assistants = List<UserAssistant>()
-          club?.paginator = nil
-          
-          userModel?.currentClub = club
-          
-          realm.create(Club.self, value: club!, update: true)
-          userModel?.currentClub = club
-          
-          User.current?.currentClub?.assistants = List<UserAssistant>()
-          User.current?.currentClub?.paginator = nil
-          realm.create(User.self, value: User.current!, update: true)
-        }
-      }
-      
-      realm.create(User.self, value: userModel!, update: true)
-    }
     
+    if User.current?.selectedSpot == nil {
+      self.resetSpotPaginator()
+      self.resetClubPaginator()
+    }            
     if item == (tabBar.items)![0]{
       //Do something if index is 0
       NSLog("item 0")
@@ -233,6 +191,30 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   }
   
   
+  private func resetSpotPaginator() -> Void {
+    
+    if User.current != nil && User.current?.selectedSpot != nil {
+      let realm = try! Realm(configuration: ControlCenterRealm.config)
+      try! realm.write {
+        User.current?.selectedSpot!.assistants.removeAll()
+        User.current?.selectedSpot?.paginator = nil
+        realm.create(User.self, value: User.current!, update: true)
+      }
+    }
+  }
   
   
+  private func resetClubPaginator() -> Void {
+    if User.current != nil && User.current?.currentClub != nil {
+      let realm = try! Realm(configuration: ControlCenterRealm.config)
+      try! realm.write {
+        User.current?.currentClub?.paginator = nil
+        User.current?.currentClub?.assistants.removeAll()
+        realm.create(User.self, value: User.current!, update: true)
+      }
+    }
+  }
+    
+    
+    
 }
