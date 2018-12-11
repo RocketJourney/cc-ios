@@ -11,6 +11,8 @@ target 'ControlCenter' do
   pod 'Crashlytics'
   pod 'Fabric'
   pod 'IQKeyboardManagerSwift'
+  pod 'Permission'  
+  pod 'Permission/Notifications'
   pod 'ReachabilitySwift'
   pod 'RealmSwift'
   pod 'SideMenu', '5.0.0'

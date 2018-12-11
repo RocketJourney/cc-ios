@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 import SideMenu
+import Permission
+import UserNotifications
 
 protocol SpotSelectionDelegate {
   func spotSelected(spot: Spot)
@@ -32,6 +34,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    self.requestPushNotification()
     self.displayTitle()
   }
   
@@ -214,7 +217,30 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       }
     }
   }
+  
+  
+  private func requestPushNotification() -> Void {
+    let permission = Permission.notifications
+    permission.request { (status) in
+      switch status {
+      case .authorized:
+        NSLog("authorized")
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+          NSLog("settings ====> %@", settings)
+          DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+          }
+        })
+      case .denied:
+        NSLog("denied")
+      case .disabled:
+        NSLog("disabled")
+      case .notDetermined:
+        NSLog("not determined")
+      }
+    }
     
-    
-    
+  }
+  
+  
 }

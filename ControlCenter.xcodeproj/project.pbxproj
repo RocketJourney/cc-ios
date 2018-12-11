@@ -68,6 +68,8 @@
 		F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F07F54BB219277A400080D94 /* Montserrat-Medium.ttf */; };
 		F07F54C3219279C900080D94 /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C2219279C900080D94 /* UIFont+extension.swift */; };
 		F07F54C521927C5400080D94 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07F54C421927C5400080D94 /* UIViewController+extension.swift */; };
+		F0A3D08621BB08CB008DF212 /* Data+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3D08521BB08CA008DF212 /* Data+extensions.swift */; };
+		F0A3D08821BB0ACF008DF212 /* PermissionConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F0A3D08721BB0ACF008DF212 /* PermissionConfiguration.xcconfig */; };
 		F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */; };
 		F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0108121AEFFDF00DD82E7 /* User+Info.swift */; };
 		F0B0108421AF060500DD82E7 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0108321AF060500DD82E7 /* Spot.swift */; };
@@ -191,6 +193,8 @@
 		F07F54C2219279C900080D94 /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		F07F54C421927C5400080D94 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		F07F54C621936FC400080D94 /* ControlCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlCenter.entitlements; sourceTree = "<group>"; };
+		F0A3D08521BB08CA008DF212 /* Data+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extensions.swift"; sourceTree = "<group>"; };
+		F0A3D08721BB0ACF008DF212 /* PermissionConfiguration.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = PermissionConfiguration.xcconfig; sourceTree = "<group>"; };
 		F0B0107F21AEFD4200DD82E7 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		F0B0108121AEFFDF00DD82E7 /* User+Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Info.swift"; sourceTree = "<group>"; };
 		F0B0108321AF060500DD82E7 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		F01690092191073B001526DA = {
 			isa = PBXGroup;
 			children = (
+				F0A3D08721BB0ACF008DF212 /* PermissionConfiguration.xcconfig */,
 				F016904321910910001526DA /* Podfile */,
 				F01690142191073B001526DA /* ControlCenter */,
 				F01690292191073E001526DA /* ControlCenterTests */,
@@ -493,6 +498,7 @@
 				F05065F52194E10400675D86 /* UIColor+extension.swift */,
 				F05065F72194EF9500675D86 /* String+extension.swift */,
 				F0DFBD97219E4C9400F94BA1 /* ControlCenterRealm.swift */,
+				F0A3D08521BB08CA008DF212 /* Data+extensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -691,6 +697,7 @@
 				F016904421910910001526DA /* Podfile in Resources */,
 				F079F28F2196351F00BB22EF /* ClubTableViewCell.xib in Resources */,
 				F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */,
+				F0A3D08821BB0ACF008DF212 /* PermissionConfiguration.xcconfig in Resources */,
 				F073A75021B73B2600E37D5A /* terms-comply.png in Resources */,
 				F016901B2191073B001526DA /* Main.storyboard in Resources */,
 				F073A74F21B73B2600E37D5A /* terms-noresell.png in Resources */,
@@ -746,6 +753,7 @@
 				"${BUILT_PRODUCTS_DIR}/CCInfiniteScrolling/CCInfiniteScrolling.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JRSwizzle/JRSwizzle.framework",
+				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -765,6 +773,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCInfiniteScrolling.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JRSwizzle.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -855,6 +864,7 @@
 				F0CC36F921A39D9B00B89575 /* CreateAccountSegue.swift in Sources */,
 				F0DFBD93219E3E5C00F94BA1 /* RequestBuilderV2.swift in Sources */,
 				F0CC36FF21A3AFEC00B89575 /* HomeViewController.swift in Sources */,
+				F0A3D08621BB08CB008DF212 /* Data+extensions.swift in Sources */,
 				F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */,
 				F0DFBD98219E4C9400F94BA1 /* ControlCenterRealm.swift in Sources */,
 				F0DFBD96219E4BED00F94BA1 /* User.swift in Sources */,
@@ -1089,7 +1099,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.staging;
 				PRODUCT_NAME = ControlCenter;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

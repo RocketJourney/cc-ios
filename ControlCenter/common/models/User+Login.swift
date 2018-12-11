@@ -99,4 +99,14 @@ extension User {
       }
     }
   }
+  
+  func registerToke(_ token: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire.request(LoginRouter.registerToken(token)).responseJSON { (response) in
+      if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        completion()
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
 }
