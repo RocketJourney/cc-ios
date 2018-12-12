@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InviteViewController" customModule="CCStaging" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="LvW-Xn-4j4" id="RjW-AP-kOM"/>
+                <outlet property="titleLabel" destination="9Rc-TJ-6zN" id="2jB-bo-Zjt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LvW-Xn-4j4">
+                    <rect key="frame" x="0.0" y="56.5" width="375" height="610.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rc-TJ-6zN">
+                    <rect key="frame" x="20" y="18" width="317" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9Rc-TJ-6zN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="8r7-d0-GY7"/>
+                <constraint firstItem="LvW-Xn-4j4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hl8-UR-2sk"/>
+                <constraint firstAttribute="trailing" secondItem="9Rc-TJ-6zN" secondAttribute="trailing" constant="38" id="Hn3-UC-TdJ"/>
+                <constraint firstAttribute="bottom" secondItem="LvW-Xn-4j4" secondAttribute="bottom" id="JBT-iB-HCh"/>
+                <constraint firstItem="LvW-Xn-4j4" firstAttribute="top" secondItem="9Rc-TJ-6zN" secondAttribute="bottom" constant="18" id="WTf-ee-mFZ"/>
+                <constraint firstAttribute="trailing" secondItem="LvW-Xn-4j4" secondAttribute="trailing" id="wSH-7P-SJS"/>
+                <constraint firstItem="9Rc-TJ-6zN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="yDd-nV-5as"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="107.49625187406298"/>
+        </view>
+    </objects>
+</document>
