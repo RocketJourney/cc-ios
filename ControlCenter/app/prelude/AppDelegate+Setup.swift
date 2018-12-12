@@ -12,6 +12,7 @@ import Crashlytics
 import Fabric
 import RealmSwift
 import Reachability
+import SVProgressHUD
 
 
 
@@ -34,6 +35,10 @@ extension AppDelegate {
     UITabBar.appearance().isOpaque = true
     UITabBar.appearance().backgroundColor = UIColor.white
     UITabBar.appearance().tintColor = UIColor.rocketYellow()
+    
+    SVProgressHUD.setBackgroundColor(UIColor.clear)
+    SVProgressHUD.setForegroundColor(UIColor.white)
+    SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.native)
   }
   
   

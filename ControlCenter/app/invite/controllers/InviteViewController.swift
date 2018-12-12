@@ -76,6 +76,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     return 2
   }
   
+  
   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return 6
   }
@@ -105,6 +106,9 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
   @objc private func createInvitation() -> Void {
     NSLog("create invite")
     self.activityIndicator?.startAnimating()
+    let sendLinkController = SendLinkViewController(nibName: "SendLinkViewController", bundle: nil)
+    sendLinkController.linkShare = "https://rocketjourney.com"
+    self.navigationController?.pushViewController(sendLinkController, animated: true)    
   }
   
   

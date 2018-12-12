@@ -91,6 +91,10 @@
 		F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3BB1821AB8857006F4C93 /* ClubPreludeSegue.swift */; };
 		F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */; };
 		F0DCD1DF21C1A34E0090E96B /* UIBarButtonItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DCD1DE21C1A34E0090E96B /* UIBarButtonItem+extension.swift */; };
+		F0DCD1E221C1B4730090E96B /* SendLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DCD1E021C1B4730090E96B /* SendLinkViewController.swift */; };
+		F0DCD1E321C1B4730090E96B /* SendLinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0DCD1E121C1B4730090E96B /* SendLinkViewController.xib */; };
+		F0DCD1E621C1B6740090E96B /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DCD1E421C1B6740090E96B /* LinkCell.swift */; };
+		F0DCD1E721C1B6740090E96B /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0DCD1E521C1B6740090E96B /* LinkCell.xib */; };
 		F0DFBD8A219CE28A00F94BA1 /* Appdelegate+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */; };
 		F0DFBD8C219D055700F94BA1 /* ControlCenter.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F07F54C621936FC400080D94 /* ControlCenter.entitlements */; };
 		F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */; };
@@ -221,6 +225,10 @@
 		F0D3BB1821AB8857006F4C93 /* ClubPreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPreludeSegue.swift; sourceTree = "<group>"; };
 		F0D3BB1A21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPreludeSegue.swift; sourceTree = "<group>"; };
 		F0DCD1DE21C1A34E0090E96B /* UIBarButtonItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+extension.swift"; sourceTree = "<group>"; };
+		F0DCD1E021C1B4730090E96B /* SendLinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLinkViewController.swift; sourceTree = "<group>"; };
+		F0DCD1E121C1B4730090E96B /* SendLinkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendLinkViewController.xib; sourceTree = "<group>"; };
+		F0DCD1E421C1B6740090E96B /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
+		F0DCD1E521C1B6740090E96B /* LinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
 		F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Handlers.swift"; sourceTree = "<group>"; };
 		F0DFBD8D219E275300F94BA1 /* PreludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreludeViewController.swift; sourceTree = "<group>"; };
 		F0DFBD8F219E359100F94BA1 /* IntroSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSegue.swift; sourceTree = "<group>"; };
@@ -464,6 +472,8 @@
 			children = (
 				F06FC4CB21C078BA006B6EDB /* InviteViewController.swift */,
 				F06FC4CC21C078BA006B6EDB /* InviteViewController.xib */,
+				F0DCD1E021C1B4730090E96B /* SendLinkViewController.swift */,
+				F0DCD1E121C1B4730090E96B /* SendLinkViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -501,6 +511,8 @@
 			children = (
 				F07C37F921C0955100DD11C4 /* InviteCell.swift */,
 				F07C37FA21C0955100DD11C4 /* InviteCell.xib */,
+				F0DCD1E421C1B6740090E96B /* LinkCell.swift */,
+				F0DCD1E521C1B6740090E96B /* LinkCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -727,11 +739,13 @@
 				F073A74D21B73B2600E37D5A /* terms.css in Resources */,
 				F07F54C1219277A400080D94 /* Montserrat-Medium.ttf in Resources */,
 				F07C37FC21C0955100DD11C4 /* InviteCell.xib in Resources */,
+				F0DCD1E321C1B4730090E96B /* SendLinkViewController.xib in Resources */,
 				F073A75721B73B2600E37D5A /* terms-nostore.png in Resources */,
 				F073A75121B73B2600E37D5A /* terms-noresell@2x.png in Resources */,
 				F073A75B21B73C7000E37D5A /* WebViewController.xib in Resources */,
 				F05066012194F18A00675D86 /* Localizable.strings in Resources */,
 				F073A75521B73B2600E37D5A /* terms-nostore@2x.png in Resources */,
+				F0DCD1E721C1B6740090E96B /* LinkCell.xib in Resources */,
 				F016901D2191073E001526DA /* Assets.xcassets in Resources */,
 				F00C2E8D21B1983D0010EB18 /* UserCell.xib in Resources */,
 				F016904421910910001526DA /* Podfile in Resources */,
@@ -797,6 +811,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
@@ -817,6 +832,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
@@ -888,6 +904,7 @@
 				F0DFBD8E219E275300F94BA1 /* PreludeViewController.swift in Sources */,
 				F0B0108721AF6D0200DD82E7 /* MenuSpotCell.swift in Sources */,
 				F0B0108421AF060500DD82E7 /* Spot.swift in Sources */,
+				F0DCD1E621C1B6740090E96B /* LinkCell.swift in Sources */,
 				F0133157219F52EA001CB04A /* CheckEmailSegue.swift in Sources */,
 				F0B0108021AEFD4200DD82E7 /* UserRouter.swift in Sources */,
 				F05B23CE21B632B700D76F86 /* HomePreludeSegue.swift in Sources */,
@@ -910,6 +927,7 @@
 				F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */,
 				F0DFBD98219E4C9400F94BA1 /* ControlCenterRealm.swift in Sources */,
 				F0DFBD96219E4BED00F94BA1 /* User.swift in Sources */,
+				F0DCD1E221C1B4730090E96B /* SendLinkViewController.swift in Sources */,
 				F00C2E9121B1EE930010EB18 /* Paginator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
