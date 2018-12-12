@@ -55,7 +55,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     self.tableView.register(UINib(nibName: "MenuOptionCell", bundle: nil), forCellReuseIdentifier: "kMenuOptionCell")
     self.tableView.register(UINib(nibName: "MenuLogoutCell", bundle: nil), forCellReuseIdentifier: "kMenuLogoutCell")
     
-    self.ownerButton.isHidden = true
+    
+    self.ownerButton.addTarget(self, action: #selector(self.displayInviteViewController), for: .touchUpInside)
+    
   }
   
   
@@ -285,6 +287,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
   private func displayTermsOfConditions() -> Void {
     let termsViewController = WebViewController(nibName: "WebViewController", bundle: nil)
     let nav = UINavigationController(rootViewController: termsViewController)
+    nav.navigationBar.isTranslucent = false
+    nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    self.present(nav, animated: true, completion: nil)
+  }
+  
+  @objc private func displayInviteViewController() -> Void {
+    let inviteViewController = InviteViewController(nibName: "InviteViewController", bundle: nil)
+    let nav = UINavigationController(rootViewController: inviteViewController)
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
     self.present(nav, animated: true, completion: nil)

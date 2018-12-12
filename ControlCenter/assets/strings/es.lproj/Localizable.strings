@@ -73,3 +73,12 @@
 "PRIVACY_POLICY"="Política de Privacidad";
 "LOG_OUT"="Cerrar Sesión";
 
+#invite
+"INVITE_COLLEAGUE"="Invitar Colega";
+"SELECT_LOCATIONS_INVITE"="Selecciona las sucursales a las cuales tendrá acceso tu colega.";
+"SEND_LINK"="Enviar Link";
+"SEND_LINK_COLLEAGUES"="Enviar link a colega(s) vía…";
+"COPY_LINK"="Copiar link"
+"LINK_EXPIRE"="Este link será válido durante 7 días y lo pueden utilizar varios colegas.";
+"DONE"="Terminar";
+"LINK_COPIED"="✓ Link Copiado";

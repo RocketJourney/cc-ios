@@ -37,6 +37,8 @@
 		F05B23CA21B624AA00D76F86 /* FooterSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */; };
 		F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */; };
 		F05B23CE21B632B700D76F86 /* HomePreludeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */; };
+		F06FC4CD21C078BA006B6EDB /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06FC4CB21C078BA006B6EDB /* InviteViewController.swift */; };
+		F06FC4CE21C078BA006B6EDB /* InviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06FC4CC21C078BA006B6EDB /* InviteViewController.xib */; };
 		F0706705219511AE00873B85 /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0706704219511AE00873B85 /* AppDelegate+Setup.swift */; };
 		F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */; };
 		F073A74021B7120A00E37D5A /* MenuLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */; };
@@ -161,6 +163,8 @@
 		F05B23C921B624AA00D76F86 /* FooterSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterSeparatorView.swift; sourceTree = "<group>"; };
 		F05B23CB21B624B600D76F86 /* FooterSeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterSeparatorView.xib; sourceTree = "<group>"; };
 		F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreludeSegue.swift; sourceTree = "<group>"; };
+		F06FC4CB21C078BA006B6EDB /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		F06FC4CC21C078BA006B6EDB /* InviteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteViewController.xib; sourceTree = "<group>"; };
 		F0706704219511AE00873B85 /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F073A73D21B7120A00E37D5A /* MenuLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCell.swift; sourceTree = "<group>"; };
 		F073A73E21B7120A00E37D5A /* MenuLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuLogoutCell.xib; sourceTree = "<group>"; };
@@ -351,6 +355,7 @@
 		F05065EC2194C7A200675D86 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				F06FC4CA21C07891006B6EDB /* invite */,
 				F03BD8C421ACA6BC00911917 /* home */,
 				F07067032195118600873B85 /* prelude */,
 				F05065ED2194C7D600675D86 /* login */,
@@ -438,6 +443,15 @@
 				F05B23CD21B632B700D76F86 /* HomePreludeSegue.swift */,
 			);
 			path = transitions;
+			sourceTree = "<group>";
+		};
+		F06FC4CA21C07891006B6EDB /* invite */ = {
+			isa = PBXGroup;
+			children = (
+				F06FC4CB21C078BA006B6EDB /* InviteViewController.swift */,
+				F06FC4CC21C078BA006B6EDB /* InviteViewController.xib */,
+			);
+			path = invite;
 			sourceTree = "<group>";
 		};
 		F07067032195118600873B85 /* prelude */ = {
@@ -677,6 +691,7 @@
 				F073A75421B73B2600E37D5A /* terms-comply@2x.png in Resources */,
 				F07F54BD219277A400080D94 /* Montserrat-Light.ttf in Resources */,
 				F05B23CC21B624B600D76F86 /* FooterSeparatorView.xib in Resources */,
+				F06FC4CE21C078BA006B6EDB /* InviteViewController.xib in Resources */,
 				F0B0108821AF6D0200DD82E7 /* MenuSpotCell.xib in Resources */,
 				F0D2DDE521ADC4FB003573DD /* MenuViewController.xib in Resources */,
 				F01690202191073E001526DA /* LaunchScreen.storyboard in Resources */,
@@ -833,6 +848,7 @@
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
 				F05B23C721B623E500D76F86 /* MenuOptionCell.swift in Sources */,
 				F0CC370321A472B600B89575 /* PreludeHomeSegue.swift in Sources */,
+				F06FC4CD21C078BA006B6EDB /* InviteViewController.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */,
 				F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */,
