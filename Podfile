@@ -18,6 +18,7 @@ target 'ControlCenter' do
   pod 'SideMenu', '5.0.0'
   pod 'SDWebImage'
   pod 'SnapKit'
+  pod 'SVProgressHUD'
   pod 'SwiftHEXColors'
   pod 'SwiftyJSON'
   
