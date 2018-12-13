@@ -16,6 +16,7 @@ class SendLinkViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var tableView: UITableView!
   var items = [String]()
   var linkShare: String?
+  var customDoneButton: UIButton?
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupView()
@@ -52,6 +53,17 @@ class SendLinkViewController: UIViewController, UITableViewDelegate, UITableView
     self.tableView.dataSource = self
     self.tableView.tableFooterView = contentView
     self.tableView.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "kLinkCell")
+    
+    self.customDoneButton = UIButton()
+    self.customDoneButton?.titleLabel?.font = UIFont.montserratBold(18)
+    self.customDoneButton?.setTitle("Done".localized, for: .normal)
+    self.customDoneButton?.setTitleColor(UIColor.rocketYellow(), for: .normal)
+    self.customDoneButton?.setTitleColor(UIColor.rocketGrayChat(), for: .highlighted)
+    self.customDoneButton?.setTitleColor(UIColor.rocketGrayChat(), for: .selected)
+    
+    self.customDoneButton!.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
+    let nextButton = UIBarButtonItem(customView: self.customDoneButton!)
+    self.navigationItem.rightBarButtonItem = nextButton
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -109,6 +121,10 @@ class SendLinkViewController: UIViewController, UITableViewDelegate, UITableView
       tableView.deselectRow(at: indexPath, animated: true)
     }
     
+  }
+  
+  @objc func dismissViewController() -> Void {
+    self.dismissView()
   }
   
 }

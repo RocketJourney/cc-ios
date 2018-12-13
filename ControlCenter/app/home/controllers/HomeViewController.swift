@@ -137,6 +137,11 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   }
   
   func topLocations() {
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      User.current?.selectedSpot = nil
+      realm.create(User.self, value: User.current!, update: true)
+    }
     self.resetClubPaginator()
     self.displayTitle()
     if self.selectedIndex == 0 {

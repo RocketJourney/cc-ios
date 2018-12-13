@@ -33,5 +33,20 @@ extension User {
       }
     }
   }
+  
+  func createInvitation(_ params: [String : Any], completion: @escaping (_ link: String)->(), error: @escaping(_ error: Error) -> ()) -> Void {
+    Alamofire .request(InvitationRouter.createInvitation(params)).responseJSON { (response) in
+      if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+        if let object = response.result.value {
+          let json = JSON(object)
+          if let link = json["data"]["invitation_link"].string {
+            completion(link)
+          }
+        }
+      }else{
+        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      }
+    }
+  }
 }
 
