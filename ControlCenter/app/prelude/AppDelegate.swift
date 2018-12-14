@@ -62,7 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     let state = application.applicationState
+    if state != .active {
+      let currentBadgeNumber = UIApplication.shared.applicationIconBadgeNumber
+      let updatedBadgeNumber = currentBadgeNumber + 1
+      UIApplication.shared.registerForRemoteNotifications()
+      if (updatedBadgeNumber > -1) {
+        UIApplication.shared.applicationIconBadgeNumber = updatedBadgeNumber
+      }
+    }
+    
+    
     receivedPayload(userInfo, state: state)
+    
     completionHandler(UIBackgroundFetchResult.newData)
   }
 

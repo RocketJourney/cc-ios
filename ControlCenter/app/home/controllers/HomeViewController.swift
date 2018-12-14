@@ -35,7 +35,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     self.requestPushNotification()
-    self.displayTitle()
+    self.displayTitle()    
   }
   
   private func setupView() -> Void {

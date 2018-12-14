@@ -26,6 +26,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     self.printData()
+    
     NotificationCenter.default.addObserver(self, selector: #selector(self.getDataFromServer), name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   
@@ -46,7 +47,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.tableFooterView = UIView()
     self.tableView.infiniteScrollingDisabled = false
     self.tableView.addBottomInfiniteScrolling {
-      self.reachToBottom()
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        self.reachToBottom()
+      })
+      
     }
   }
   
@@ -170,6 +174,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   @objc func getDataFromServer() -> Void {
+    UIApplication.shared.applicationIconBadgeNumber = 0
     if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotAssistants()
     }else{
@@ -256,7 +261,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
           self.tableView.scrollToRow(
             at: IndexPath(row: index, section: 0),
             at: .bottom,
-            animated: true
+            animated: false
           )
         }
       }
