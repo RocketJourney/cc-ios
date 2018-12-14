@@ -106,6 +106,7 @@
 		F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9C219E4E5B00F94BA1 /* LoginRouter.swift */; };
 		F0DFBD9F219E51FE00F94BA1 /* InvitationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */; };
 		F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */; };
+		F0ECF3C321C31FA000ACEE26 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +240,7 @@
 		F0DFBD9C219E4E5B00F94BA1 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationRouter.swift; sourceTree = "<group>"; };
 		F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Invitation.swift"; sourceTree = "<group>"; };
+		F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 				F0D2DDE321ADC4FB003573DD /* MenuViewController.xib */,
 				F073A75821B73C7000E37D5A /* WebViewController.swift */,
 				F073A75921B73C7000E37D5A /* WebViewController.xib */,
+				F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				F06FC4CD21C078BA006B6EDB /* InviteViewController.swift in Sources */,
 				F01690182191073B001526DA /* ViewController.swift in Sources */,
 				F073A73F21B7120A00E37D5A /* MenuLogoutCell.swift in Sources */,
+				F0ECF3C321C31FA000ACEE26 /* GuideViewController.swift in Sources */,
 				F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */,
 				F0CC36FD21A3AF2400B89575 /* SignUpHomeSegue.swift in Sources */,
 				F079F29121963FFA00BB22EF /* RecoverPasswordViewController.swift in Sources */,

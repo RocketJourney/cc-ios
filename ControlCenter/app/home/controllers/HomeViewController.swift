@@ -149,7 +149,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if dashboardVC != nil {
         dashboardVC!.getDataFromServer()
       }
-    }else {
+    }else if self.selectedIndex == 1{
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
         usersVC?.getDataFromServer()
@@ -160,11 +160,9 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     
-    if User.current?.selectedSpot == nil {
-      self.resetSpotPaginator()
-      self.resetClubPaginator()
-    }            
     if item == (tabBar.items)![0]{
+      self.displayTitle()
+      self.resetClubPaginator()
       //Do something if index is 0
       NSLog("item 0")
       self.selectedIndex = 0
@@ -173,13 +171,24 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         dashboardVC!.getDataFromServer()
       }
       
-    }else if item == (tabBar.items)![1]{      
+    }else if item == (tabBar.items)![1]{
+      self.displayTitle()
+      self.resetSpotPaginator()
       NSLog("item 1")
       self.selectedIndex = 1
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
         usersVC?.getDataFromServer()
       }
+    }else if item == (tabBar.items)![2]{
+      NSLog("item 2")
+      self.selectedIndex = 2
+      let guideVC = self.viewControllers?[2] as? GuideViewController
+      if guideVC != nil {
+        guideVC?.reloadData()
+        self.displayGuideTitle()
+      }
+      
     }
   }
   
@@ -196,6 +205,11 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         }
       }
     }
+  }
+  
+  private func displayGuideTitle() -> Void {
+    self.navigationItem.titleView = nil
+    self.title = "GUIDE".localized
   }
   
   

@@ -209,6 +209,26 @@
             </objects>
             <point key="canvasLocation" x="4502" y="1217"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="L7W-qh-8ZS">
+            <objects>
+                <viewController id="rSV-yi-SZY" customClass="GuideViewController" customModule="CCStaging" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Er6-BB-6dZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gao-qd-GUk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hrz-s3-X3c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="guide-icon" selectedImage="guide-icon" id="bWO-xs-euE"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3tR-sE-1xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4502" y="1956"/>
+        </scene>
         <!--Dashboard-->
         <scene sceneID="ctB-Id-kqh">
             <objects>
@@ -280,11 +300,12 @@
                         <segue destination="QtM-vD-W6N" kind="relationship" relationship="viewControllers" id="Hgv-pz-YVn"/>
                         <segue destination="fLD-o2-EsD" kind="relationship" relationship="viewControllers" id="ft1-hG-pI5"/>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="kHomePreludeSegue" customClass="HomePreludeSegue" customModule="CCStaging" customModuleProvider="target" id="DMz-Ct-NPS"/>
+                        <segue destination="rSV-yi-SZY" kind="relationship" relationship="viewControllers" id="dM5-SQ-Q00"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvL-AO-wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="1440"/>
+            <point key="canvasLocation" x="2849" y="1196"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">
@@ -428,6 +449,7 @@
         <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
         <image name="dashboard-icon" width="23" height="25"/>
+        <image name="guide-icon" width="25" height="25"/>
         <image name="users-icon" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
