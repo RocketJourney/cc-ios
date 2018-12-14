@@ -26,6 +26,12 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     self.printData()
+    NotificationCenter.default.addObserver(self, selector: #selector(self.getDataFromServer), name: UIApplication.didBecomeActiveNotification, object: nil)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   
   
@@ -163,7 +169,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   
-  func getDataFromServer() -> Void {
+  @objc func getDataFromServer() -> Void {
     if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotAssistants()
     }else{

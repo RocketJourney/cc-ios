@@ -59,6 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Branch.getInstance()?.continue(userActivity)
     return true
   }
+  
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    let state = application.applicationState
+    receivedPayload(userInfo, state: state)
+    completionHandler(UIBackgroundFetchResult.newData)
+  }
 
 
 }

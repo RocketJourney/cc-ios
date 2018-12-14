@@ -84,3 +84,6 @@
 "LINK_COPIED"="Link Copied";
 
 "GUIDE"="Guide";
+
+/*Notification*/
+"Checked in first time at [Spot Branch Name]"="%@ checked in for the first time at %@";

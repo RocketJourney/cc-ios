@@ -45,6 +45,8 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     self.displayTitle()
     self.tabBar.barTintColor = UIColor(hex: 0x333333)
     self.tabBar.backgroundColor = UIColor(hex: 0x333333)
+    Notifications.instance.listeners.append(self)
+    
   }
   
   @objc func logoutAction() -> Void {

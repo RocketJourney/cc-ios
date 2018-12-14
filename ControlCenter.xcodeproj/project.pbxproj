@@ -107,6 +107,9 @@
 		F0DFBD9F219E51FE00F94BA1 /* InvitationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */; };
 		F0DFBDA1219E566500F94BA1 /* User+Invitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */; };
 		F0ECF3C321C31FA000ACEE26 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */; };
+		F0ECF3C521C336AE00ACEE26 /* AppDelegate+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECF3C421C336AE00ACEE26 /* AppDelegate+Events.swift */; };
+		F0ECF3C721C33ADD00ACEE26 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECF3C621C33ADD00ACEE26 /* Notifications.swift */; };
+		F0ECF3C921C33C9700ACEE26 /* HomeViewController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECF3C821C33C9700ACEE26 /* HomeViewController+Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +244,9 @@
 		F0DFBD9E219E51FE00F94BA1 /* InvitationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationRouter.swift; sourceTree = "<group>"; };
 		F0DFBDA0219E566500F94BA1 /* User+Invitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Invitation.swift"; sourceTree = "<group>"; };
 		F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		F0ECF3C421C336AE00ACEE26 /* AppDelegate+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Events.swift"; sourceTree = "<group>"; };
+		F0ECF3C621C33ADD00ACEE26 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		F0ECF3C821C33C9700ACEE26 /* HomeViewController+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Notifications.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +370,7 @@
 				F073A75821B73C7000E37D5A /* WebViewController.swift */,
 				F073A75921B73C7000E37D5A /* WebViewController.xib */,
 				F0ECF3C221C31FA000ACEE26 /* GuideViewController.swift */,
+				F0ECF3C821C33C9700ACEE26 /* HomeViewController+Notifications.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -487,6 +494,7 @@
 				F01690152191073B001526DA /* AppDelegate.swift */,
 				F0706704219511AE00873B85 /* AppDelegate+Setup.swift */,
 				F0DFBD89219CE28A00F94BA1 /* Appdelegate+Handlers.swift */,
+				F0ECF3C421C336AE00ACEE26 /* AppDelegate+Events.swift */,
 			);
 			path = prelude;
 			sourceTree = "<group>";
@@ -552,6 +560,7 @@
 				F0DFBD97219E4C9400F94BA1 /* ControlCenterRealm.swift */,
 				F0A3D08521BB08CA008DF212 /* Data+extensions.swift */,
 				F0DCD1DE21C1A34E0090E96B /* UIBarButtonItem+extension.swift */,
+				F0ECF3C621C33ADD00ACEE26 /* Notifications.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -886,6 +895,7 @@
 				F0B0108221AEFFDF00DD82E7 /* User+Info.swift in Sources */,
 				F079F28A2196230700BB22EF /* ChooseClubViewController.swift in Sources */,
 				F073A75A21B73C7000E37D5A /* WebViewController.swift in Sources */,
+				F0ECF3C921C33C9700ACEE26 /* HomeViewController+Notifications.swift in Sources */,
 				F0D3BB1B21AB8BDC006F4C93 /* CreateAccountPreludeSegue.swift in Sources */,
 				F00C2E8F21B19EFD0010EB18 /* UserAssistant.swift in Sources */,
 				F0DFBD90219E359100F94BA1 /* IntroSegue.swift in Sources */,
@@ -917,6 +927,7 @@
 				F0506608219504EC00675D86 /* CheckEmailViewController.swift in Sources */,
 				F0D3BB1921AB8857006F4C93 /* ClubPreludeSegue.swift in Sources */,
 				F07C37FB21C0955100DD11C4 /* InviteCell.swift in Sources */,
+				F0ECF3C521C336AE00ACEE26 /* AppDelegate+Events.swift in Sources */,
 				F03BD8CF21ACAD3300911917 /* UsersViewController.swift in Sources */,
 				F00C2E8C21B1983D0010EB18 /* UserCell.swift in Sources */,
 				F05065F82194EF9500675D86 /* String+extension.swift in Sources */,
@@ -928,6 +939,7 @@
 				F0DFBD93219E3E5C00F94BA1 /* RequestBuilderV2.swift in Sources */,
 				F0CC36FF21A3AFEC00B89575 /* HomeViewController.swift in Sources */,
 				F0A3D08621BB08CB008DF212 /* Data+extensions.swift in Sources */,
+				F0ECF3C721C33ADD00ACEE26 /* Notifications.swift in Sources */,
 				F0DFBD9D219E4E5B00F94BA1 /* LoginRouter.swift in Sources */,
 				F0DFBD98219E4C9400F94BA1 /* ControlCenterRealm.swift in Sources */,
 				F0DFBD96219E4BED00F94BA1 /* User.swift in Sources */,
