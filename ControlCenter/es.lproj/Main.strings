@@ -11,11 +11,14 @@
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "U6g-wR-cCg"; */
 "U6g-wR-cCg.title" = "Tablero";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "X3D-EA-ziO"; */
+"X3D-EA-ziO.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Guide"; ObjectID = "bWO-xs-euE"; */
+"bWO-xs-euE.title" = "Guía";
+
 /* Class = "UITabBarItem"; title = "Users"; ObjectID = "nQf-Io-9JW"; */
 "nQf-Io-9JW.title" = "Usuarios";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "wBt-X6-GPp"; */
 "wBt-X6-GPp.text" = "Label";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "bWO-xs-euE"; */
-"bWO-xs-euE.text" = "Guía";

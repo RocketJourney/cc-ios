@@ -245,8 +245,8 @@
 		F0ECF3C421C336AE00ACEE26 /* AppDelegate+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Events.swift"; sourceTree = "<group>"; };
 		F0ECF3C621C33ADD00ACEE26 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F0ECF3C821C33C9700ACEE26 /* HomeViewController+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Notifications.swift"; sourceTree = "<group>"; };
-		F0F9057921C46894000F6731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		F0F9057A21C46897000F6731 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		F0F9057D21C46E0B000F6731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F0F9057E21C46E16000F6731 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -984,8 +984,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F016901A2191073B001526DA /* Base */,
-				F0F9057921C46894000F6731 /* en */,
-				F0F9057A21C46897000F6731 /* es */,
+				F0F9057D21C46E0B000F6731 /* en */,
+				F0F9057E21C46E16000F6731 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
