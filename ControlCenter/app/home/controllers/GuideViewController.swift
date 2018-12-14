@@ -67,7 +67,7 @@ class GuideViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
   func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
     if navigationAction.navigationType == .linkActivated  {
       if let url = navigationAction.request.url,
-        let host = url.host, !host.hasPrefix("https://rckt.fit/"),
+        let host = url.host, !host.hasPrefix("rckt.fit"),
         UIApplication.shared.canOpenURL(url) {
         UIApplication.shared.open(url)
         NSLog(url.description)
