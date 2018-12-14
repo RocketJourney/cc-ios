@@ -158,8 +158,6 @@
 		F0237B1021B7709A00FF0C72 /* HeaderMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMenuCell.xib; sourceTree = "<group>"; };
 		F03BD8C821ACA6F400911917 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F03BD8CD21ACAD3300911917 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		F03BD8D221ACC69E00911917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		F03BD8D421ACC6A600911917 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		F05065F12194DD5200675D86 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		F05065F52194E10400675D86 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		F05065F72194EF9500675D86 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
@@ -247,6 +245,8 @@
 		F0ECF3C421C336AE00ACEE26 /* AppDelegate+Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Events.swift"; sourceTree = "<group>"; };
 		F0ECF3C621C33ADD00ACEE26 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		F0ECF3C821C33C9700ACEE26 /* HomeViewController+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Notifications.swift"; sourceTree = "<group>"; };
+		F0F9057921C46894000F6731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		F0F9057A21C46897000F6731 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -984,8 +984,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F016901A2191073B001526DA /* Base */,
-				F03BD8D221ACC69E00911917 /* en */,
-				F03BD8D421ACC6A600911917 /* es */,
+				F0F9057921C46894000F6731 /* en */,
+				F0F9057A21C46897000F6731 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

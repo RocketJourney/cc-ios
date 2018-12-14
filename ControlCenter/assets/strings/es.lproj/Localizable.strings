@@ -83,7 +83,7 @@
 "DONE"="Terminar";
 "LINK_COPIED"="Link Copiado";
 
-"GUIDE"="Guia";
+"GUIDE"="Guía";
 
 /*Notification*/
 "Checked in first time at [Spot Branch Name]"="%@ hizo check-in por primera vez en %@";

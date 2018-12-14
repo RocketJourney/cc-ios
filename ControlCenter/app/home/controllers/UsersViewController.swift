@@ -230,7 +230,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func printClubDataPaginate() -> Void {
     let paginator = User.current?.currentClub?.paginator
     if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
-      let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
+      let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!)
       self.tableView.reloadData()
       if index > 0 {
         UIView.performWithoutAnimation {
@@ -253,7 +253,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func printSpotDataPaginate() -> Void {
     let paginator = User.current?.selectedSpot?.paginator
     if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
-      let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
+      let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!)
       
       self.tableView.reloadData()
       if index > 0 {

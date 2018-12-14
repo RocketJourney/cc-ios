@@ -56,7 +56,7 @@ class SendLinkViewController: UIViewController, UITableViewDelegate, UITableView
     
     self.customDoneButton = UIButton()
     self.customDoneButton?.titleLabel?.font = UIFont.montserratBold(18)
-    self.customDoneButton?.setTitle("Done".localized, for: .normal)
+    self.customDoneButton?.setTitle("DONE".localized, for: .normal)
     self.customDoneButton?.setTitleColor(UIColor.rocketYellow(), for: .normal)
     self.customDoneButton?.setTitleColor(UIColor.rocketGrayChat(), for: .highlighted)
     self.customDoneButton?.setTitleColor(UIColor.rocketGrayChat(), for: .selected)
