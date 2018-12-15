@@ -11,6 +11,7 @@ import RealmSwift
 import SideMenu
 import Permission
 import UserNotifications
+import Alamofire
 
 protocol SpotSelectionDelegate {
   func spotSelected(spot: Spot)
@@ -163,6 +164,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     
     if item == (tabBar.items)![0]{
+      self.cancelRequest()
       self.displayTitle()
       self.resetClubPaginator()
       //Do something if index is 0
@@ -174,6 +176,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       }
       
     }else if item == (tabBar.items)![1]{
+      self.cancelRequest()
       self.displayTitle()
       self.resetSpotPaginator()
       NSLog("item 1")
@@ -183,6 +186,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         usersVC?.getDataFromServer()
       }
     }else if item == (tabBar.items)![2]{
+      self.cancelRequest()
       NSLog("item 2")
       self.selectedIndex = 2
       let guideVC = self.viewControllers?[2] as? GuideViewController
@@ -261,6 +265,14 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       }
     }
     
+  }
+  
+  private func cancelRequest() -> Void {
+    Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+      sessionDataTask.forEach { $0.cancel() }
+      uploadData.forEach { $0.cancel() }
+      downloadData.forEach { $0.cancel() }
+    }
   }
   
   

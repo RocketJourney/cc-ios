@@ -27,7 +27,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     super.viewDidAppear(animated)
     self.printData()
     
-    NotificationCenter.default.addObserver(self, selector: #selector(self.getDataFromServer), name: UIApplication.didBecomeActiveNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(self.printData), name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   
   override func viewDidDisappear(_ animated: Bool) {
@@ -45,7 +45,15 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.delegate = self
     self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "kUserCell")
     self.tableView.tableFooterView = UIView()
+    
     self.tableView.infiniteScrollingDisabled = false
+    let spinnerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+    spinnerView.backgroundColor = UIColor.clear
+    let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.white)
+    spinnerView.addSubview(spinner)
+    spinner.center = spinnerView.center
+    spinner.startAnimating()
+    self.tableView.bottomInfiniteScrollingCustomView = spinnerView
     self.tableView.addBottomInfiniteScrolling {
       DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
         self.reachToBottom()
@@ -195,7 +203,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   
-  private func printData() -> Void {
+  @objc private func printData() -> Void {
     if User.current != nil && User.current?.selectedSpot != nil {
       self.printSpotData()
     }else {

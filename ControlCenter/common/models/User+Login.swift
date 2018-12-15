@@ -92,20 +92,28 @@ extension User {
   
   class func recoverPassword(_ email: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
     Alamofire.request(LoginRouter.recoverPassword(email)).responseJSON { (response) in
-      if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
-        completion()
-      }else{
-        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+      if response.response != nil {
+        if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+          completion()
+        }else{
+          error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+        }
+      }else {
+        error(NSError(domain: "request error", code: 501, userInfo: nil))
       }
     }
   }
   
   func registerToke(_ token: String, completion: @escaping ()->(), error: @escaping(_ error: Error) -> ()) -> Void {
-    Alamofire.request(LoginRouter.registerToken(token)).responseJSON { (response) in
-      if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
-        completion()
-      }else{
-        error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+    Alamofire.request(LoginRouter.registerToken(token)).responseJSON { (response) in      
+      if response.response != nil {
+        if(response.response?.statusCode)! >= 200 && (response.response?.statusCode)! <= 204 {
+          completion()
+        }else{
+          error(NSError(domain: "request error", code: response.response?.statusCode ?? 500, userInfo: nil))
+        }
+      }else {
+        error(NSError(domain: "request error", code: 501, userInfo: nil))
       }
     }
   }

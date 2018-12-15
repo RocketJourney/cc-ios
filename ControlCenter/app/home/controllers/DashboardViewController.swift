@@ -141,7 +141,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
         self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
-            self.internalServerError()
+            //self.internalServerError()
           }
         }
       })
