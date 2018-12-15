@@ -11,7 +11,7 @@ import WebKit
 
 class GuideViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
   
-  let url: String = "https://assets.rocketjourney.com/control-center/assets/staff_guide/main_es.html"
+  let url: String = "https://assets.rocketjourney.com/control-center/assets/staff_guide/main_ios_es.html"
   var webView: WKWebView!
   var activityIndicator: UIActivityIndicatorView?
   

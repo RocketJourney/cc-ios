@@ -61,6 +61,7 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.customNextButton?.setTitleColor(UIColor.rocketYellow(), for: .normal)
     self.customNextButton?.setTitleColor(UIColor.rocketGrayChat(), for: .highlighted)
     self.customNextButton?.setTitleColor(UIColor.rocketGrayChat(), for: .selected)
+    self.customNextButton?.setTitleColor(UIColor.rocketGrayChat(), for: .disabled)
     
     self.customNextButton!.addTarget(self, action: #selector(self.createInvitation), for: .touchUpInside)
     self.customNextButton!.addSubview(self.activityIndicator!)

@@ -125,7 +125,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if dashboardVC != nil {        
         dashboardVC!.getDataFromServer()
       }
-    }else {
+    }else if self.selectedIndex == 1 {
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
         usersVC?.setupReachBottom()
@@ -155,6 +155,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     }else if self.selectedIndex == 1{
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
+        usersVC?.setupReachBottom()
         usersVC?.getDataFromServer()
       }
     }

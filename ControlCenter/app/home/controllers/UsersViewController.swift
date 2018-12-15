@@ -55,7 +55,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     spinner.startAnimating()
     self.tableView.bottomInfiniteScrollingCustomView = spinnerView
     self.tableView.addBottomInfiniteScrolling {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
         self.reachToBottom()
       })
       
@@ -286,7 +286,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func setupReachBottom() -> Void {
-    self.tableView.infiniteScrollingDisabled = false
+    if self.tableView != nil {
+      self.tableView.infiniteScrollingDisabled = false
+    }
+    
   }
   
   private func showActivityIndicator() -> Void {
