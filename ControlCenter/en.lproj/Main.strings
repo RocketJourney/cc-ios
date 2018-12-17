@@ -11,7 +11,13 @@
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "U6g-wR-cCg"; */
 "U6g-wR-cCg.title" = "Dashboard";
 
-/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "nQf-Io-9JW"; */
+/* Class = "UILabel"; text = "Label"; ObjectID = "X3D-EA-ziO"; */
+"X3D-EA-ziO.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Guide"; ObjectID = "bWO-xs-euE"; */
+"bWO-xs-euE.title" = "Guide";
+
+/* Class = "UITabBarItem"; title = "Users"; ObjectID = "nQf-Io-9JW"; */
 "nQf-Io-9JW.title" = "Users";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "wBt-X6-GPp"; */

@@ -9,6 +9,9 @@
 import UIKit
 import RealmSwift
 import SideMenu
+import Permission
+import UserNotifications
+import Alamofire
 
 protocol SpotSelectionDelegate {
   func spotSelected(spot: Spot)
@@ -32,7 +35,8 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    self.displayTitle()
+    self.requestPushNotification()
+    self.displayTitle()    
   }
   
   private func setupView() -> Void {
@@ -42,6 +46,8 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
     self.displayTitle()
     self.tabBar.barTintColor = UIColor(hex: 0x333333)
     self.tabBar.backgroundColor = UIColor(hex: 0x333333)
+    Notifications.instance.listeners.append(self)
+    
   }
   
   @objc func logoutAction() -> Void {
@@ -119,7 +125,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if dashboardVC != nil {        
         dashboardVC!.getDataFromServer()
       }
-    }else {
+    }else if self.selectedIndex == 1 {
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
         usersVC?.setupReachBottom()
@@ -134,6 +140,11 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   }
   
   func topLocations() {
+    let realm = try! Realm(configuration: ControlCenterRealm.config)
+    try! realm.write {
+      User.current?.selectedSpot = nil
+      realm.create(User.self, value: User.current!, update: true)
+    }
     self.resetClubPaginator()
     self.displayTitle()
     if self.selectedIndex == 0 {
@@ -141,9 +152,10 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if dashboardVC != nil {
         dashboardVC!.getDataFromServer()
       }
-    }else {
+    }else if self.selectedIndex == 1{
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
+        usersVC?.setupReachBottom()
         usersVC?.getDataFromServer()
       }
     }
@@ -152,11 +164,10 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
   
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     
-    if User.current?.selectedSpot == nil {
-      self.resetSpotPaginator()
-      self.resetClubPaginator()
-    }            
     if item == (tabBar.items)![0]{
+      self.cancelRequest()
+      self.displayTitle()
+      self.resetClubPaginator()
       //Do something if index is 0
       NSLog("item 0")
       self.selectedIndex = 0
@@ -165,13 +176,26 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
         dashboardVC!.getDataFromServer()
       }
       
-    }else if item == (tabBar.items)![1]{      
+    }else if item == (tabBar.items)![1]{
+      self.cancelRequest()
+      self.displayTitle()
+      self.resetSpotPaginator()
       NSLog("item 1")
       self.selectedIndex = 1
       let usersVC = self.viewControllers?[1] as? UsersViewController
       if usersVC != nil {
         usersVC?.getDataFromServer()
       }
+    }else if item == (tabBar.items)![2]{
+      self.cancelRequest()
+      NSLog("item 2")
+      self.selectedIndex = 2
+      let guideVC = self.viewControllers?[2] as? GuideViewController
+      if guideVC != nil {
+        guideVC?.reloadData()
+        self.displayGuideTitle()
+      }
+      
     }
   }
   
@@ -181,13 +205,18 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if User.current?.selectedSpot != nil{
         self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: (User.current?.selectedSpot?.branchName)!)
       }else {
-        if User.current?.permission == "owner"{
+        if User.current?.permission == "owner" || User.current?.permission == "all_spots"{
           self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_LOCATIONS".localized)
         }else if User.current?.permission == "some_spots"{
           self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_MY_LOCATIONS".localized)
         }
       }
     }
+  }
+  
+  private func displayGuideTitle() -> Void {
+    self.navigationItem.titleView = nil
+    self.title = "GUIDE".localized
   }
   
   
@@ -214,7 +243,38 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       }
     }
   }
+  
+  
+  private func requestPushNotification() -> Void {
+    let permission = Permission.notifications
+    permission.request { (status) in
+      switch status {
+      case .authorized:
+        NSLog("authorized")
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) in
+          NSLog("settings ====> %@", settings)
+          DispatchQueue.main.async {
+            UIApplication.shared.registerForRemoteNotifications()
+          }
+        })
+      case .denied:
+        NSLog("denied")
+      case .disabled:
+        NSLog("disabled")
+      case .notDetermined:
+        NSLog("not determined")
+      }
+    }
     
-    
-    
+  }
+  
+  private func cancelRequest() -> Void {
+    Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+      sessionDataTask.forEach { $0.cancel() }
+      uploadData.forEach { $0.cancel() }
+      downloadData.forEach { $0.cancel() }
+    }
+  }
+  
+  
 }

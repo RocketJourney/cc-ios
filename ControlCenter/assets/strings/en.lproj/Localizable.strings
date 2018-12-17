@@ -72,3 +72,18 @@
 "TERMS_OF_SERVICE"="Terms of Service";
 "PRIVACY_POLICY"="Privacy Policy";
 "LOG_OUT"="Log Out";
+
+/*invite*/
+"INVITE_COLLEAGUE"="Invite Colleague";
+"SELECT_LOCATIONS_INVITE"="Select the locations to which your colleague will have access.";
+"SEND_LINK"="Send Link";
+"SEND_LINK_COLLEAGUES"="Send link to colleague(s) via…";
+"COPY_LINK"="Copy link";
+"LINK_EXPIRE"="This link will be valid for 7 days and it can be used by several colleagues.";
+"DONE"="Done";
+"LINK_COPIED"="Link Copied";
+
+"GUIDE"="Guide";
+
+/*Notification*/
+"Checked in first time at [Spot Branch Name]"="%@ checked in for the first time at %@";

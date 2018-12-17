@@ -11,6 +11,8 @@ import UIKit
 import Crashlytics
 import Fabric
 import RealmSwift
+import Reachability
+import SVProgressHUD
 
 
 
@@ -33,6 +35,25 @@ extension AppDelegate {
     UITabBar.appearance().isOpaque = true
     UITabBar.appearance().backgroundColor = UIColor.white
     UITabBar.appearance().tintColor = UIColor.rocketYellow()
+    
+    SVProgressHUD.setBackgroundColor(UIColor.clear)
+    SVProgressHUD.setForegroundColor(UIColor.white)
+    SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.native)
+  }
+  
+  
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let token = deviceToken.hexEncodedString()
+    NSLog("Device Token: \(token)")
+    
+    if self.isNetworkReachable(){
+      User.current?.registerToke(token, completion: {
+        NSLog("register ok ===> %@", token)
+      }, error: { (error) in
+        NSLog("error ====> %@", error.localizedDescription)
+      })
+    }
+    
   }
   
   func setupDB() -> Void {
@@ -93,5 +114,11 @@ extension AppDelegate {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 13, migrationBlock: migrationBlock)
     let _ = try! Realm(configuration: ControlCenterRealm.config)
+  }
+  
+  
+  func isNetworkReachable()->Bool{
+    let reachability = Reachability()
+    return reachability?.connection != Reachability.Connection.none
   }
 }

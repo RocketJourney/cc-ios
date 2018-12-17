@@ -8,7 +8,6 @@
 
 import UIKit
 import Branch
-import IQKeyboardManagerSwift
 
 
 
@@ -20,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    
-    //IQKeyboardManager.shared.enable = true
+        
     self.setupBranch(launchOptions)
     self.initialSetup()
     
@@ -58,6 +56,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     Branch.getInstance()?.continue(userActivity)
     return true
+  }
+  
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    let state = application.applicationState
+    if state != .active {
+      let currentBadgeNumber = UIApplication.shared.applicationIconBadgeNumber
+      let updatedBadgeNumber = currentBadgeNumber + 1
+      UIApplication.shared.registerForRemoteNotifications()
+      if (updatedBadgeNumber > -1) {
+        UIApplication.shared.applicationIconBadgeNumber = updatedBadgeNumber
+      }
+    }
+    
+    
+    receivedPayload(userInfo, state: state)
+    
+    completionHandler(UIBackgroundFetchResult.newData)
   }
 
 

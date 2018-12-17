@@ -42,6 +42,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
     self.tableView.separatorColor = UIColor(hex: 0x313131)
     
     
+    
     self.backButton = UIBarButtonItem(image: UIImage(named:"left-arrow"), style: .plain, target: self, action: #selector(self.popViewController))
     self.navigationItem.leftBarButtonItem = self.backButton
     self.navigationItem.rightBarButtonItem?.tintColor = UIColor.rocketYellow()
@@ -144,7 +145,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           _name.tintColor = UIColor.rocketYellow()
           
-          _name.keyboardType = .namePhonePad
+          _name.keyboardType = .default
           _name.autocapitalizationType = .words
           _name.addTarget(self, action: #selector(self.validate), for: .editingChanged)
           self.name = _name
@@ -173,7 +174,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           _lastName.tintColor = UIColor.rocketYellow()
           _lastName.addTarget(self, action: #selector(self.validate), for: .editingChanged)
-          _lastName.keyboardType = .namePhonePad
+          _lastName.keyboardType = .default
           _lastName.autocapitalizationType = .words
           self.lastName = _lastName
         }

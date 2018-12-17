@@ -26,6 +26,13 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     self.printData()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.printData), name: UIApplication.didBecomeActiveNotification, object: nil)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
   }
   
   
@@ -38,9 +45,20 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.delegate = self
     self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "kUserCell")
     self.tableView.tableFooterView = UIView()
+    
     self.tableView.infiniteScrollingDisabled = false
+    let spinnerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+    spinnerView.backgroundColor = UIColor.clear
+    let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.white)
+    spinnerView.addSubview(spinner)
+    spinner.center = spinnerView.center
+    spinner.startAnimating()
+    self.tableView.bottomInfiniteScrollingCustomView = spinnerView
     self.tableView.addBottomInfiniteScrolling {
-      self.reachToBottom()
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
+        self.reachToBottom()
+      })
+      
     }
   }
   
@@ -163,7 +181,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   
-  func getDataFromServer() -> Void {
+  @objc func getDataFromServer() -> Void {
+    UIApplication.shared.applicationIconBadgeNumber = 0
     if User.current != nil && User.current?.selectedSpot != nil {
       self.getSpotAssistants()
     }else{
@@ -184,7 +203,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   
   
-  private func printData() -> Void {
+  @objc private func printData() -> Void {
     if User.current != nil && User.current?.selectedSpot != nil {
       self.printSpotData()
     }else {
@@ -219,7 +238,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func printClubDataPaginate() -> Void {
     let paginator = User.current?.currentClub?.paginator
     if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
-      let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!) - 1
+      let index = ((User.current?.currentClub?.assistants.count)! - (User.current?.currentClub?.paginator?.pageSize)!)
       self.tableView.reloadData()
       if index > 0 {
         UIView.performWithoutAnimation {
@@ -242,7 +261,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   private func printSpotDataPaginate() -> Void {
     let paginator = User.current?.selectedSpot?.paginator
     if paginator != nil &&  (paginator?.totalPages)! >= (paginator?.pageNumber)!  {
-      let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!) - 1
+      let index = ((User.current?.selectedSpot?.assistants.count)! - (User.current?.selectedSpot?.paginator?.pageSize)!)
       
       self.tableView.reloadData()
       if index > 0 {
@@ -250,7 +269,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
           self.tableView.scrollToRow(
             at: IndexPath(row: index, section: 0),
             at: .bottom,
-            animated: true
+            animated: false
           )
         }
       }
@@ -267,7 +286,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func setupReachBottom() -> Void {
-    self.tableView.infiniteScrollingDisabled = false
+    if self.tableView != nil {
+      self.tableView.infiniteScrollingDisabled = false
+    }
+    
   }
   
   private func showActivityIndicator() -> Void {

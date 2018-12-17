@@ -35,7 +35,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
     self.tableView.separatorColor = UIColor.clear
     self.tableView.dataSource = self
     self.tableView.delegate = self
-    self.tableView.allowsSelection = true
+    self.tableView.allowsSelection = false
     self.tableView.register(UINib(nibName: "StatusCell", bundle: nil), forCellReuseIdentifier: "kStatusCell")
     self.tableView.tableFooterView = UIView()
     
@@ -141,7 +141,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
         self.hideActivityIndicator()
         if let error = error as? NSError {
           if error.code == 500 {
-            self.internalServerError()
+            //self.internalServerError()
           }
         }
       })

@@ -209,6 +209,26 @@
             </objects>
             <point key="canvasLocation" x="4502" y="1217"/>
         </scene>
+        <!--Guide-->
+        <scene sceneID="L7W-qh-8ZS">
+            <objects>
+                <viewController id="rSV-yi-SZY" customClass="GuideViewController" customModule="CCStaging" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Er6-BB-6dZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gao-qd-GUk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hrz-s3-X3c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Guide" image="guide-icon" selectedImage="guide-icon" id="bWO-xs-euE"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3tR-sE-1xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4289" y="1985"/>
+        </scene>
         <!--Dashboard-->
         <scene sceneID="ctB-Id-kqh">
             <objects>
@@ -232,7 +252,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="q9f-bh-8P7">
-                                <rect key="frame" x="170.5" y="200" width="34" height="34"/>
+                                <rect key="frame" x="170.5" y="173" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="34" id="TTX-h7-w5Z"/>
                                     <constraint firstAttribute="height" constant="34" id="WZx-DU-dfW"/>
@@ -243,7 +263,7 @@
                         <constraints>
                             <constraint firstItem="ETd-Q7-8d4" firstAttribute="top" secondItem="xbE-ts-x83" secondAttribute="bottom" id="Bgn-Y8-VTS"/>
                             <constraint firstItem="q9f-bh-8P7" firstAttribute="centerX" secondItem="pLs-hf-jsc" secondAttribute="centerX" id="HvA-sE-t9k"/>
-                            <constraint firstItem="q9f-bh-8P7" firstAttribute="top" secondItem="X3D-EA-ziO" secondAttribute="bottom" constant="153" id="QB3-pl-MOR"/>
+                            <constraint firstItem="q9f-bh-8P7" firstAttribute="top" secondItem="Voa-6O-V9p" secondAttribute="bottom" constant="153" id="QB3-pl-MOR"/>
                             <constraint firstItem="xbE-ts-x83" firstAttribute="top" secondItem="X3D-EA-ziO" secondAttribute="bottom" constant="6" id="TJI-pT-qFP"/>
                             <constraint firstItem="X3D-EA-ziO" firstAttribute="top" secondItem="Voa-6O-V9p" secondAttribute="bottom" constant="6" id="UNd-lS-VOH"/>
                             <constraint firstItem="X3D-EA-ziO" firstAttribute="leading" secondItem="pLs-hf-jsc" secondAttribute="leadingMargin" constant="5" id="UmF-Oi-wMj"/>
@@ -280,11 +300,12 @@
                         <segue destination="QtM-vD-W6N" kind="relationship" relationship="viewControllers" id="Hgv-pz-YVn"/>
                         <segue destination="fLD-o2-EsD" kind="relationship" relationship="viewControllers" id="ft1-hG-pI5"/>
                         <segue destination="BYZ-38-t0r" kind="custom" identifier="kHomePreludeSegue" customClass="HomePreludeSegue" customModule="CCStaging" customModuleProvider="target" id="DMz-Ct-NPS"/>
+                        <segue destination="rSV-yi-SZY" kind="relationship" relationship="viewControllers" id="dM5-SQ-Q00"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvL-AO-wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3396" y="1440"/>
+            <point key="canvasLocation" x="2849" y="1196"/>
         </scene>
         <!--Check Email View Controller-->
         <scene sceneID="g6L-p7-hnA">
@@ -428,6 +449,7 @@
         <image name="cc-logo-black" width="280" height="163"/>
         <image name="cc-logo-white" width="292" height="150"/>
         <image name="dashboard-icon" width="23" height="25"/>
+        <image name="guide-icon" width="25" height="25"/>
         <image name="users-icon" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
