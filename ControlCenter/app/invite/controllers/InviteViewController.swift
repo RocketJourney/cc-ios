@@ -207,6 +207,9 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
           self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
         }
       }
+    }else { // some_spots
+      let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
+      self.spots.remove((spot?.id)!)
     }
     self.validateData()
   }
@@ -300,15 +303,26 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
   private func makeParams() -> Void{
     self.params = [String : Any]()
     self.params["club_id"] = User.current?.currentClub?.id
-    self.params["permission"] = User.current?.permission
-    if User.current?.currentClub?.accesibleSpots.count == self.spots.count{
-      self.params["spots"] = [Int]()
-    }else{
+    
+    if User.current?.permission == "some_spots"{
+      self.params["permission"] = "some_spots"
       var array = [Int]()
       for spot in self.spots{
         array.append(spot)
       }
       self.params["spots"] = array
+    }else{ //all_spots or owner
+      if User.current?.currentClub?.accesibleSpots.count == self.spots.count {
+        self.params["spots"] = [Int]()
+        self.params["permission"] = "all_spots"
+      }else{
+        self.params["permission"] = "some_spots"
+        var array = [Int]()
+        for spot in self.spots{
+          array.append(spot)
+        }
+        self.params["spots"] = array
+      }
     }
     NSLog("params ====> %@", self.params)
     
