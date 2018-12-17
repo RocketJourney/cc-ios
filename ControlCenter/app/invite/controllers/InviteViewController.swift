@@ -201,15 +201,19 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
       }else if indexPath.section == 1{
         let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
         self.spots.remove((spot?.id)!)
-        let allLocationsCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        if (allLocationsCell?.isSelected)! {
-          self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+        if let allLocationsCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)){
+          if (allLocationsCell.isSelected) {
+            self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+          }
         }
+        
       }else{
-        let allLocationsCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        if (allLocationsCell?.isSelected)! {
-          self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+        if let allLocationsCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)){
+          if (allLocationsCell.isSelected) {
+            self.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+          }
         }
+        
       }
     }else { // some_spots
       let spot = User.current?.currentClub?.sortedSpotsBranchName[indexPath.row]
