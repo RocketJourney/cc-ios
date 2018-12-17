@@ -1150,7 +1150,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
 				PRODUCT_NAME = CCStaging;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1173,7 +1173,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rocketjourney.controlcenter;
 				PRODUCT_NAME = ControlCenter;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
