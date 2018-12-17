@@ -205,7 +205,7 @@ class HomeViewController: UITabBarController, SpotSelectionDelegate {
       if User.current?.selectedSpot != nil{
         self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: (User.current?.selectedSpot?.branchName)!)
       }else {
-        if User.current?.permission == "owner"{
+        if User.current?.permission == "owner" || User.current?.permission == "all_spots"{
           self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_LOCATIONS".localized)
         }else if User.current?.permission == "some_spots"{
           self.navigationItem.titleView = self.titleView((User.current?.currentClub?.logoUrl)!, name: "ALL_MY_LOCATIONS".localized)
