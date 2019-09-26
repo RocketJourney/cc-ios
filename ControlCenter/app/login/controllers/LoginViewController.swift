@@ -157,7 +157,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           self.activityIndicator = _activityIndicator
           
           self.loginButton = _loginButton
-          self.validate()
+          self.validateForm()
           cell.addSubview(_loginButton)
         }
       }
@@ -284,7 +284,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   
-  @objc private func validate() -> Void {
+  @objc private func validateForm() -> Void {
     if let _ = self.email,
       let _ = self.password {
       if isValidEmail(emailString: self.email!.text ?? "") && (self.password!.text ?? "").count > 0 {

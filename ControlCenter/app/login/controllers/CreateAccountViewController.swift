@@ -239,7 +239,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
         cell.addSubview(_activityIndicator)
         _activityIndicator.center = _nextButton.center
         self.activityIndicator = _activityIndicator
-        self.validate()
+        self.validateForm()
       }
     }
     
@@ -337,7 +337,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   
-  @objc private func validate() -> Void {
+  @objc private func validateForm() -> Void {
     if let _ = self.email {
       if self.isValidEmail(emailString: self.email!.text ?? "") && (self.name?.text?.count)! > 0 && (self.lastName?.text?.count)! > 0 && (self.password?.text?.count)! > 0{
         self.nextButton?.alpha = 1.0

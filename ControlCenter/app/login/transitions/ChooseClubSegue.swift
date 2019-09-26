@@ -15,6 +15,7 @@ class ChooseClubSegue: UIStoryboardSegue {
     let nav = UINavigationController(rootViewController: chooseClubViewController)
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    nav.modalPresentationStyle = .fullScreen
     loginViewController.present(nav, animated: true, completion: nil)
   }
 }

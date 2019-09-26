@@ -108,7 +108,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
         let string = NSMutableAttributedString(string: "EMAIL".localized)
         string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
         _email.attributedPlaceholder = string
-        _email.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+        _email.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
         _email.tintColor = UIColor.rocketYellow()
         
         _email.keyboardType = .emailAddress
@@ -136,7 +136,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.addSubview(_activityIndicator)
         _activityIndicator.center = _nextButton.center
         self.activityIndicator = _activityIndicator
-        self.validate()
+        self.validateForm()
       }
     }
     
@@ -225,7 +225,7 @@ class CheckEmailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
   }
   
-  @objc private func validate() -> Void {
+  @objc private func validateForm() -> Void {
     if let _ = self.email {
       if isValidEmail(emailString: self.email!.text ?? "") {
         self.nextButton?.alpha = 1.0

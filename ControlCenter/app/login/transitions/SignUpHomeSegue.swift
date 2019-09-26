@@ -14,6 +14,7 @@ class SignUpHomeSegue: UIStoryboardSegue {
     let homeViewController = destination as! HomeViewController
     let nav = UINavigationController(rootViewController: homeViewController)
     nav.navigationBar.isHidden = true
+    nav.modalPresentationStyle = .fullScreen
     createAccountViewController.present(nav, animated: true, completion: nil)
   }
 }

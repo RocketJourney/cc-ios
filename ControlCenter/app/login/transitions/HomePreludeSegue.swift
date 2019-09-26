@@ -15,6 +15,7 @@ class HomePreludeSegue: UIStoryboardSegue {
     let preludeViewController = destination as! PreludeViewController
     let nav = UINavigationController(rootViewController: preludeViewController)
     nav.navigationBar.isHidden = true
+    nav.modalPresentationStyle = .fullScreen
     homeViewController.present(nav, animated: true, completion: nil)
   }
 }
