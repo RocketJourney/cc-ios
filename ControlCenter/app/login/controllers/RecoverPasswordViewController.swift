@@ -140,12 +140,10 @@ class RecoverPasswordViewController: UIViewController, UITableViewDataSource, UI
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()
-        if let error = error as? NSError {
-          if error.code == 500{
-            self.internalServerError()
-          }else{
-            self.noRegisterEmailAlert(email: (self.email?.text)!)
-          }
+        if (error as NSError).code >= 500{
+          self.internalServerError()
+        }else{
+          self.noRegisterEmailAlert(email: (self.email?.text)!)
         }
       }
     }else{

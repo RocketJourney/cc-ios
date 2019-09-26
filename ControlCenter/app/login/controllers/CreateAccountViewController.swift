@@ -147,7 +147,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           
           _name.keyboardType = .default
           _name.autocapitalizationType = .words
-          _name.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+          _name.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
           self.name = _name
         }
       case 2:
@@ -173,7 +173,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           _lastName.attributedPlaceholder = string
           //_email.addTarget(self, action: #selector(SignUpFormController.validate), for: .editingChanged)
           _lastName.tintColor = UIColor.rocketYellow()
-          _lastName.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+          _lastName.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
           _lastName.keyboardType = .default
           _lastName.autocapitalizationType = .words
           self.lastName = _lastName
@@ -201,7 +201,7 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
           let string = NSMutableAttributedString(string: "PASSWORD".localized)
           string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
           _password.attributedPlaceholder = string
-          _password.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+          _password.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
           _password.tintColor = UIColor.rocketYellow()
           
           _password.keyboardType = .default
@@ -289,11 +289,11 @@ class CreateAccountViewController: UIViewController, UITableViewDelegate, UITabl
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()
-        if let error = error as? NSError {
-          if error.code == 500{
-            self.internalServerError()
-          }
+        
+        if (error as NSError).code == 500{
+          self.internalServerError()
         }
+        
       }
     }else{
       self.noInternetAlert()

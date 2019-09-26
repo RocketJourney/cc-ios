@@ -88,7 +88,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           let string = NSMutableAttributedString(string: "SIGN_UP_FORM_EMAIL".localized)
           string.montserratBold(18, color: UIColor(hex: 0x2a2a2a)!)
           _email.attributedPlaceholder = string
-          _email.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+          _email.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
           _email.tintColor = UIColor.rocketYellow()
           
           _email.keyboardType = .emailAddress
@@ -118,7 +118,7 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
           _password.tintColor = UIColor.rocketYellow()
           _password.keyboardType = .default
           _password.isSecureTextEntry = true
-          _password.addTarget(self, action: #selector(self.validate), for: .editingChanged)
+          _password.addTarget(self, action: #selector(self.validateForm), for: .editingChanged)
           //_password.isSecureTextEntry = showPassword
           self.password = _password
           cell.addSubview(_password)
@@ -191,24 +191,19 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }) { (error) in
         self.hideSpinner()
         self.showSendButton()
-        if let error = error as? NSError {
-          if error.code == 500{
-            self.internalServerError()
-          }else if error.code == 401 || error.code == 404 {
+        if (error as NSError).code >= 500{
+          self.internalServerError()
+        }else if (error as NSError).code == 401 || (error as NSError).code == 404 {
+          
+          let alertController = UIAlertController(title: "EMAIL_PASSWORD_NO_MATCH".localized, message: "TRY_AGAIN".localized, preferredStyle: UIAlertController.Style.alert)
+          
+          let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
             
-            let alertController = UIAlertController(title: "EMAIL_PASSWORD_NO_MATCH".localized, message: "TRY_AGAIN".localized, preferredStyle: UIAlertController.Style.alert)
-            
-            let alertAction = UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: { (handler) in
-              
-            })
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-          }
+          })
+          alertController.addAction(alertAction)
+          self.present(alertController, animated: true, completion: nil)
+          
         }
-        
-        
-        
       }
     }else{
       self.noInternetAlert()

@@ -112,11 +112,10 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
         self.hideActivityIndicator()
         self.viewLocationLabel.isHidden = false
         self.tableView.isHidden = false
-        if let error = error as? NSError {
-          if error.code == 500 {
-            self.internalServerError()
-          }
+        if (error as NSError).code >= 500{
+          self.internalServerError()
         }
+        
       })
       
     }else {
@@ -139,11 +138,10 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.isHidden = false
         self.viewLocationLabel.isHidden = false
         self.hideActivityIndicator()
-        if let error = error as? NSError {
-          if error.code == 500 {
-            //self.internalServerError()
-          }
+        if (error as NSError).code == 500{
+          //self.internalServerError()
         }
+        
       })
     }else {
       

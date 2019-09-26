@@ -255,11 +255,10 @@ class InviteViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.backButton?.isEnabled = true
         self.tableView.isUserInteractionEnabled = true
         self.tableView.isOpaque = false
-        if let error = error as? NSError {
-          if error.code == 500 {
+        if (error as NSError).code >= 500{
             self.internalServerError()
           }
-        }
+        
       })
     }
     
