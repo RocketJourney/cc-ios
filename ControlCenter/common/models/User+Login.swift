@@ -38,7 +38,7 @@ extension User {
           let realm = try! Realm(configuration: ControlCenterRealm.config)
           try! realm.write {
             realm.deleteAll()
-            realm.create(User.self, value: user, update: true)
+            realm.create(User.self, value: user, update: .all)
           }
         }
         
@@ -75,11 +75,11 @@ extension User {
             if let clubs = json["data"]["clubs"].array {
               for jsonClub in clubs{
                 let clubModel = Club.fromJSON(jsonClub)
-                realm.add(clubModel, update: true)
+                realm.add(clubModel, update: .all)
                 user.clubs.append(clubModel)
               }
             }
-            realm.create(User.self, value: user, update: true)
+            realm.create(User.self, value: user, update: .all)
           }
         }
         completion()

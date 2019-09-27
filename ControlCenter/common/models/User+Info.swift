@@ -35,16 +35,16 @@ extension User {
                 
                 for spotJson in spotsJsonArray! {
                   let spotModel = Spot.fromJSON(spotJson)
-                  realm.create(Spot.self, value: spotModel, update: true)
+                  realm.create(Spot.self, value: spotModel, update: .all)
                   clubModel.accesibleSpots.append(spotModel)
                 }
                 
                 userModel.token = user.token
                 userModel.clubs = user.clubs
                 userModel.selectedSpot = user.selectedSpot
-                realm.create(Club.self, value: clubModel, update: true)
+                realm.create(Club.self, value: clubModel, update: .all)
                 userModel.currentClub = clubModel
-                realm.create(User.self, value: userModel, update: true)
+                realm.create(User.self, value: userModel, update: .all)
               }
             }
           }
@@ -157,24 +157,27 @@ extension User {
                 club.assistants = List<UserAssistant>()
                 User.current?.currentClub?.assistants = List<UserAssistant>()
                 User.current?.currentClub?.paginator = nil
-                realm.create(User.self, value: User.current!, update: true)
+                realm.create(User.self, value: User.current!, update: .all)
                 let paginator = Paginator.fromJSON(json["data"])
                 club.paginator = paginator
                 let assistants = List<UserAssistant>()
                 if let assistantsJson = json["data"]["users"].array {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
-                    realm.add(assistant, update: true)
+                    realm.add(assistant, update: .all)
+                    guard !(User.current?.currentClub?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     club.assistants.append(assistant)
                     User.current?.currentClub?.assistants.append(assistant)
                   }
                 }
                 
                 club.assistants = assistants
-                realm.create(Club.self, value: club, update: true)
+                realm.create(Club.self, value: club, update: .all)
                 User.current?.currentClub = club
                 User.current?.currentClub?.assistants = assistants
-                realm.create(User.self, value: User.current!, update: true)
+                realm.create(User.self, value: User.current!, update: .all)
               }
             }
             
@@ -211,16 +214,16 @@ extension User {
                 if let assistantsJson = json["data"]["users"].array {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
-                    realm.add(assistant, update: true)
+                    realm.add(assistant, update: .all)
                     assistants.append(assistant)
                     User.current?.selectedSpot?.assistants.append(assistant)
                   }
                 }
                 spot.assistants = assistants
-                realm.create(Spot.self, value: spot, update: true)
+                realm.create(Spot.self, value: spot, update: .all)
                 let userModel = User.current
                 userModel?.selectedSpot?.assistants = assistants
-                realm.create(User.self, value: userModel!, update: true)
+                realm.create(User.self, value: userModel!, update: .all)
               }
             }
           }
@@ -249,13 +252,16 @@ extension User {
                 if let assistantsJson = json["data"]["users"].array {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
-                    realm.add(assistant, update: true)
+                    realm.add(assistant, update: .all)
+                    guard !(User.current?.currentClub?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     User.current?.currentClub?.assistants.append(assistant)
                   }
                 }
                 
                 
-                realm.create(User.self, value: User.current!, update: true)
+                realm.create(User.self, value: User.current!, update: .all)
               }
             }
           }
@@ -288,14 +294,17 @@ extension User {
                 if let assistantsJson = json["data"]["users"].array {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
-                    realm.add(assistant, update: true)
+                    realm.add(assistant, update: .all)
+                    guard !(User.current?.selectedSpot?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     User.current?.selectedSpot?.assistants.append(assistant)
                     
                   }
                 }
                 
                 let userModel = User.current
-                realm.create(User.self, value: userModel!, update: true)
+                realm.create(User.self, value: userModel!, update: .all)
               }
             }
           }

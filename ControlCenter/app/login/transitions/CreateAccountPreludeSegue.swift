@@ -15,6 +15,7 @@ class CreateAccountPreludeSegue: UIStoryboardSegue {
     let preludeViewController = destination as! PreludeViewController
     let nav = UINavigationController(rootViewController: preludeViewController)
     nav.navigationBar.isHidden = true
+    nav.modalPresentationStyle = .fullScreen
     createAccountViewController.present(nav, animated: true, completion: nil)
   }
 }
