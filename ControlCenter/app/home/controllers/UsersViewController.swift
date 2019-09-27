@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CCInfiniteScrolling
+import UIScrollView_InfiniteScroll
 
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
@@ -46,20 +46,27 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "kUserCell")
     self.tableView.tableFooterView = UIView()
     
-    self.tableView.infiniteScrollingDisabled = false
+    
     let spinnerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
     spinnerView.backgroundColor = UIColor.clear
     let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.white)
     spinnerView.addSubview(spinner)
     spinner.center = spinnerView.center
     spinner.startAnimating()
-    self.tableView.bottomInfiniteScrollingCustomView = spinnerView
-    self.tableView.addBottomInfiniteScrolling {
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
-        self.reachToBottom()
-      })
-      
+    //self.tableView.bottomInfiniteScrollingCustomView = spinnerView
+    self.tableView.infiniteScrollIndicatorView = spinnerView
+    self.tableView.infiniteScrollIndicatorMargin = 40
+    self.tableView.infiniteScrollTriggerOffset = 40
+    self.tableView.addInfiniteScroll { (tableViewRef) in
+      self.reachToBottom()
+      tableViewRef.finishInfiniteScroll()
     }
+//    self.tableView.addBottomInfiniteScrolling {
+//      DispatchQueue.main.asyncAfter(deadline: .now() + 1.3, execute: {
+//        self.reachToBottom()
+//      })
+//
+//    }
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -224,13 +231,13 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   private func printClubData() -> Void {
     self.tableView.reloadData()
-    self.tableView.infiniteScrollingDisabled = false
+    //self.tableView.infiniteScrollingDisabled = false
     self.scrollToTop()
   }
   
   private func printSpotData() -> Void {
     self.tableView.reloadData()
-    self.tableView.infiniteScrollingDisabled = false
+    //self.tableView.infiniteScrollingDisabled = false
     self.scrollToTop()
   }
   
@@ -251,7 +258,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
       
     }else{
-      self.tableView.infiniteScrollingDisabled = true
+      //self.tableView.infiniteScrollingDisabled = true
     }
     
     
@@ -275,7 +282,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
       }
       
     }else {
-      self.tableView.infiniteScrollingDisabled = true
+      //self.tableView.infiniteScrollingDisabled = true
     }
   }
   
@@ -287,7 +294,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   func setupReachBottom() -> Void {
     if self.tableView != nil {
-      self.tableView.infiniteScrollingDisabled = false
+      //self.tableView.infiniteScrollingDisabled = false
     }
     
   }

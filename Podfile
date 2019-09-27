@@ -7,7 +7,6 @@ target 'ControlCenter' do
   
   pod 'Alamofire'
   pod 'Branch'
-  pod 'CCInfiniteScrolling'
   pod 'Crashlytics'
   pod 'Fabric'  
   pod 'Permission'  
@@ -20,6 +19,7 @@ target 'ControlCenter' do
   pod 'SVProgressHUD'
   pod 'SwiftHEXColors'
   pod 'SwiftyJSON'
+  pod 'UIScrollView-InfiniteScroll'
   
 
   # Pods for ControlCenter

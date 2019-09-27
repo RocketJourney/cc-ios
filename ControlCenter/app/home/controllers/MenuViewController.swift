@@ -289,6 +289,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let nav = UINavigationController(rootViewController: termsViewController)
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    nav.modalPresentationStyle = .fullScreen
     self.present(nav, animated: true, completion: nil)
   }
   
@@ -297,6 +298,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let nav = UINavigationController(rootViewController: inviteViewController)
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    nav.modalPresentationStyle = .fullScreen
     self.present(nav, animated: true, completion: nil)
   }
   

@@ -15,6 +15,7 @@ class LoginSegue: UIStoryboardSegue {
     let nav = UINavigationController(rootViewController: loginViewController)
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.barTintColor = UIColor(hex:0x333333)!
+    nav.modalPresentationStyle = .fullScreen
     introViewController.present(nav, animated: true, completion: nil)
   }
 
