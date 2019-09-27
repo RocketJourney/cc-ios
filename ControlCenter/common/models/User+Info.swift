@@ -165,6 +165,9 @@ extension User {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
                     realm.add(assistant, update: .all)
+                    guard !(User.current?.currentClub?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     club.assistants.append(assistant)
                     User.current?.currentClub?.assistants.append(assistant)
                   }
@@ -250,6 +253,9 @@ extension User {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
                     realm.add(assistant, update: .all)
+                    guard !(User.current?.currentClub?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     User.current?.currentClub?.assistants.append(assistant)
                   }
                 }
@@ -289,6 +295,9 @@ extension User {
                   for assistantJson in assistantsJson {
                     let assistant = UserAssistant.fromJSON(assistantJson)
                     realm.add(assistant, update: .all)
+                    guard !(User.current?.selectedSpot?.assistants.contains(assistant))! else {
+                      continue
+                    }
                     User.current?.selectedSpot?.assistants.append(assistant)
                     
                   }
