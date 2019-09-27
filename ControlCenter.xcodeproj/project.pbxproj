@@ -1108,7 +1108,7 @@
 				BUNDLE_ID = com.rocketjourney.controlcenter.staging;
 				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = L9T32S589G;
 				DISPLAY_NAME = CCStaging;
@@ -1134,7 +1134,7 @@
 				BUNDLE_ID = com.rocketjourney.controlcenter;
 				CODE_SIGN_ENTITLEMENTS = ControlCenter/ControlCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L9T32S589G;
 				DISPLAY_NAME = ControlCenter;
 				INFOPLIST_FILE = ControlCenter/Info.plist;
